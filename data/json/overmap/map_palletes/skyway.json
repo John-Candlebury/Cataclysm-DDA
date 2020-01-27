@@ -1,0 +1,7 @@
+[
+  {
+    "type": "palette",
+    "id": "skyway",
+    "terrain": { "`": "t_open_air", "|": "t_wall_metal", "=": "t_reinforced_glass", "+": "t_door_glass_c" }
+  }
+]

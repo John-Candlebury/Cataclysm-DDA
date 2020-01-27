@@ -1,0 +1,13 @@
+[
+{
+  "type": "overmap_terrain",
+  "id": "skyway",
+  "name": "skyway",
+  "copy-from": "generic_transportation",
+  "color": "dark_gray", 
+  "see_cost": 2,
+  "flags": [
+    "LINEAR"
+  ]
+}
+]

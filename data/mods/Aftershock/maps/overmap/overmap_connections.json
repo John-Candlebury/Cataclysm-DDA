@@ -1,0 +1,7 @@
+[
+  {
+    "type": "overmap_connection",
+    "id": "skyway",
+    "subtypes": [ { "terrain": "skyway", "locations": [ "air", "skyway" ], "flags": [ "ORTHOGONAL" ] } ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "type": "overmap_location",
+    "id": "air",
+    "terrains": [ "open_air" ]
+  },
+  {
+    "type": "overmap_location",
+    "id": "skyway",
+    "terrains": [ "skyway" ]
+  }
+]
