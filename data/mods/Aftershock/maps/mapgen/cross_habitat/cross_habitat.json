@@ -1,0 +1,80 @@
+[
+    {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": [ "afs_cross_habitat_core_z1" ],
+        "object": {
+            "predecessor_mapgen": "field",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_center_z1" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_cross_habitat_core_z2",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_center_z2" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_cross_habitat_core_z3",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_center_z3" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": [ "afs_cross_habitat_wing_end_z1" ],
+        "object": {
+            "predecessor_mapgen": "field",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_end_z1" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_cross_habitat_wing_end_z2",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_end_z2" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_cross_habitat_wing_end_z3",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_end_z3" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_cross_habitat_residential_wing_end",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_cross_habitat_end_z3" ], "x": 0, "y": 0 },
+            { "chunks": [ "afs_cross_habitat_residential_wing_end" ], "x": 0, "y": 0 }
+          ]
+        }
+      }
+]

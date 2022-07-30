@@ -1,0 +1,32 @@
+[
+    {
+        "type": "overmap_terrain",
+        "id": [ "afs_cross_habitat_core_z1", "afs_cross_habitat_core_z2", "afs_cross_habitat_core_z3" ],
+        "name": "habitat core",
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "0",
+        "color": "red",
+        "flags": [ "SIDEWALK", "NO_ROTATE" ],
+        "see_cost": 3
+      },
+      {
+        "type": "overmap_terrain",
+        "id": [ "afs_cross_habitat_wing_end_z1", "afs_cross_habitat_wing_end_z2", "afs_cross_habitat_wing_end_z3" ],
+        "name": "habitat wing",
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "H",
+        "color": "light_red",
+        "flags": [ "SIDEWALK" ],
+        "see_cost": 3
+      },
+      {
+        "type": "overmap_terrain",
+        "id": [ "afs_cross_habitat_residential_wing_end" ],
+        "name": "residential habitat",
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "#",
+        "color": "light_green",
+        "flags": [ "SIDEWALK" ],
+        "see_cost": 3
+      }
+    ]

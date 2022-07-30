@@ -242,6 +242,30 @@
   },
   {
     "type": "furniture",
+    "id": "f_catalytic_nucleus",
+    "name": "catalytic nucleus",
+    "symbol": "|",
+    "description": "A slender pillar of gleaming alloy.  Required for the large scale synthesis of advanced materials, and valuable as scrap",
+    "color": "light_cyan",
+    "move_cost_mod": 15,
+    "coverage": 80,
+    "required_str": -1,
+    "looks_like": "t_column",
+    "flags": [ "TRANSPARENT", "EMITTER" ],
+    "emissions": [ "emit_glimmer" ],
+    "bash": {
+      "str_min": 22,
+      "str_max": 40,
+      "sound": "clang!",
+      "sound_fail": "whump.",
+      "items": [
+        { "item": "afs_material_1", "count": [ 4, 10 ] },
+        { "item": "afs_material_3", "count": [ 1, 2 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
     "id": "f_micro_terraforming_mill_active",
     "name": "active micro heat mill",
     "symbol": "@",

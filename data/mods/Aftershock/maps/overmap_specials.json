@@ -58,6 +58,32 @@
   },
   {
     "type": "overmap_special",
+    "id": "afs_habitat_test",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "afs_cross_habitat_core_z1" },
+      { "point": [ 0, -1, 0 ], "overmap": "afs_cross_habitat_wing_end_z1_north" },
+      { "point": [ 0, 1, 0 ], "overmap": "afs_cross_habitat_wing_end_z1_south" },
+      { "point": [ -1, 0, 0 ], "overmap": "afs_cross_habitat_wing_end_z1_west" },
+      { "point": [ 1, 0, 0 ], "overmap": "afs_cross_habitat_wing_end_z1_east" },
+      { "point": [ 0, 0, 1 ], "overmap": "afs_cross_habitat_core_z2" },
+        { "point": [ 0, -1, 1 ], "overmap": "afs_cross_habitat_wing_end_z2_north" },
+          { "point": [ 0, 1, 1 ], "overmap": "afs_cross_habitat_wing_end_z2_south" },
+          { "point": [-1, 0, 1 ], "overmap": "afs_cross_habitat_wing_end_z2_west" },
+          { "point": [ 1, 0, 1 ], "overmap": "afs_cross_habitat_wing_end_z2_east" },
+      { "point": [ 0, 0, 2 ], "overmap": "afs_cross_habitat_core_z3" },
+        { "point": [ 0, -1, 2 ], "overmap": "afs_cross_habitat_wing_end_z3_north" },
+          { "point": [ 0, 1, 2 ], "overmap": "afs_cross_habitat_wing_end_z3_south" },
+          { "point": [ -1, 0, 2 ], "overmap": "afs_cross_habitat_wing_end_z3_west" },
+          { "point": [ 1, 0, 2 ], "overmap": "afs_cross_habitat_wing_end_z3_east" }
+    ],
+    "locations": [ "land" ],
+    "city_distance": [ 35, -1 ],
+    "city_sizes": [ 0, -1 ],
+    "occurrences": [ 0, 1 ],
+    "flags": [ "MAN_MADE" ]
+  },
+  {
+    "type": "overmap_special",
     "id": "Sieged Tower",
     "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "sieged_fungal_tower" } ],
     "locations": [ "wilderness" ],

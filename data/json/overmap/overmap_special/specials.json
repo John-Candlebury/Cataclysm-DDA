@@ -4661,14 +4661,7 @@
       { "point": [ 10, 2, 3 ], "overmap": "radio_tower_odd_north" },
       { "point": [ 10, 2, 4 ], "overmap": "radio_tower_even_north" },
       { "point": [ 10, 2, 5 ], "overmap": "radio_tower_odd_north" },
-      { "point": [ 10, 2, 6 ], "overmap": "radio_tower_top_north" },
-      { "point": [ 10, 7, 1 ], "overmap": "lab_subway_vent_shaft_roof" },
-      { "point": [ 10, 7, 0 ], "overmap": "lab_subway_vent_shaft_surface" },
-      { "point": [ 10, 7, -1 ], "overmap": "lab_subway_vent_shaft-1" },
-      { "point": [ 10, 7, -2 ], "overmap": "lab_subway_vent_shaft-4" },
-      { "point": [ 11, 7, -2 ], "overmap": "subway_ns" },
-      { "point": [ 11, 8, -2 ], "overmap": "microlab_sub_connector_south" },
-      { "point": [ 11, -6, -2 ], "overmap": "microlab_sub_connector_north" }
+      { "point": [ 10, 2, 6 ], "overmap": "radio_tower_top_north" }
     ],
     "connections": [
       { "point": [ 10, 1, 0 ], "terrain": "road", "connection": "local_road", "from": [ 10, 2, 0 ] },

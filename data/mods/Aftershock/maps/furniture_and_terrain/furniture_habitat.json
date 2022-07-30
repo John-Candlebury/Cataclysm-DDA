@@ -31,6 +31,154 @@
       ]
     },
     "examine_action": "workbench",
+    "workbench": { "multiplier": 1.1, "mass": 200000, "volume": "20L" }
+  },
+  {
+    "type": "furniture",
+    "id": "f_habitat_kitchen_storage",
+    "name": "habitat kitchen storage",
+    "symbol": "#",
+    "looks_like": "f_cupboard",
+    "description": "A tiny cooking surface, placed above and below many integrated storage units.  Will barely fit an entire kitchen.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 55,
+    "required_str": -1,
+    "flags": [ "FLAMMABLE_ASH", "CONTAINER", "PLACE_ITEM", "ORGANIC", "MOUNTABLE", "FLAT_SURF" ],
+    "connects_to": "COUNTER",
+    "deconstruct": {
+      "items": [
+        { "item": "plastic_chunk", "count": 3 },
+        { "item": "rigid_plastic_sheet", "count": 1 },
+        { "item": "polycarbonate_sheet", "count": [ 2, 8 ] }
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [
+        { "item": "polycarbonate_sheet", "count": [ 1, 3 ] },
+        { "item": "rigid_plastic_sheet", "count": [ 0, 1 ] },
+        { "item": "plastic_chunk", "count": [ 2, 16 ] }
+      ]
+    },
+    "examine_action": "workbench",
     "workbench": { "multiplier": 1.1, "mass": 200000, "volume": "50L" }
+  },
+  {
+    "type": "furniture",
+    "id": "f_smartscreen_mirror",
+    "name": "smartscreen mirror",
+    "symbol": "I",
+    "looks_like": "f_cupboard",
+    "description": "A polished black screen mirror.  Currently unpowered.",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 55,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "PERMEABLE" ],
+    "deconstruct": {
+      "items": [
+        { "item": "large_lcd_screen", "count": 1 },
+        { "item": "small_lcd_screen", "count": 2 },
+        { "item": "sheet_metal_small", "count": [ 2, 3 ] },
+        { "item": "afs_circuitry_1", "count": [ 1, 2 ] },
+        { "item": "cable", "charges": [ 2, 4 ] },
+        { "item": "e_scrap", "count": [ 1, 3 ] },
+        { "item": "circuit", "count": [ 1, 2 ] }
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "scrap", "count": [ 2, 4 ] },
+        { "item": "steel_chunk", "count": [ 2, 4 ] },
+        { "item": "plastic_chunk", "count": [ 2, 4 ] },
+        { "item": "small_lcd_screen", "count": 1, "prob": 50 },
+        { "item": "sheet_metal_small", "count": [ 2, 3 ] },
+        { "item": "afs_circuitry_1", "count": 1, "prob": 50 },
+        { "item": "cable", "charges": [ 0, 2 ] },
+        { "item": "e_scrap", "count": [ 0, 1 ] },
+        { "item": "circuit", "count": [ 0, 1 ] }
+      ]
+    }
+  },
+  {
+      "type": "furniture",
+      "id": "f_cryofluid_pump",
+      "name": "cryofluid pump",
+      "looks_like": "f_standing_tank",
+      "description": "An insulated pump and storage tank assembly used to distribute cryogenic fluid across an habitat's systems.  An in-place restoration would be incredibly dangerous, so its only good for salvage.",
+      "symbol": "0",
+      "bgcolor": "white",
+      "move_cost_mod": -1,
+      "coverage": 55,
+      "required_str": -1,
+      "flags": [ "CONTAINER", "PLACE_ITEM", "LIQUIDCONT", "NOITEM", "SEALED" ],
+      "examine_action": "keg",
+      "keg_capacity": 20,
+      "bash": {
+        "str_min": 18,
+        "str_max": 50,
+        "sound": "metal screeching!",
+        "sound_fail": "clang!",
+        "items": [
+          { "item": "scrap", "count": [ 2, 7 ] },
+          { "item": "afs_material_2", "count": [ 0, 1 ] },
+          { "item": "afs_material_1", "count": [ 2, 12 ] },
+          { "item": "afs_circuitry_2", "count": [ 0, 2 ] },
+          { "item": "afs_energy_storage_1", "count": [ 1, 2 ] },
+          { "item": "afs_heat_2_salvage", "count": [ 1, 4 ] },
+          { "item": "frame", "count": 1 },
+          { "item": "cable", "charges": [ 1, 15 ] },
+          { "item": "hose", "count": [ 0, 2 ] },
+          { "item": "cu_pipe", "count": [ 1, 4 ] },
+          { "item": "polycarbonate_sheet", "count": [ 1, 2 ] }
+        ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_atmospheric_control",
+    "name": "atmospherics controller",
+    "looks_like": "f_console",
+    "description": "An imposing brick of circuitry inlaid tubing adorned with a single console.  It might still half-work, even after all this time.",
+    "symbol": "0",
+    "bgcolor": "white",
+    "move_cost_mod": -1,
+    "coverage": 55,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "SEALED",
+      "ALLOW_FIELD_EFFECT",
+      "FLAMMABLE",
+      "PLACE_ITEM"
+    ],
+    "bash": {
+      "str_min": 18,
+      "str_max": 50,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "scrap", "count": [ 2, 7 ] },
+        { "item": "afs_material_1", "count": [ 2, 12 ] },
+        { "item": "afs_circuitry_2", "count": [ 0, 2 ] },
+        { "item": "afs_energy_storage_1", "count": [ 1, 2 ] },
+        { "item": "afs_heat_2_salvage", "count": [ 1, 4 ] },
+        { "item": "frame", "count": 1 },
+        { "item": "oxygen_tank", "prob": 15, "charges-min": 4 },
+        { "item": "cable", "charges": [ 1, 15 ] },
+        { "item": "hose", "count": [ 3, 10 ] },
+        { "item": "cu_pipe", "count": [ 5, 15 ] },
+        { "item": "polycarbonate_sheet", "count": [ 1, 2 ] }
+      ]
   }
+}
 ]

@@ -1,0 +1,27 @@
+[
+    {
+        "type": "terrain",
+        "id": "t_metal_floor_olight_off",
+        "name": "metal floor",
+        "description": "High-quality and tough checkered flooring to reduce risk of slips and falls, with a matching roof. Theres a mounted light above it.",
+        "symbol": ".",
+        "color": "light_cyan",
+        "connects_to": "METALFLOOR",
+        "move_cost": 2,
+        "roof": "t_metal_roof",
+        "looks_like": "t_metal_floor_olight",
+        "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD" ],
+        "bash": {
+          "sound": "thump",
+          "ter_set": "t_null",
+          "str_min": 200,
+          "str_max": 500,
+          "str_min_supported": 200,
+          "items": [
+            { "item": "steel_lump", "count": [ 1, 4 ] },
+            { "item": "steel_chunk", "count": [ 3, 12 ] },
+            { "item": "scrap", "count": [ 9, 36 ] }
+          ]
+        }
+      }
+]

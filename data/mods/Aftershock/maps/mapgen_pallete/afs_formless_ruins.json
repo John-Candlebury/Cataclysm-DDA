@@ -3,7 +3,7 @@
     "type": "palette",
     "id": "afs_formless_ruins",
     "terrain": {
-      ".": "t_metal_floor",
+      ".": "t_metal_floor_no_roof",
       "!": "t_door_locked_interior",
       "-": "t_wall_metal",
       "|": "t_concrete_wall",

@@ -1,0 +1,33 @@
+[
+    {
+        "type": "overmap_terrain",
+        "id": [ "afs_industrial_ruins" ],
+        "name": "industrial ruins",
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "i",
+        "color": "light_red",
+        "flags": [ "SIDEWALK" ],
+        "see_cost": 3
+      },
+      {
+        "type": "overmap_terrain",
+        "id": [ "afs_industrial_ruin_tank", "afs_industrial_ruin_tank_roof" ],
+        "name": "storange tank",
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "0",
+        "color": "light_red",
+        "flags": [ "SIDEWALK" ],
+        "see_cost": 3
+      },
+      {
+        "type": "overmap_terrain",
+        "id": [ "afs_industrial_ruin_catalytic_reactor_n1", "afs_industrial_ruin_catalytic_reactor_n2", "afs_industrial_ruin_catalytic_reactor_n3", "afs_industrial_ruin_catalytic_reactor_n4" ],
+        "name": "catalytic reactor ruins",  
+        "spawns": { "group": "GROUP_ZOMBIE", "population": [ 1, 4 ], "chance": 50 },
+        "sym": "I",
+        "color": "light_red",
+        "flags": [ "SIDEWALK" ],
+        "see_cost": 3
+      }
+  ]
+  

@@ -1,0 +1,42 @@
+[
+    {
+        "id": "afs_welding_hood",
+        "type": "ARMOR",
+        "name": { "str": "welding cape" },
+        "description": "A thick garment meant to protect the head neck and upper torso from  during tting garment that protects your head and neck, made from lightweight Nomex fire-resistant fabric.  Tough yet breathable, it is light and comfortable to wear under clothing.",
+        "weight": "310 g",
+        "volume": "1750 ml",
+        "price": 5000,
+        "price_postapoc": 500,
+        "to_hit": -5,
+        "material": [ "nomex" ],
+        "symbol": "[",
+        "looks_like": "hood_rain",
+        "color": "light_gray",
+        "warmth": 5,
+        "material_thickness": 3,
+        "environmental_protection": 2,
+        "flags": [ "VARSIZE", "WATER_FRIENDLY", "HELMET_COMPAT",  "OUTER", "STURDY" ],
+        "armor": [
+          {
+              "material": [
+                { "type": "nomex", "covered_by_mat": 100, "thickness": 1.5 },
+                { "type": "plastic", "covered_by_mat": 80, "thickness": 1.0 }
+              ],
+              "encumbrance": 6,
+              "coverage": 40,
+              "covers": [ "torso" ],
+              "specifically_covers": [ "torso_upper" ]
+          },
+          {
+              "material": [
+                { "type": "nomex", "covered_by_mat": 100, "thickness": 1.5 },
+                { "type": "plastic", "covered_by_mat": 80, "thickness": 1.0 }
+              ],
+              "encumbrance": 6,
+              "coverage": 95,
+              "covers": [ "head" ],
+              "specifically_covers": [ "torso_upper" ]
+          }
+      ]      }
+]

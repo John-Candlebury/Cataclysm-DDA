@@ -10,10 +10,11 @@
     "id": "afs_habitat_structure",
     "toilets": { "&": {  } },
     "terrain": {
-      " ": "t_region_groundcover_urban",
       ".": "t_metal_floor",
       ",": "t_metal_floor_olight",
+      ";": "t_metal_floor_olight_off",
       "/": "t_wall_prefab_metal",
+      "}": "t_railing",
       "=": [
         [ "t_wall_prefab_glass", 2 ],
         [ "t_wall_prefab_glass_shutters", 2 ],
@@ -30,7 +31,11 @@
       ">": "t_stairs_down",
       "<": "t_stairs_up"
     },
-    "furniture": { "~": "f_shower", "^": "f_sink", "*": "f_sink" }
+    "furniture": { "~": "f_shower", "^": "f_sink", "*": "f_sink", "N": "f_fireman_cabinet" },
+    "items": {
+      "N": [ { "item": "afs_tools_space_emergency", "chance": 100 } ]
+
+    }
   },
   {
     "type": "palette",
@@ -57,6 +62,8 @@
       "f": "f_table",
       "y": "f_table",
       "c": "f_console_broken",
+      "C": "f_atmospheric_control",
+      "s": "f_air_filter",
       "h": "f_chair",
       "P": "f_water_purifier",
       "W": "f_water_heater",
@@ -78,7 +85,10 @@
       "l": "f_locker",
       "k": "f_desk"
     },
-    "liquids": { "W": { "liquid": "water_clean", "amount": [ 0, 100 ] } },
+    "liquids": {
+       "W": { "liquid": "water_clean", "amount": [ 0, 100 ] },
+       "C": { "liquid": "afs_heat_2", "amount": [ 0, 5 ] }
+             },
     "items": {
       "y": [ { "item": "afs_tools_electric_repair", "chance": 20, "repeat": [ 2, 5 ] } ],
       "q": [
@@ -90,5 +100,100 @@
       "@": { "item": "bed", "chance": 50 },
       "v": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] }
     }
+  },
+  {
+    "type": "palette",
+    "id": "afs_habitat_industrial_furnishing",
+    "terrain": { "p": "t_sewage_pipe", "R": "t_railing" },
+    "furniture": {
+      "@": "f_bed",
+      "f": "f_table",
+      "e": "f_locker",
+      "c": "f_console_broken",
+      "h": "f_chair",
+      "P": "f_water_purifier",
+      "W": "f_water_heater",
+      "A": "f_air_filter",
+      "E": "f_machinery_electronic",
+      "L": "f_machinery_light",
+      "H": "f_machinery_heavy",
+      "O": "f_machinery_old",
+      "t": "f_toposcan_process",
+      "T": "f_toposcan_terminal",
+      "S": "f_toposcan_scanner",
+      "F": "f_fridge",
+      "^": "f_sink",
+      "j": "f_counter",
+      "q": "f_rack",
+      "r": "f_bookcase",
+      "v": "f_trashcan",
+      "l": "f_locker",
+      "k": "f_desk"
+    },
+    "liquids": { "W": { "liquid": "water_clean", "amount": [ 0, 100 ] } },
+    "items": {
+      "e": [ { "item": "afs_tools_electric_repair", "chance": 20, "repeat": [ 2, 5 ] } ],
+      "q": [
+        { "item": "tools_robotics", "chance": 5, "repeat": [ 2, 5 ] },
+        { "item": "afs_tools_structural_repair", "chance": 20, "repeat": [ 2, 5 ] }
+      ],
+      "k": { "item": "SUS_office_desk", "chance": 60 },
+      "l": { "item": "afs_frontier_cryo_g", "chance": 50 },
+      "@": { "item": "bed", "chance": 50 },
+      "v": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] }
+    }
+  },
+  {
+    "type": "palette",
+    "id": "afs_habitat_residential_furnishing",
+    "terrain": { "p": "I_habitat_wall" },
+    "furniture": {
+      "@": "f_bed",
+      "S": "f_sleep_pod",
+      "y": "f_table",
+      "C": "f_habitat_kitchenette",
+      "c": "f_habitat_kitchen_storage",
+      "s": "f_sofa",
+      "h": "f_chair",
+      "I": "f_smartscreen_mirror",
+      "z": "f_water_purifier",
+      "W": "f_water_heater",
+      "A": "f_air_filter",
+      "E": "f_machinery_electronic",
+      "L": "f_machinery_light",
+      "H": "f_machinery_heavy",
+      "O": "f_machinery_old",
+      "p": "f_solar_unit",
+      "t": "f_table",
+      "u": "f_counter",
+      "T": "f_toposcan_terminal",
+      "F": "f_fridge",
+      "^": "f_sink",
+      "j": "f_counter",
+      "q": "f_rack",
+      "r": "f_bookcase",
+      "v": "f_trashcan",
+      "l": "f_locker",
+      "k": "f_desk"
+    },
+    "liquids": {
+       "W": { "liquid": "water_clean", "amount": [ 0, 100 ] },
+       "C": { "liquid": "afs_heat_2", "amount": [ 0, 5 ] }
+             },
+    "items": {
+      "@": { "item": "bed", "chance": 50 },
+      "C": { "item": "afs_kitchenette", "chance": 100 },
+      "c": [{ "item": "afs_kitchen_food_storage", "chance": 10 },       { "item": "SUS_dishes", "prob":100 }
+    ],
+      "q": [
+        { "item": "tools_robotics", "chance": 5, "repeat": [ 2, 5 ] },
+        { "item": "afs_tools_structural_repair", "chance": 20, "repeat": [ 2, 5 ] }
+      ],
+      "k": { "item": "SUS_office_desk", "chance": 60 },
+      "l": { "item": "afs_frontier_cryo_g", "chance": 50 },
+      "v": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] }
+    },
+    "vendingmachines": { "V": { "item_group": "afs_vending_false_meals", "reinforced": true } }
+
   }
 ]

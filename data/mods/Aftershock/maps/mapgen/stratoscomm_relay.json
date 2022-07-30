@@ -33,7 +33,7 @@
         "                        "
       ],
       "palettes": [ "afs_habitat_structure", "afs_habitat_mech_furnishing" ],
-      "terrain": { "1": "t_dirtmound", "2": "t_bars", "5": "t_ramp_down_high", "6": "t_ramp_down_low" },
+      "terrain": {  " ": "t_region_groundcover_urban", "1": "t_dirtmound", "2": "t_bars", "5": "t_ramp_down_high", "6": "t_ramp_down_low" },
       "furniture": { "4": "f_mil_comms_sat" }
     }
   },

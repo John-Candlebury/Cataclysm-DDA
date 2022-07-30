@@ -1,0 +1,81 @@
+[
+    {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruins",
+        "object": {
+            "predecessor_mapgen": "field",
+            "place_nested": [
+            { "chunks": [ "afs_formless_ruins_1" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_tank",
+        "object": {
+            "predecessor_mapgen": "field",
+            "place_nested": [
+            { "chunks": [ "afs_formless_ruins_low_density" ], "x": 0, "y": 0 },
+            { "chunks": [ "afs_industrial_ruin_tank" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_tank_roof",
+        "object": {
+          "fill_ter": "t_metal_floor",
+            "place_nested": [
+            { "chunks": [ "afs_industrial_ruin_tank_roof" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_catalytic_reactor_n1",
+        "object": {
+          "predecessor_mapgen": "field",
+          "place_nested": [
+            { "chunks": [ "afs_formless_ruins_1" ], "x": 0, "y": 0 },
+            { "chunks": [ "afs_industrial_ruin_catalytic_reactor_n1" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_catalytic_reactor_n2",
+        "object": {
+          "fill_ter": "t_metal_floor",
+          "place_nested": [
+              { "chunks": [ "afs_industrial_ruin_catalytic_reactor_n2" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_catalytic_reactor_n3",
+        "object": {
+          "fill_ter": "t_metal_floor",
+          "place_nested": [
+              { "chunks": [ "afs_industrial_ruin_catalytic_reactor_n3" ], "x": 0, "y": 0 }
+          ]
+        }
+      },
+      {
+        "type": "mapgen",
+        "method": "json",
+        "om_terrain": "afs_industrial_ruin_catalytic_reactor_n4",
+        "object": {
+          "fill_ter": "t_metal_floor",
+          "place_nested": [
+              { "chunks": [ "afs_industrial_ruin_catalytic_reactor_n4" ], "x": 0, "y": 0 }
+          ]
+        }
+      }
+]
