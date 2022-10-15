@@ -1,0 +1,93 @@
+[
+    {
+        "id": "TALK_CORDOVA_FIRST",
+        "type": "talk_topic",
+        "dynamic_line": {
+          "compare_int": [ { "u_val": "var", "var_name": "hub01_completed_missions" }, ">=", { "const": 1 } ],
+          "yes": "&Good thing you showed up, was starting to fear we'd find you in a ditch somewhere.\n\nName's the intercom across the street introduced us, but I guess you weren't then when that happened.",
+          "no": "First time you are around here, right?\n\nName's Cordova, Im in charge of running this safespot here."
+        },
+        "speaker_effect": {
+          "effect": { "npc_first_topic": "TALK_CORDOVA_MAIN" },
+          "sentinel": "robofac_merc_1_first_meeting"
+        },
+        "responses": [
+          {
+            "text": "Cool.",
+            "topic": "TALK_CORDOVA_JOB_DESCRIPTION",
+            "condition": {
+              "and": [
+                { "not": { "u_has_var": "u_met_Cranberry", "type": "general", "context": "meeting", "value": "yes" } },
+                {
+                  "not": { "u_has_var": "robofac_merc_1_stay", "type": "dialogue", "context": "robofac_merc_1", "value": "yes" }
+                }
+              ]
+            }
+          },
+          {
+            "text": "Uh… okay.  Who are you?",
+            "topic": "TALK_ROBOFAC_MERC_1_WHO",
+            "condition": {
+              "and": [
+                { "not": { "u_has_var": "u_met_Cranberry", "type": "general", "context": "meeting", "value": "yes" } },
+                {
+                  "not": { "u_has_var": "robofac_merc_1_stay", "type": "dialogue", "context": "robofac_merc_1", "value": "yes" }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "TALK_ROBOFAC_MERC_1_WHO",
+        "type": "talk_topic",
+        "dynamic_line": "Just the same as you.  Some nobody doing dirty work for scraps.  Uh, no offense.",
+        "responses": [
+          { "text": "None taken.  I guess that makes two of us.", "topic": "TALK_ROBOFAC_MERC_1_TWO_OF_US" },
+          { "text": "Well, never mind.", "topic": "TALK_DONE" }
+        ]
+      },
+      {
+        "id": "TALK_ROBOFAC_MERC_1_TWO_OF_US",
+        "type": "talk_topic",
+        "dynamic_line": "I guess so.\"  They beam sheepishly.  \"Uh, call me Cranberry.  Cran is fine too.  It's nice to meet someone else from here.  I guess having some company for once wouldn't be awful.",
+        "speaker_effect": {
+          "effect": { "u_add_var": "robofac_merc_1_stay", "type": "dialogue", "context": "robofac_merc_1", "value": "yes" },
+          "sentinel": "robofac_merc_1_stay"
+        },
+        "responses": [
+          { "text": "Alright.", "topic": "TALK_ROBOFAC_MERC_1_MAIN" },
+          { "text": "I guess I could stay for a while.", "topic": "TALK_ROBOFAC_MERC_1_STAY_AWHILE" },
+          { "text": "Actually, I have some places to be right now.  Good to meet you.", "topic": "TALK_DONE" }
+        ]
+      },
+      {
+        "id": [ "TALK_ROBOFAC_MERC_1_ASK_HUB", "TALK_ROBOFAC_MERC_1_ASK_HUB_DOCS", "TALK_ROBOFAC_MERC_1_ASK_HUB_NETWORK" ],
+        "type": "talk_topic",
+        "dynamic_line": "Not a whole lot, really.  They made me track down and destroy some government documents a while back.  Obviously I read them first, but it wasn't much.  As far as I know, this place had an experimental computer network before everything went to hell.  What's going on in there now is anybody's guess.",
+        "responses": [
+          { "text": "Hold on, government documents?", "topic": "TALK_ROBOFAC_MERC_1_ASK_HUB_DOCS" },
+          { "text": "Computer network?", "topic": "TALK_ROBOFAC_MERC_1_ASK_HUB_NETWORK" },
+          { "text": "Strange bedfellows…", "topic": "TALK_ROBOFAC_MERC_1_MAIN" }
+        ]
+      },
+      {
+        "id": "TALK_ROBOFAC_MERC_1_ASK_HUB_DOCS",
+        "type": "talk_topic",
+        "dynamic_line": "Yeah!  Crazy shit.  They sent me to an office building to find a folder with a certain serial and get rid of it.  They didn't even care what was on it.  By the time I got there, though, the building was pretty much a wreck.  The folder had been sitting in a puddle for God knows how long, and there was nothing even remotely legible by then."
+      },
+      {
+        "id": "TALK_ROBOFAC_MERC_1_ASK_HUB_NETWORK",
+        "type": "talk_topic",
+        "dynamic_line": "That's what the news said, anyway.  It was only about a 20-minute trip from my apartment and sometimes I'd drive past it, so I was curious and I did some research into it.  The only info I could find about it online said that it was a NASA lab for computer research, but that was probably bullshit.  I mean, do you see any NASA logos?  Sure, we got huge steel doors and 15-foot concrete walls, but not a logo in sight.  The building probably goes underground, right?  It's way too small to be a whole laboratory up here."
+      },
+      {
+        "id": [ "TALK_ROBOFAC_MERC_1_GOING_ON", "TALK_ROBOFAC_MERC_1_GOING_ON_SLEEP" ],
+        "type": "talk_topic",
+        "dynamic_line": "Just trying to get some rest.  I don't have anywhere else to stay, so they let me sleep on the couch out here as long as I keep my gun handy.",
+        "responses": [
+          { "text": "They don't let you in to sleep?", "topic": "TALK_ROBOFAC_MERC_1_GOING_ON_SLEEP" },
+          { "text": "Fair enough.", "topic": "TALK_ROBOFAC_MERC_1_MAIN" }
+        ]
+      }
+]

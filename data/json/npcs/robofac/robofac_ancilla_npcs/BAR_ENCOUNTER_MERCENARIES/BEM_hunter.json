@@ -1,0 +1,12 @@
+[
+  {
+    "id": "BEM_HUNTER_1",
+    "type": "talk_topic",
+    "dynamic_line": "An old fashioned fur hat, clearly distinguish this visitor. He welcome you with a subtle nod.",
+    "responses": [
+      { "text": "Listen to the hunter's story", "topic": "BEM_HUNTER_STORY" },
+      { "text": "Still have some game for sale?", "topic": "BEM_HUNTER_SALE" },
+      { "text": "Move along.", "topic": "TALK_DONE" }
+    ]
+  }
+]
