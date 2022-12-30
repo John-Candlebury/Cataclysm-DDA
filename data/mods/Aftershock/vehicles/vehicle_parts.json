@@ -15,6 +15,21 @@
     "breaks_into": [ { "item": "steel_lump", "count": [ 4, 6 ] }, { "item": "scrap", "count": [ 4, 6 ] } ]
   },
   {
+    "id": "afs_aerodyne_turbine",
+    "copy-from": "helicopter_rotors",
+    "type": "vehicle_part",
+    "name": { "str": "small aerodyne turbine" },
+    "item": "sheet_metal",
+    "rotor_diameter": 1,
+    "durability": 450,
+    "description": "A set of four military-grade helicopter rotor blades, used to provide lift by rotation.",
+    "damage_modifier": 80,
+    "flags": [ "ROTOR", "NO_REPAIR", "SMASH_REMOVE" ],
+    "requirements": { "removal": { "skills": [ [ "mechanics", 3 ] ], "time": "1 h", "using": "vehicle_weld_removal" } },
+    "breaks_into": [ { "item": "scrap", "count": [ 15, 30 ] }, { "item": "steel_chunk", "count": [ 8, 16 ] } ],
+    "damage_reduction": { "all": 66 }
+  },
+  {
     "type": "vehicle_part",
     "id": "afs_crude_plating",
     "name": { "str": "crude plating" },
