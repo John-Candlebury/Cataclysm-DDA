@@ -313,6 +313,16 @@
     ]
   },
   {
+    "type":"snippet",
+    "category": "melchior_science_doc",
+    "text": [
+      {
+        "id": "ruthenium_alloy",
+        "text": "Results for a so called  \"predictive material science experiment\".  Numerous graphs detail the deformation testing of a complex ruthenium alloy."
+      }
+    ]
+  },
+  {
     "type": "snippet",
     "category": "lab_notes",
     "text": [

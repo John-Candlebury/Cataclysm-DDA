@@ -41,7 +41,7 @@
       "|2||  |||||  |    6|((2|||||||;i|foee   hh|  ||||||||| PP |||| PP ||||||||   |6dOO||555||555||2||||||||=[||22||5(((|||||",
       "| U|       YY|22(((|U        ||||||||||||||  |c   ch | PP  ^^  PP |          ||||||    |     |            |  |   yyyyyy|",
       "| U|       YY|  cc6|U     c      6|          |c   cc | PP      PP |M M RR    RR66O|yyyy|yyyyy|6   hHHh    |  |M My -=- |",
-      "| U|2|||2||55|   h |U     iccc   6|         Y2    ch | PP  PP  PP |M M RR        O| yy | y y |6   hHHh    |  |M My =M= |",
+      "| U|2|||2||55|   h |U     iccc   6|         Y2    ch | PP  PP  PP |M M RR        O| yy | y y |6   hHHh    |  |M My =ñ= |",
       "|  | c|U U|  |FFFFF|U     c      6|  |||||||||    cc | PP  PP  PP |M M RR         ||||||||||||6   hHHh   B|  |M My -=- |",
       "|  |      |  |||||||      c c|c   |22|6hh6|cc        | PP  PP  PP |         c|c   |^^|6hh6|B             B|  |M My     |",
       "|$|||||||||  (    |      cc c|c  c|  | cc |      cc  | PP  PP  PP |  ========|    |  | cc |B    |||||||||||  |   yyyyyy|",
@@ -84,6 +84,7 @@
       "A": "f_counter",
       "M": "f_server",
       ":": "f_xedra_antenna",
+      "ñ": "f_melchior_unit",
       "Ñ": "f_locker",
       "H": "f_table",
       "D": "f_desk",
@@ -100,8 +101,12 @@
       "9": {
         "name": "Unstable Matter Isolation Chamber",
         "security": 0,
-        "options": [ { "name": "Unlock isolation chamber", "action": "unlock", "security": 3 } ],
+        "options": [ { "name": "Unlock isolation chamber.", "action": "unlock", "security": 3 } ],
         "failures": [ { "action": "alarm" }, { "action": "damage" } ]
+      },
+      "6": {
+        "name": "MSU14 Control Terminal",
+        "chat_topics": [ "MSU14_START" ]
       }
     }
   }

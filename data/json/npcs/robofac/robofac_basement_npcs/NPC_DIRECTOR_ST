@@ -1,0 +1,36 @@
+[
+    {
+        "type": "talk_topic",
+        "id": "HUB01_DIRECTOR_Intro",
+        "dynamic_line": {
+          "u_has_mission": "INTERCOM_MEET_DIRECTOR",
+          "yes": "*You find the director intently studying desk-embed screen, her figure backlit by the blue glow of a haphazardly assembled screen wall.  The displays vividly reflect on an impressive collection of academic achievements that lies discarded beneath.  \"I hope the trek down wasn't much invasive.  Managing mercenaries remains a departure from our usual lines of expertise.\"  She gestures to an empty chair with a slow wave of her hand, allowing little space for argument.  \"Please sit.",
+          "no": "The guards allow you in?  What are you doing here?"
+        },
+        "responses": [
+          {
+            "text": ".",
+            "topic": "TALK_DONE",
+            "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+            "effect": "flee"
+          },
+          {
+            "text": "I rather know what this all is about.",
+            "topic": "TALK_DONE",
+            "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+            "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+          }
+        ]
+      },
+      
+      {
+        "id": "HUB01_DIRECTOR_NO_GREETINGS",
+        "type": "talk_topic",
+        "dynamic_line": "Yes of course.  By now that our organization is concerns go beyond base survival, lie on the lines of long-term prosperity. Matters of internal politics "
+      },
+      {
+        "id": "TALK_ROBOFAC_INTERCOM_BUY_PROTECTIVE_GEAR_INFO",
+        "type": "talk_topic",
+        "dynamic_line": "Most importantly, both your pre and post catastrophe background indicate that you'd have no reservations."
+      },
+]

@@ -171,6 +171,13 @@
   },
   {
     "type": "GENERIC",
+    "id": "melchior_science_doc",
+    "copy-from": "log_immersion27",
+    "name": { "str": "MELCHIOR experimental report" },
+    "snippet_category": "melchior_science_doc"
+  },
+  {
+    "type": "GENERIC",
     "id": "small_printout_portal_storm_data",
     "name": { "str": "short NRE printout" },
     "category": "books",
