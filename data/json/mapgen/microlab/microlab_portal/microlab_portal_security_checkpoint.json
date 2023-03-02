@@ -104,10 +104,7 @@
         "options": [ { "name": "Unlock isolation chamber.", "action": "unlock", "security": 3 } ],
         "failures": [ { "action": "alarm" }, { "action": "damage" } ]
       },
-      "6": {
-        "name": "MSU14 Control Terminal",
-        "chat_topics": [ "MSU14_START" ]
-      }
+      "6": { "name": "MSU14 Control Terminal", "chat_topics": [ "MSU14_START" ] }
     }
   }
 }

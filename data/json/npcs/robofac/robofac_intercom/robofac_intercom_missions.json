@@ -205,8 +205,9 @@
     "type": "talk_topic",
     "dynamic_line": "It… seems the director has logged a request to meet with you as soon as possible, and uh, your eligibility for future contracts has been suspended until that matter is resolved.  I wouldn't choose to wait if I were you.",
     "responses": [
-       { "text": "Understood.", "topic": "TALK_ROBOFAC_INTERCOM_SERVICES" },
-        { "text": "I'll be back soon.", "topic": "TALK_DONE" } ]
+      { "text": "Understood.", "topic": "TALK_ROBOFAC_INTERCOM_SERVICES" },
+      { "text": "I'll be back soon.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "id": "MISSION_ROBOFAC_INTERCOM_1",

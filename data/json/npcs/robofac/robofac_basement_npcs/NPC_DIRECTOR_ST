@@ -1,10 +1,10 @@
 [
     {
         "type": "talk_topic",
-        "id": "HUB01_DIRECTOR_Intro",
+        "id": "HUB01_DIRECTOR_1_Intro",
         "dynamic_line": {
           "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-          "yes": "*You find the director intently studying desk-embed screen, her figure backlit by the blue glow of a haphazardly assembled screen wall.  The displays vividly reflect on an impressive collection of academic achievements that lies discarded beneath.  \"I hope the trek down wasn't much invasive.  Managing mercenaries remains a departure from our usual lines of expertise.\"  She gestures to an empty chair with a slow wave of her hand, allowing little space for argument.  \"Please sit.",
+          "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of a haphazardly assembled screen wall.  The displays vividly reflect on an impressive collection of academic achievements that lies discarded beneath.  \"I hope the trek down wasn't much invasive.  Managing mercenaries remains a departure from our usual lines of expertise.\"  She gestures to an empty chair with a slow wave of her hand, allowing little space for argument.  \"Please sit.",
           "no": "The guards allow you in?  What are you doing here?"
         },
         "responses": [
@@ -24,13 +24,47 @@
       },
       
       {
-        "id": "HUB01_DIRECTOR_NO_GREETINGS",
+        "id": "HUB01_DIRECTOR_1_DEMAND_EXPLANATION",
         "type": "talk_topic",
-        "dynamic_line": "Yes of course.  By now that our organization is concerns go beyond base survival, lie on the lines of long-term prosperity. Matters of internal politics "
+        "dynamic_line": "No need for brashness.  .",
+        "responses": [
+          {
+            "text": "",
+            "topic": "TALK_DIRECTOR_INTERNAL_POLITICS",
+            "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+            "effect": "flee"
+          },
+          {
+            "text": "I rather know what this all is about.",
+            "topic": "TALK_DONE",
+            "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+            "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+          }
+        ]
+      },
+      {
+        "id": "TALK_DIRECTOR_1_SPEECH",
+        "type": "talk_topic",
+        "dynamic_line": "What good is survival, if the sacrifices made today serve only as the springboard for the ones tomorrow?\" An all to short pause indicate the question is meant only as a rhetorical device  \"Continuance without progress ",
+        "responses": [
+          {
+            "text": "And what part do I play in this?",
+            "topic": "TALK_DIRECTOR_INTERNAL_POLITICS"
+          },
+          {
+            "text": "Director Ma'am we all know what I'm good at, dispense with it and just tell me what you need shot.",
+            "topic": "TALK_DIRECTOR_1_JOB"
+          }
+        ]
       },
       {
         "id": "TALK_ROBOFAC_INTERCOM_BUY_PROTECTIVE_GEAR_INFO",
         "type": "talk_topic",
-        "dynamic_line": "Most importantly, both your pre and post catastrophe background indicate that you'd have no reservations."
+        "dynamic_line": "You have done much worth knowing noticing, and both your pre and post-catastrophe background indicate that you're unlikely to present reservations."
       },
+      {
+        "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+        "type": "talk_topic",
+        "dynamic_line": "Good to know you thrive before adveristy.  Even then there must be something to aspire "
+      }
 ]
