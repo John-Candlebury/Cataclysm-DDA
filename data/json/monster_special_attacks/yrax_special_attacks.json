@@ -4,13 +4,12 @@
         "id": "mon_sphenocorona_check_storm",
         "name": { "str": "Sphenocorona Storm Checks" },
         "description": "Activate sphenocoronas based on the weather.",
-        "valid_targets": [ "self" ],
+        "valid_targets": [ "self", "hostile", "ally", "ground" ],
         "max_level": 1,
         "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
         "base_casting_time": 75,
-        "min_range": 1,
-        "max_range": 1,
-        "extra_effects": [ { "id": "portal_hurt_self", "hit_self": true } ],
+        "min_range": 50,
+        "max_range": 50,
         "shape": "blast",
         "effect": "effect_on_condition",
         "effect_str": "sphenocorona_check_storm"
@@ -20,11 +19,11 @@
         "id": "sphenocorona_check_storm",
         "condition": { "is_weather": "portal_storm" },
         "effect": [
-          { "npc_cast_spell": { "id": "sphenocorona_active" } },
+          { "u_cast_spell": { "id": "sphenocorona_active" } },
           { "u_message": "The %s unfolds into a strange robot!", "type": "info" }
         ],
         "false_effect": [
-          { "npc_cast_spell": { "id": "sphenocorona_inactive" } },
+          { "u_cast_spell": { "id": "sphenocorona_inactive" } },
           { "u_message": "The %s abruptly falls to the ground!", "type": "info" }
         ]
       },

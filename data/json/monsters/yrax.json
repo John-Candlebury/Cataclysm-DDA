@@ -73,10 +73,11 @@
     "species": [ "ROBOT" ],
     "bodytype": "blob",
     "material": [ "gold", "steel" ],
-    "speed": 80,
-    "symbol": "c",
-    "morale": 70,
-    "hp": 50,
+    "speed": 40,
+    "symbol": "C",
+    "morale": 100,
+    "hp": 10,
+    "bleed_rate": 0,
     "color": "yellow",
     "melee_skill": 4,
     "dodge": 4,
@@ -94,7 +95,8 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_sphenocorona_check_storm", "min_level": 1 },
+        "spell_data": { "id": "mon_sphenocorona_check_storm", "hit_self": true, "allow_no_target": true },
+        "monster_message": "The Exodii quadruped fires its weapon pod!",
         "cooldown": 5
       }
     ],
@@ -105,10 +107,8 @@
       "GOODHEARING",
       "NOHEAD",
       "NO_BREATHE",
-      "KEEP_DISTANCE",
       "PATH_AVOID_DANGER_2",
       "FLIES",
-      "PACIFIST",
       "PRIORITIZE_TARGETS",
       "ELECTRONIC"
     ]
@@ -120,16 +120,20 @@
     "copy-from": "mon_yrax_sphenocorona",
     "description": "A large golden monolith.  Carefully carved asymmetric edges betray its artificial origin.",
     "default_faction": "passive_machine",
+    "speed": 5,
+    "hp": 100,
+    "symbol": "I",
     "armor_bash": 100,
     "armor_cut": 100,
     "armor_bullet": 100,
+    "melee_skill": 0,
+    "dodge": 0,
+    "melee_dice": 1,
+    "melee_dice_sides": 1,
     "flags": [
-      "SEES",
-      "HEARS",
       "GOODHEARING",
       "NOHEAD",
       "NO_BREATHE",
-      "PATH_AVOID_DANGER_2",
       "IMMOBILE",
       "PACIFIST",
       "ELECTRONIC"
