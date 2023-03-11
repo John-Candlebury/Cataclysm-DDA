@@ -1,0 +1,63 @@
+[
+    {
+        "type": "npc",
+        "id": "181st_cpt",
+        "name_unique": "Cpt. Wallace",
+        "gender": "male",
+        "name_suffix": "181st Infantry",
+        "class": "181st_infantry",
+        "attitude": 0,
+        "mission": 7,
+        "chat": "cpt_wallace_Intro",
+        "faction": "robofac_auxiliaries"
+      },
+      {
+        "id": [ "181_cpt_intro" ],
+        "type": "talk_topic",
+        "dynamic_line": "The officer leans forward, offering a handshake in an exaggerated gesture  Captain Wallance of the 181st. What brings you here citizen.",
+        "responses": [
+          { "text": "Well then, what does it cost to hire you.", "topic": "BEM_HIREABLE_2" },
+          { "text": "Ha I prefer the cheerful sort anyways.", "topic": "TALK_DONE" },
+          { "text": "Well whatever.", "topic": "TALK_DONE" }
+        ]
+      },
+      {
+        "id": "181_cpt_early_main",
+        "type": "talk_topic",
+      "dynamic_line": "You leave others hanging often?",
+        "responses": [
+          { "text": "Ha I prefer the cheerful sort anyways.", "topic": "TALK_DONE" }
+        ]
+      },
+      {
+        "id": "182_cpt_hub_knowledge",
+        "type": "talk_topic",
+      "dynamic_line": "Yes.  They wanted us away at the start, took them a few day after they figured having us camp across the street kept them safer.",
+        "responses": [
+          { "text": "▖▘ ▙▚▛▜▝▞▟", "topic": "TALK_DONE" }
+        ]
+      },  
+      {
+        "id": "182_cpt_ask_about_hub_low_trust",
+        "type": "talk_topic",
+      "dynamic_line": "Yes. ",
+        "responses": [
+          { "text": "Nothing really, few days ago I'd have thought that secret labs out in the woods where .  sure looks like any extra details are beyond what any of us need to know.", "topic": "TALK_DONE" }
+        ]
+      },  
+      {
+        "id": "182",
+        "type": "talk_topic",
+      "dynamic_line": "Central command's been dead or worse for weeks. The 3rd fleet is still fighting the other ones and last orders are \"Regroup in Boston or Newport for Evacuation\", nevermind that both are dead zones by now. Unless you are in a boat, the army is all gone, maybe they'll reach here again, but I'm not counting on it.",
+        "responses": [
+          { "text": "Ha I prefer the cheerful sort anyways.", "topic": "TALK_DONE" }
+        ]
+      },     
+      {
+        "id": "BEM_HIREABLE_3",
+        "type": "talk_topic",
+        "dynamic_line": "Unless you're a doctor or happen to know one.  Theres ",
+        "responses": [
+        ]
+      }
+]
