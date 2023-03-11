@@ -1,0 +1,37 @@
+[
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGUE_INTRO_START",
+        "dynamic_line": "The ways twist and bend by your presence.  Visitor, through which art and purpose have you arrived here.",
+        "responses": [
+          { "text": "I mean no harm, ", "topic": "" },
+          { "text": "Let's trade then.", "effect": "start_trade", "topic": "" },
+          { "text": ".", "topic": "TALK_DONE" }
+        ]
+    },
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGuE_INTRODUCE_SELF",
+        "dynamic_line": "I forget myself it seems, I am Siogue of these land.  Once I tended the on whose you once "
+    },
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGuE_INTRODUCE_SELF",
+        "dynamic_line": "Wether you arrived here with meaning or without, your presence .  By ancient accord, all who "
+    },
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGuE_INTRODUCE_SELF",
+        "dynamic_line": "This is no place as you know it, but a scar left on the threads of greater reality. An echo of our great capital burnt ito being by our doom. That you have breached it without meaning is unheard of, but I am not one to question the wills of fate."
+    },
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGUE_INTRODUCE_SELF",
+        "dynamic_line": "As surely as the stars retread their path along the heavens so does the communion of worlds brings ruin.  "
+    },
+    {
+        "type": "talk_topic",
+        "id": "TALK_SIOGUE_INTRODUCE_SELF",
+        "dynamic_line": "Kneel so I may guide you to the fragment, if you will."
+    },
+]

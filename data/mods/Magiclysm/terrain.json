@@ -38,6 +38,28 @@
   },
   {
     "type": "terrain",
+    "id": "t_engraved_wall_t",
+    "name": "smoothed rock",
+    "looks_like": "t_rock",
+    "description": "Runes and pictograms flow into each other, the rock surface a screen on which  encode swa fre .",
+    "symbol": "LINE_OXOX",
+    "//": "use pillars, 't_column', as a compliment.",
+    "color": "white",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_rock_roof",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "CONNECT_WITH_WALL", "MINEABLE", "BLOCK_WIND" ],
+    "bash": {
+      "str_min": 120,
+      "str_max": 400,
+      "sound": "crash!",
+      "sound_fail": "whump!",
+      "ter_set": "t_rock_floor",
+      "items": [ { "item": "rock", "count": [ 6, 12 ] }, { "item": "material_rocksalt", "count": [ 0, 1 ], "prob": 10 } ]
+    }
+  },
+  {
+    "type": "terrain",
     "id": "t_demon_web_wall",
     "name": "webbing wall",
     "description": "This wall seems to be made up of a combination of webbing, wood splinters, detritus, and some kind of dark-colored resin.",
