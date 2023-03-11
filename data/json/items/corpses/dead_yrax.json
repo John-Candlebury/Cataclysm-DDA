@@ -15,5 +15,21 @@
     "cutting": 15,
     "to_hit": -3,
     "flags": [ "TRADER_AVOID", "NO_REPAIR" ]
+  },
+  {
+    "id": "broken_yrax_sphenocorona",
+    "type": "GENERIC",
+    "symbol": ",",
+    "name": { "str": "golden monolith" },
+    "description": "A large golden monolith.  Carefully carved asymmetric edges betray its artificial origin.",
+    "volume": "930 L",
+    "//": "A lot of gold in this bad boy.",
+    "weight": "8282000 kg",
+    "price": "50 USD",
+    "price_postapoc": "50 USD",
+    "bashing": 26,
+    "material": [ "steel", "gold" ],
+    "color": "yellow",
+    "flags": [ "TRADER_AVOID", "NO_REPAIR" ]
   }
 ]

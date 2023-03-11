@@ -1,0 +1,67 @@
+[
+    {
+        "type": "SPELL",
+        "id": "mon_sphenocorona_check_storm",
+        "name": { "str": "Sphenocorona Storm Checks" },
+        "description": "Activate sphenocoronas based on the weather.",
+        "valid_targets": [ "self" ],
+        "max_level": 1,
+        "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+        "base_casting_time": 75,
+        "min_range": 1,
+        "max_range": 1,
+        "extra_effects": [ { "id": "portal_hurt_self", "hit_self": true } ],
+        "shape": "blast",
+        "effect": "effect_on_condition",
+        "effect_str": "sphenocorona_check_storm"
+      },
+      {
+        "type": "effect_on_condition",
+        "id": "sphenocorona_check_storm",
+        "condition": { "is_weather": "portal_storm" },
+        "effect": [
+          { "npc_cast_spell": { "id": "sphenocorona_active" } },
+          { "u_message": "The %s unfolds into a strange robot!", "type": "info" }
+        ],
+        "false_effect": [
+          { "npc_cast_spell": { "id": "sphenocorona_inactive" } },
+          { "u_message": "The %s abruptly falls to the ground!", "type": "info" }
+        ]
+      },
+      {
+        "id": "activate_yrax",
+        "type": "SPELL",
+        "name": "Activate Yrax",
+        "description": "Base spell for Yrax (de)activation.",
+        "valid_targets": [ "hostile", "ally", "self" ],
+        "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+        "effect": "targeted_polymorph",
+        "effect_str": "",
+        "shape": "blast",
+        "base_casting_time": 15,
+        "max_level": 1,
+        "min_damage": 10000000,
+        "max_damage": 10000000,
+        "damage_type": "pure",
+        "min_aoe": 50,
+        "max_aoe": 50
+      },
+      {
+        "id": "sphenocorona_active",
+        "type": "SPELL",
+        "name": "Activate Sphenocorona",
+        "description": "Golden monoliths to Sphenocoronae.",
+        "copy-from": "activate_yrax",
+        "targeted_monster_ids": [ "mon_yrax_sphenocorona_inert" ],
+        "effect_str": "mon_yrax_sphenocorona"
+      },
+      {
+        "id": "sphenocorona_inactive",
+        "type": "SPELL",
+        "name": "Activate Sphenocorona",
+        "description": "Sphenocoronae to Golden monoliths.",
+        "copy-from": "activate_yrax",
+        "targeted_monster_ids": [ "mon_yrax_sphenocorona" ],
+        "effect_str": "mon_yrax_sphenocorona_inert"
+      }
+]
