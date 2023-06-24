@@ -1,0 +1,80 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER",
+    "//": "This whole dialogue is like talking to the DDA Neuromancer.",
+    "dynamic_line": "Don't be afraid, I simply meant to thank you personally.",
+    "responses": [
+      { "text": "What?  How did you get here?", "topic": "TALK_YRAX_HIKER_NO_EXPLANATION" },
+      { "text": "No problem", "topic": "TALK_YRAX_HIKER_NO_EXPLANATION" },
+      { "text": "I don't understand", "topic": "TALK_YRAX_HIKER_NO_EXPLANATION" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_NO_EXPLANATION",
+    "dynamic_line": "See, against all logic, there's nothing exceptional about you.  In ancient times we would have attributed it to fate, but its just happenstance.  Still you have shown us paths unknown to us and for that we are very grateful.  It felt necessary to say it, and I hope you understand that.",
+    "responses": [ { "text": "Did I die ", "topic": "TALK_YRAX_HIKER_GLADE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_DAY",
+    "dynamic_line": "You can keep on of course.  Simply finish the trail and you will be back where you started, but you should know that there's no calmer trails in your future that this one.  Just friendly advice.",
+    "responses": [ { "text": "This doesnt really make any sense.", "topic": "TALK_YRAX_HIKER_LEAVE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_THE_ENEMY",
+    "dynamic_line": "&The figure distorts ever briefly. \"It's just like the trees here, self-similar in their expansions through time.  One guiding principle of the universe is that things that are self-similar are more likely to be stable, and thus more likely to persist.  This trail is a perfect example of that, and unfortunately, the thing that assails you is also self-similar, and thus stable.  It is right what your strange friends flee from it, as their motions too are self-similar.",
+    "responses": [
+      { "text": "This doesnt really make any sense.", "topic": "TALK_YRAX_HIKER_LEAVE" },
+      { "text": "But what is it, really?", "topic": "TALK_YRAX_THE_ENEMY_REALLY" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_DESTROY_ENEMY",
+    "dynamic_line": "Rid a forest of wolves and the cougars will hunt ever more successfully. Destroy both, but the pressures that made them will remain. Do you purport we should destroy the forest itself?  What would be left to enjoy then.",
+    "responses": [ { "text": "This doesnt really make any sense.", "topic": "TALK_YRAX_HIKER_LEAVE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_WHO_ARE_YOU",
+    "//": "a strange hiking analogy explaining the goal of the Yrax, safe interdimensional travel.",
+    "dynamic_line": "I travel as you once did, and as you will again.  There are paths and paths and between them the wilderness assails. What we seek are paths separate from the wilderness, but if you expunge the forest, is there a hike left? This is our paradox.",
+    "responses": [ { "text": "We have these things called cities, and they are like what you describe.", "topic": "TALK_YRAX_CITIES" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_CITIES",
+    "dynamic_line": "Yes, the wilderness knows many a form."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_DEAD",
+    "dynamic_line": "If you were dead, wouldn't you know it?  And if you did, would it matter?  Be calm."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_PLAYER_KNOWS",
+    "dynamic_line": "Ha.  To call a demon you must know its true name.  We have met before, true, but those that know me are very far."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_DAY",
+    "dynamic_line": "Well there's much to do, and It'll be a shame to waste the day.  I'll see you around.",
+    "responses": [ { "text": "This doesnt really make any sense.", "topic": "TALK_YRAX_HIKER_LEAVE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_GLADE",
+    "dynamic_line": "Yes and I am quite fond of it.  It is an archive of a sort, ",
+    "responses": [ { "text": "This doesnt really make any sense.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_YRAX_HIKER_LEAVE",
+    "dynamic_line": "We",
+    "responses": [ { "text": "This doesnt really make any sense.", "topic": "TALK_DONE" } ]
+  }
+]
