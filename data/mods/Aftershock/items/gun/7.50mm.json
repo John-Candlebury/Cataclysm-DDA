@@ -95,5 +95,59 @@
     ],
     "melee_damage": { "bash": 12 },
     "weapon_category": [ "AUTOMATIC_RIFLES" ]
+  },
+  {
+    "id": "afs_sr77",
+    "copy-from": "fn_p90",
+    "type": "GUN",
+    "reload_noise_volume": 10,
+    "name": { "str": "G&W SR-77" },
+    "description": " Compact and powerful, the SR-77 serves as the current main firearm of UICA assault teams, having replaced the SR-P9 in the very last decade of the reclamation wars.  Designed for combat withing the tight confines of spacecraft and habitats, the SR-77 is a bullpup carbine with a top-mounted magazine and a high rate of fire.  Performance in open terrain is subpar.",
+    "variant_type": "gun",
+    "variants": [
+      {
+        "id": "military",
+        "name": { "str": "G&W SR-77" },
+        "description": " Compact and powerful, the SR-77 serves as the current main firearm of UICA assault teams, having replaced the SR-P9 in the very last decade of the reclamation wars.  Designed for combat withing the tight confines of spacecraft and habitats, the SR-77 is a bullpup carbine with a top-mounted magazine and a high rate of fire.  Performance in open terrain is subpar.",
+        "weight": 3
+      },
+      {
+        "id": "branded",
+        "name": { "str": "Gibson-77 Sentinel" },
+        "description": "A rare version of the m90-UASTA PDW built to its original private market specifications, featuring an ergonomic bullpup design and a large magazine capacity underneath a sleek white and chromed finish.  Actual combat performance is slightly improved over the more common military model, due to the use of higher-quality materials within the barrel and ETC ignition system.",
+        "weight": 0
+      }
+    ],
+    "ranged_damage": { "damage_type": "bullet", "amount": -10 },
+    "range": -4,
+    "weight": "2640 g",
+    "volume": "3817 ml",
+    "longest_side": "511 mm",
+    "barrel_length": "264 mm",
+    "price": 350000,
+    "price_postapoc": 3500,
+    "to_hit": -2,
+    "material": [ "superalloy", "plastic" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "ammo": [ "afs_7.50mm" ],
+    "skill": "smg",
+    "dispersion": 260,
+    "durability": 10,
+    "min_cycle_recoil": 1350,
+    "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "AUTO", "burst", 5 ], [ "AUTO", "auto", 15 ] ],
+    "valid_mod_locations": [
+      [ "barrel", 1 ],
+      [ "brass catcher", 1 ],
+      [ "mechanism", 4 ],
+      [ "muzzle", 1 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "sling", 1 ],
+      [ "stock accessory", 2 ]
+    ],
+    "faults": [ "fault_gun_blackpowder", "fault_gun_dirt", "fault_gun_chamber_spent" ],
+    "pocket_data": [ { "magazine_well": "500 ml", "pocket_type": "MAGAZINE_WELL", "item_restriction": [ "afs_sr77_45mag" ] } ],
+    "melee_damage": { "bash": 10 }
   }
 ]

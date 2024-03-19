@@ -523,6 +523,30 @@
     "armor": [ { "covers": [ "eyes", "torso" ] } ]
   },
   {
+    "id": "afs_throwable_sensor",
+    "type": "AMMO",
+    "category": "weapons",
+    "name": { "str": "sensor burst grenade" },
+    "description": "A",
+    "weight": "650 g",
+    "volume": "680 ml",
+    "longest_side": "132 mm",
+    "price": 5000,
+    "price_postapoc": 500,
+    "to_hit": -1,
+    "material": [ "glass" ],
+    "symbol": "*",
+    "color": "yellow",
+    "use_action": [ "ACIDBOMB_ACT" ],
+    "flags": [ "ACT_ON_RANGED_HIT", "NPC_THROWN" ],
+    "ammo_type": "sling-ready_grenade",
+    "damage": { "damage_type": "bash", "amount": 4 },
+    "range": 11,
+    "dispersion": 14,
+    "effects": [ "NEVER_MISFIRES", "NON_FOULING", "ACIDBOMB" ],
+    "melee_damage": { "bash": 4 }
+  },
+  {
     "type": "TOOL",
     "id": "afs_shuttle_radiobeacon",
     "name": { "str": "drone shuttle beacon" },
@@ -587,7 +611,7 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "battery": 5000 } } ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
     "material": [ "superalloy" ],
-    "flags": [ "DURABLE_MELEE" ],
+    "flags": [ "DURABLE_MELEE", "HEAVY_TOOL" ],
     "melee_damage": { "bash": 5 }
   },
   {
