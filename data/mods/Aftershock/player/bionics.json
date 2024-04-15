@@ -87,9 +87,18 @@
     "id": "afs_bio_blood_plus",
     "type": "bionic",
     "name": { "str": "Synthetic Marrow" },
-    "description": "The interior of your femurs have been scrapped clean, the marrow replaced with a Mercurial brand bio-factory that produces high efficiency blood analogues. The blood substitutes are fine-tuned for combat, increasing stamina, disease resistance and clotting speed.",
+    "description": "The interior of your femurs have been scrapped clean, the marrow replaced with a Mercurial brand bio-factory that produces high efficiency blood analogues. The blood substitutes are fine-tuned for combat, increasing stamina and clotting speed.",
     "occupied_bodyparts": [ [ "leg_l", 2 ], [ "leg_r", 2 ] ],
-    "enchantments": [ { "values": [ { "value": "CARDIO_MULTIPLIER", "multiply": 1.2 } ] } ]
+    "enchantments": [
+      { "condition": "ALWAYS", "values": [ { "value": "SLEEPY", "add": 30 } ] },
+      {
+        "values": [
+          { "value": "CARDIO_MULTIPLIER", "multiply": 1.2 },
+          { "value": "STAMINA_REGEN_MOD", "add": 0.2 },
+          { "value": "BLEED_STOP_BONUS", "multiply": 0.5 }
+        ]
+      }
+    ]
   },
   {
     "id": "afs_bio_blood_brain",
@@ -103,7 +112,9 @@
           { "value": "INTELLIGENCE", "add": 4 },
           { "value": "PERCEPTION", "add": 4 },
           { "value": "DEXTERITY", "add": 4 },
-          { "value": "PAIN", "multiply": -0.33 }
+          { "value": "PAIN_PENALTY_MOD_PER", "add": 4 },
+          { "value": "PAIN_PENALTY_MOD_INT", "add": 4 },
+          { "value": "PAIN", "multiply": -0.15 }
         ]
       }
     ]
