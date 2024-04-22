@@ -1,0 +1,104 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "HUB01_DIRECTOR_1_Intro",
+    "dynamic_line": {
+      "u_has_mission": "INTERCOM_MEET_DIRECTOR",
+      "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of a haphazardly assembled screen wall.  The displays vividly reflect on an impressive collection of academic achievements that lies discarded beneath.  \"I hope the trek down wasn't much invasive.  Used to have contingency measures in place, for most natural and man-made disasters, but they fell short of ",
+      "no": "The guards allow you in?  What are you doing here?"
+    },
+    "responses": [
+      {
+        "text": "Sit.",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+        "effect": "flee"
+      },
+      {
+        "text": "Remain Standing.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+      }
+    ]
+  },
+  {
+    "id": "HUB01_DIRECTOR_1_REMAIN_STANDING",
+    "type": "talk_topic",
+    "dynamic_line": "Three decades of teaching in the MIT, if this is some attempt at a statemen ",
+    "responses": [
+      {
+        "text": "Yes.",
+        "topic": "TALK_DIRECTOR_INTERNAL_POLITICS",
+        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+        "effect": "flee"
+      },
+      {
+        "text": "Sit.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_SPEECH",
+    "type": "talk_topic",
+    "dynamic_line": "You understand, I hope, that your invitation here serves purposes beyond .What good is survival, if the sacrifices made today serve only as the springboard for the ones tomorrow?\"  We share our time within this d",
+    "responses": [
+      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "I'm not sure I follow.", "topic": "TALK_DIRECTOR_1_SPEECH_2" },
+      { "text": "[ PER 11 ] Pretend to pay attention as you survey the room.", "topic": "TALK_DIRECTOR_1_SPEECH_2" },
+      {
+        "text": "Director Ma'am we all know what I'm good at.  Dispense with it and just tell me what you need shot and what you are offering.",
+        "topic": "TALK_DIRECTOR_1_JOB"
+      }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  We require as you are well aweare off"
+  },
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  I"
+  },
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "Good, direct yourself to my assistant, she'll provide you with the briefing and hardware required.\"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer further questions, if required.",
+    "responses": [
+      { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "Our scouting units",
+    "responses": [
+      { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "Your start from the desk, o. You'd expect a piece like this in the penthouse office's of Fanbook ",
+    "responses": [
+      { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_wood_feels_nice",
+    "type": "talk_topic",
+    "dynamic_line": "You slowly run youn your hand against ",
+    "responses": [
+      { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  }
+]
