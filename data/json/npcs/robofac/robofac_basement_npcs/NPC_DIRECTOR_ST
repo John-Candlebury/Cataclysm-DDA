@@ -4,7 +4,7 @@
     "id": "HUB01_DIRECTOR_1_Intro",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-      "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of a haphazardly assembled screen wall.  She's not particularly tall and is old enough to have amassed an impressive collection of academic achievements that currently lies discarded beneath.  \"I hope the trek down wasn't much unwelcoming.  We used to have contingency measures for most natural and man-made disasters, but they did fall short of managing hired mercenaries.\"  She finally looks up after closing when the door is closed.  \"Doctor Irene Zvonko, I'm the director of this hopefully functioning facility.  Please, have a seat.\"*",
+      "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of an improvised screen wall.  She's not particularly tall and is old enough to have amassed an impressive collection of academic achievements that currently lies discarded on the office's back wall.  \"I hope the trek down wasn't much unwelcoming.  We used to have contingency measures for most natural and man-made disasters, but they did fall short of managing hired mercenaries.\"  She finally looks up after closing when the door is closed.  \"Doctor Irene Zvonko, I'm the director of this hopefully functioning facility.  Please, have a seat.\"*",
       "no": "The guards allow you in?  What are you doing here?"
     },
     "responses": [
