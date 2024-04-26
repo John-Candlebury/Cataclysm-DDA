@@ -119,6 +119,10 @@
       "yes": "That sure is a shiny badge you got there!",
       "no": "Heh, you look important."
     },
+    "speaker_effect": {
+      "effect": { "u_add_var": "u_met_makayla", "type": "general", "context": "refugee_center", "value": "yes" },
+      "sentinel": "makayla_first_meeting"
+    },
     "responses": [
       { "text": "I'm actually new.", "topic": "TALK_ARSONIST_NEW" },
       { "text": "What are you doing here?", "topic": "TALK_ARSONIST_DOING" },

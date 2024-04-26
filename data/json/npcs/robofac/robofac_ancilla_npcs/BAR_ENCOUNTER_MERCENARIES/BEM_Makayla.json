@@ -1,0 +1,79 @@
+[
+  {
+    "type": "npc",
+    "id": "arsonist_bem",
+    "name_unique": "Makayla Sanchez",
+    "name_suffix": "Arsonist",
+    "gender": "female",
+    "class": "NC_ARSONIST",
+    "attitude": 0,
+    "mission": 3,
+    "age": 24,
+    "height": 165,
+    "chat": "TALK_ARSONIST_BEM",
+    "//": "This version of Makayla is part of the Ancilla to simplify interactions with the player, and other npcs.  Just in case the player starts a shootout.",
+    "faction": "robofac_auxiliaries"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ARSONIST_BEM",
+    "dynamic_line": {
+      "u_has_var": "u_met_makayla",
+      "type": "general",
+      "context": "refugee_center",
+      "value": "yes",
+      "yes": " You find Makayla sitting against The Terminal's bar.",
+      "no": {
+        "u_has_var": "u_insulted_makayla",
+        "type": "general",
+        "context": "arsonist",
+        "value": "yes",
+        "yes": "It looks like one of refugee center mutants is in here.",
+        "no": "A conspicuous knitted cap only calls attention to the scavenger's mutated ears. The way she leans against the bar easily tells you she's been here for a while."
+      }
+    },
+    "responses": [
+      {
+        "truefalsetext": {
+          "condition": { "u_has_var": "u_met_makayla", "type": "general", "context": "refugee_center ", "value": "yes" },
+          "true": "Hey never thought I'd find you gere",
+          "false": "Waiting for something now?"
+        }
+      },
+      { "text": "Do you have any jobs for me?", "topic": "TALK_MISSION_LIST" },
+      { "text": "" },
+      {
+        "truefalsetext": { "condition": { "u_has_var": "u_insulted_makayla", "value": "yes" }, "true": "[Gross.]", "false": "See you around." }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "MAKAYLA_BEM_DOING_MET",
+    "dynamic_line": {
+      "u_has_var": "makayla_mutation_trust",
+      "type": "talk",
+      "context": "arsonist",
+      "value": "yes",
+      "yes": "Theres sacavenging team here that helps me with my thing.\"  She covertly gestures towards her knit cap.  \"Keeps me from coughing up hairballs all the time.  Just waiting for them to show now, maybe trade some stuff while at it.",
+      "no": "I'm just hanging out between runs, waiting for the world to end deader I guess.  Plus the folk here have way better gear and more need for explosives, so trade pays better than in the center."
+    },
+    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "MAKAYLA_BEM_DOING",
+    "dynamic_line": {
+      "u_has_faction_trust": 10,
+      "yes": "Oh you are one of the regulars here, right? I need someone for a favor, I'll pay for sure.",
+      "no": ""
+    },
+    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "MAKAYLA_BEM_TRADING",
+    "dynamic_line": "You bet.  What are you looking for today?",
+    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+  }
+]
