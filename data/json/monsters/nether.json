@@ -34,6 +34,77 @@
     "armor": { "bash": 6, "cut": 2, "bullet": 2 }
   },
   {
+    "id": "mon_wells_machine",
+    "type": "MONSTER",
+    "name": "labyrinth warlord",
+    "description": "A massive aperture eye tirelessly scans the labyrinth corridors in accordance to timelost protocol, and mounted beneath it an arsenal bristles ready to unleash death on the unwary.  Its brazen armor lies contrast to the rust-striken halls it traverses, but it remains impossible to know whether this is a machine purposefully built or if it has torn itself from the canvases of some imagined war.",
+    "default_faction": "nether_hate_humans",
+    "volume": "930 L",
+    "weight": "8282 kg",
+    "diff": 40,
+    "speed": 60,
+    "material": [ "steel" ],
+    "symbol": "T",
+    "aggression": 70,
+    "aggro_character": false,
+    "color": "dark_gray",
+    "luminance": 20,
+    "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT" ],
+    "//2": "Takes at least one Carl Gustaff HEDP before dying.",
+    "hp": 2400,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "GOODHEARING",
+      "NOHEAD",
+      "NO_BREATHE",
+      "PACIFIST",
+      "PATH_AVOID_DANGER_2",
+      "PRIORITIZE_TARGETS",
+      "ELECTRONIC",
+      "CLIMBS",
+      "NOT_HALLUCINATION",
+      "ALWAYS_SEES_YOU",
+      "FIREPROOF"
+    ],
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "wells_machine_control", "min_level": 1, "hit_self": true },
+        "allow_no_target": true,
+        "monster_message": "",
+        "cooldown": 3
+      }
+    ],
+    "death_function": { "corpse_type": "BROKEN", "message": "The warlord collapses, dead at last.", "eoc": "EOC_wells_machine_dies" },
+    "weakpoint_sets": [ "wps_yrax_quadraphract" ],
+    "armor": { "bash": 20, "cut": 40, "acid": 100, "heat": 500, "electric": 100, "bullet": 50 }
+  },
+  {
+    "id": "mon_wells_machine_leg",
+    "type": "MONSTER",
+    "name": { "str": "warlord leg" },
+    "description": "One of the three legs of a labyrinth warlord, clad in delicate brass armor.",
+    "default_faction": "nether_hate_humans",
+    "copy-from": "mon_wells_machine",
+    "symbol": "s",
+    "hp": 400,
+    "proportional": { "dodge": 0.25, "speed": 1.2 },
+    "melee_dice": 6,
+    "melee_dice_sides": 15,
+    "melee_skill": 4,
+    "special_attacks": [ { "id": "smash", "throw_strength": 96 } ],
+    "armor": { "bash": 20, "cut": 40, "acid": 100, "heat": 500, "electric": 100, "bullet": 50 },
+    "death_function": {
+      "corpse_type": "BROKEN",
+      "message": "The warlord stumbles as one of its legs falls limp.",
+      "eoc": "EOC_wells_machine_hurt"
+    },
+    "weakpoint_sets": [ "wps_yrax_quadraphract_leg" ],
+    "delete": { "flags": [ "PACIFIST" ] },
+    "extend": { "flags": [ "DESTROYS" ] }
+  },
+  {
     "id": "mon_amigara_horror",
     "type": "MONSTER",
     "name": { "str": "amigara horror" },
