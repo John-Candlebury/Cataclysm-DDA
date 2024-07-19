@@ -26,7 +26,7 @@
     "id": "HUB01_DIRECTOR_1_Intro",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-      "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of an improvised screen wall.  She's not particularly tall and is old enough to have amassed an impressive collection of academic achievements that currently lies discarded on the office's back wall.  \"I hope the trek down wasn't much unwelcoming.  We used to have contingency measures for most natural and man-made disasters, but they did fall short of managing hired mercenaries.\"  She finally looks up after closing when the door is closed.  \"Doctor Irene Zvonko, I'm the director of this hopefully functioning facility.  Please, have a seat.\"*",
+      "yes": "*You find the director intently studying a desk-embed screen, her figure backlit by the blue glow of an improvised screen wall.  She's not particularly tall and is old enough to have amassed an impressive collection of academic achievements that currently lies discarded on the office's back wall.  \"I hope the trek down wasn't much unwelcoming.  We used to have contingency measures for most natural and man-made disasters, but they did fall short of, well this.\"  She finally looks up after closing when the door is closed.  \"Doctor Irene Zvonko, I'm the director of this hopefully functioning facility.  Please, have a seat.\"*",
       "no": "The guards allow you in?  What are you doing here?"
     },
     "responses": [
@@ -83,14 +83,14 @@
     "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  We require as you are well aweare off"
   },
   {
-    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "id": "TALK_DIRECTOR_1_OLD_GUARD",
     "type": "talk_topic",
-    "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  I"
+    "dynamic_line": "You place your faith with the 3rd fleet remnant?  They are traitors and mutineers, do you know that they sank most of the no"
   },
   {
     "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
     "type": "talk_topic",
-    "dynamic_line": "Good, direct yourself to my assistant, she'll provide you with the hardware required and wiith \"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer any questions you might still have.  Good luck ma'am.\"",
+    "dynamic_line": "Good, direct yourself to my assistant, she'll provide you with the hardware required to acess the site.\"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer any questions you might still have\"",
     "responses": [
       { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" },
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -117,7 +117,7 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
-    "dynamic_line": "You proceed through several NRE printouts, taken simultaneously with the late-night images.  Whatever meaning lies behind the numbers remains completely unkowable, but they all display a repeating fifteen digit sequence.  These dont look like any you have recorded, and the repeating pattern does seem suspect.  They be the result of some exotic research, but arent sure what to make of them.",
+    "dynamic_line": "You proceed through several NRE printouts, taken simultaneously with the late-night images.  Whatever meaning lies behind the numbers remains completely unkowable, but they all display a repeating fifteen digit sequence.  These dont look like any you have recorded, and the repeating pattern does seem suspect.",
     "responses": [
       { "text": "This doesnt really look at all diferent to any zombie infested ", "topic": "TALK_DONE" },
       { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -126,7 +126,7 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
-    "dynamic_line": "The binder continues to list several delivery manifests, mostly for food and miscellaneous office supplies, there's not much to these other than the last one is dated for two weeks before the start of the riots.  The more interesting manifests are for high-quality optical equipment, and for a pair of obtusely described suits of protective armor, both signed by the facility's head of security.",
+    "dynamic_line": "The binder continues to list several delivery manifests, mostly for implausibly large quantities of silica sand.  The structure doesnt look like a glass factory, so this is probably being used to cove",
     "responses": [
       { "text": "Power through the end of the document", "topic": "TALK_DONE" },
       { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -135,7 +135,7 @@
   {
     "id": "TALK_DIRECTOR_1_FINISH_DOCUMENT",
     "type": "talk_topic",
-    "dynamic_line": "This veritable bible of near useless information ends with the DARPA employment profiles of the facility senior staff.  Try as you might you cant really show much interest for these most surely dead people.  The scientists expectedly display knowledge in very complex-sounding fields, and the security chief appears to have served as a green beret in Rwanda.  The director allows you a few seconds before she speaks again.  Well then, what's your assessment?",
+    "dynamic_line": "This veritable bible of near useless information ends with the DARPA employment profiles of the facility senior staff.  Try as you might you cant really show much interest for these likely dead people.  The scientists expectedly display knowledge in very complex-sounding fields, and the security chief appears to have served as a green beret in Rwanda.  The director allows you a few seconds before she speaks again.  Well then, what's your assessment?",
     "responses": [
       {
         "text": "Respectfully ma'am director, I think you have just shown me a faulty HVAC and a dead research team.  I'll scout the place out, but don't expect any rescues.",
@@ -173,11 +173,10 @@
     "responses": [ { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" } ]
   },
   {
-    "id": "TALK_DIRECTOR_1_Survey_room",
+    "id": "TALK_DIRECTOR_1_Survey_diplomas",
     "type": "talk_topic",
-    "dynamic_line": "s ",
+    "dynamic_line": "To your surprise, most of the diplomas are in fields related to management and international relations.  The only scientific degree you can spot is a doctorate in economics, but the rest are all in fields that would be useful for a career in politics. ",
     "responses": [
-      { "text": "Its wood expensive for sure but is it FEEL nice wood too?", "topic": "TALK_DONE" },
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
