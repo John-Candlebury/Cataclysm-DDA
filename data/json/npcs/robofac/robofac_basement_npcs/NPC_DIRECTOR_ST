@@ -1,6 +1,28 @@
 [
   {
     "type": "talk_topic",
+    "id": "HUB01_DIRECTOR_1_Guards",
+    "dynamic_line": {
+      "u_has_mission": "INTERCOM_MEET_DIRECTOR",
+      "yes": "You are "
+    },
+    "responses": [
+      {
+        "text": "Take a seat.",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+        "effect": "flee"
+      },
+      {
+        "text": "Remain Standing.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "HUB01_DIRECTOR_1_Intro",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
@@ -9,7 +31,7 @@
     },
     "responses": [
       {
-        "text": "Sit.",
+        "text": "Take a seat.",
         "topic": "TALK_DONE",
         "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
         "effect": "flee"
@@ -25,7 +47,7 @@
   {
     "id": "HUB01_DIRECTOR_1_REMAIN_STANDING",
     "type": "talk_topic",
-    "dynamic_line": "Three decades of teaching in the MIT, if this is some attempt at a statemen ",
+    "dynamic_line": "She looks at you with a raised eyebrow, but doesn't comment on your choice to remain standing.  \"I'm sure you have questions, why bother with some in-person meeting now 
     "responses": [
       {
         "text": "Yes.",
@@ -68,7 +90,7 @@
   {
     "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
     "type": "talk_topic",
-    "dynamic_line": "Good, direct yourself to my assistant, she'll provide you with the briefing and hardware required.\"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer further questions, if required.",
+    "dynamic_line": "Good, direct yourself to my assistant, she'll provide you with the hardware required and wiith \"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer any questions you might still have.  Good luck ma'am.\"",
     "responses": [
       { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" },
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -138,7 +160,7 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
-    "dynamic_line": "Your start from the desk, the obvious centerpiece and the most conveniently placed object around.  It's a massive slab of polished hard-wood, seemingly carved from an implausibly gigantic tree.  Its working surface is a single piece of black tempered glass that tastefully hides the embed-screen now that its turned off.  Either this Irene is a secret billionaire or you are witnessing one of the most bloated blacksite budgets in history.",
+    "dynamic_line": "Your start from the desk, the obvious centerpiece and the most conveniently placed object around.  It's a massive slab of polished hard-wood, seemingly carved from an implausibly gigantic tree.  Its working surface is a single piece of black tempered glass that tastefully hides the embed-screen now that its turned off.  You'd expect to see a piece like this in the penthouse office of some tech CEO, not in a research facility.  Either this Irene is a secret billionaire or you are witnessing one of the most bloated blacksite budgets in history.",
     "responses": [
       { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -147,7 +169,7 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_screens",
     "type": "talk_topic",
-    "dynamic_line": "You pretend to focus on the Director's spiel about the future while you covertly study the screens.  They're off now, but their improvised rigging has a quality bereft of the surface desperation ",
+    "dynamic_line": "You pretend to focus on the Director's spiel about the future while you covertly study the screens.  They're off now, but their improvised rig has been carefully machine cut and welded, it possesses a subtle quality achieved only when crafstmen are certain that they'll live to see the next day. The screens themselves seem to mostly be off-the-shelf computer monitors, but there's a few that are clearly repurposed from some kind of military equipment.",
     "responses": [ { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" } ]
   },
   {
@@ -162,7 +184,7 @@
   {
     "id": "TALK_DIRECTOR_1_wood_feels_nice",
     "type": "talk_topic",
-    "dynamic_line": "You slowly and covertly run youn your hand against the wood's grain, the texture is supple even. It IS fell nice wood, discount swedish furniture wishes it could be negatively compared to this.",
+    "dynamic_line": "Oh yes this IS feel nice wood, discount swedish furniture wishes it could be negatively compared to this.",
     "responses": [ { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" } ]
   }
 ]
