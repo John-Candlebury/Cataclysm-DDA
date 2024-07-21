@@ -1,0 +1,216 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "HUB01_DIRECTOR_1_Guards",
+    "dynamic_line": {
+      "u_has_mission": "INTERCOM_MEET_DIRECTOR",
+      "yes": "You are escorted by a group of four masked guards as you cross through the empty hall of the bunker's administrative wing.  They maintain a respectful distance, but their hands don't leave their weapons even as they open the door to the director's office.  They signal you inside but make no move to follow you themselves."
+    },
+    "responses": [
+      {
+        "text": "Eyes forward, you are the important one here.",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+        "effect": "flee"
+      },
+      {
+        "text": "Remain Standing.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "HUB01_DIRECTOR_1_Intro",
+    "dynamic_line": {
+      "u_has_mission": "INTERCOM_MEET_DIRECTOR",
+      "yes": "*You find the director intently studying a desk-embed screen, with her standing figure completely framed by an imposing collection of academic achievements that hangs on the far side of the room.  She doesn't address you until the door is closed behind you.  \"I really hope the trek down wasn't too unwelcoming.  We used to have contingency plans for all types of disaster, but they did fall short of, well, all this.\" \"Doctor Irene, director of Hub 01.  Please, take a seat.\"*",
+      "no": "The guards allow you in?  What are you doing here?" 
+    },
+    "responses": [
+      {
+        "text": "Take a seat.",
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "Remain Standing.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": "HUB01_DIRECTOR_REMAIN_STANDING",
+    "type": "talk_topic",
+  "dynamic_line": "Feels oddly out of place now, doesn't it?  The fancy desk, the flags in the corner, the diplomas. Already feel like relics of a time when we could afford to pretend that we were in control.  We're not, of course.  We're just trying to survive, like everyone else.\" she continues, \" I called you here because my surface ops team insists that you are as skilled as you are bullheaded.  Now, try to actually listen to me, because I'm sure it'll interest you.\"",
+    "responses": [
+      {
+        "text": "Hmm.",
+        "topic": "TALK_DIRECTOR_INTERNAL_POLITICS",
+        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
+        "effect": "flee"
+      },
+      {
+        "text": "Sit.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_JOB_OFFER",
+    "type": "talk_topic",
+    "dynamic_line": "",
+        "responses": [
+          { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
+      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      {
+        "text": "Director Ma'am we all know what I'm good at.  Dispense with it and just tell me what you need shot and what you are offering.",
+        "topic": "TALK_DIRECTOR_1_JOB"
+      }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_JOB_OFFER",
+    "type": "talk_topic",
+    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We dont expect the mission to be particulalry dangerous, but the site is of immense strategic importance, so we need someone dependable.  Thats your ",
+        "responses": [
+          { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
+      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "No need.  Lets discuss payment", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_OWN_PEOPLE",
+    "type": "talk_topic",
+    "dynamic_line": "We don't have "
+  },
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  We require as you are well aweare off"
+  },
+  {
+    "id": "TALK_DIRECTOR_1_OLD_GUARD",
+    "type": "talk_topic",
+    "dynamic_line": "You place your faith with the 2nd fleet remnant?  Do you know that they sank most of the northwestern coast guard and then bombed Natu?  They are traitors and mutineers all, and even if they could be trusted, they are a spent force.  This country wont be comin"
+  },
+
+  {
+    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
+    "type": "talk_topic",
+    "dynamic_line": "A scouting units dispatched to one of our sister research facilities.   Have detected signs of ongoing reasearch.  A",
+    "responses": [
+      { "text": "Take a look at the drone scout's report", "topic": "TALK_DONE" },
+      { "text": "", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "You flip through several aerial photographs of a fortified compound built around a large cubical warehouse.  Someone has drawn a circle around an open maintenance hatch on the warehouse roof and written \"easiest entry point\" in the margin.  A small number of zombies are visible wandering ",
+    "responses": [
+      { "text": "Couldn't fit a drone inside?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
+      { "text": "What's with the grey sand deposits?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
+      { "text": "Continue to the next section of the dossier", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "I've seen enough.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_Sand",
+    "type": "talk_topic",
+    "dynamic_line": "Fabricator rawstock, put simply.  Mostly a mixture of silica, carbon, iron and assorted heavy metals as fine powder.  Most worringly, it contains trace amounts of aluminum phosphide for semiconductor doping.  It would be fatal to approach the site without an NBC suit.  My assistant can provide you with one if you accept the job.",
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_fit a drone inside",
+    "type": "talk_topic",
+    "dynamic_line": "Not fruitfully, the entire warehouse is EM shielded, we loose connection two feet in.  We know theres a maintenance gantry right behind it, so immediate access to the building should be relatively safe."
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "You proceed through the schematics of an incredibly complex robotic",
+    "responses": [
+      { "text": "This doesnt really look at all diferent to any zombie infested ", "topic": "TALK_DONE" },
+      { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "The binder continues to list several delivery manifests, all for implausibly large quantities of silica sand.  An assistant has helpfully decoded what was actually delivered, mostly p",
+    "responses": [
+      { "text": "Power through the end of the document", "topic": "TALK_DONE" },
+      { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_FINISH_DOCUMENT",
+    "type": "talk_topic",
+    "dynamic_line": "This veritable bible of near useless information ends with the DARPA employment profiles of the facility senior staff.  Try as you might you cant really show much interest for these likely dead people.  The scientists expectedly display knowledge in very complex-sounding fields, and the security chief appears to have served as a green beret in Rwanda.  All in all, you should expect some 10 zombies clad in military gear and 30 technicians, that assuming no one made it out.",
+    "responses": [
+      {
+        "text": "Respectfully ma'am director, I dont think you'll loot 'survival\" from some empty industrial ruins.  But I'll do it, payment upfront.",
+        "topic": "TALK_PAYMENT"
+      },
+      {
+        "text": "Looks interesting.  Someone should do something",
+        "topic": "TALK_PAYMENT"
+      },
+      {
+        "text": "Well if there's any survivors we owe it to them to at least try a rescue.",
+        "topic": "TALK_ALTRUIST_PAYMENT"
+      },
+      { "text": "I think you have an urgent case of pay me to figure out.", "topic": "TALK_PAYMENT" },
+      { "text": "All those poor scientists, someone should do somenthing.", "topic": "TALK_PAYMENT" },
+      {
+        "text": "Don't know, I just pretended to read that because it felt like you wanted me too.",
+        "topic": "TALK_PAYMENT"
+      }
+    ]
+  },
+  
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "Money alone would be a poor reward for the immense trust ",
+    "responses": [
+      { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_Survey_room",
+    "type": "talk_topic",
+    "dynamic_line": "Your start from the desk, the obvious centerpiece and the most conveniently placed object around.  It's a massive slab of polished hard-wood, seemingly carved from an implausibly gigantic tree.  The working surface is a single piece of black tempered glass that tastefully hides the embed-screen now that its turned off.  You'd expect to see a piece like this in the penthouse office of some tech CEO, not hidden in the basement of a research facility.  Either this Irene is a secret billionaire or you are witnessing one of the most bloated blacksite budgets in history.",
+    "responses": [
+      { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+
+  {
+    "id": "TALK_DIRECTOR_1_Survey_diplomas",
+    "type": "talk_topic",
+    "dynamic_line": "To your surprise, most of the diretor achievements are completely unrelated to the fields of robotics, mathematics or computing sciences.  You see a few awards for lectures in ",
+    "responses": [
+      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_wood_feels_nice",
+    "type": "talk_topic",
+    "dynamic_line": "Oh yes this IS feel nice wood, discount swedish furniture wishes it could be negatively compared to this.",
+    "responses": [ { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" } ]
+  },
+  {
+    "id": "TALK_DIRECTOR_1_END",
+    "type": "talk_topic",
+    "dynamic_line": "Done.  Direct yourself to my assistant, she'll provide you with the hardware required to access the site.\"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer any questions you might still have\"",
+    "responses": [
+      { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" }
+    ]
+  }
+]
