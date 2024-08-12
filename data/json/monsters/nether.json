@@ -37,7 +37,7 @@
     "id": "mon_wells_machine",
     "type": "MONSTER",
     "name": "labyrinth warlord",
-    "description": "A massive aperture eye tirelessly scans the labyrinth corridors in accordance to timelost protocol, and mounted beneath it an arsenal bristles ready to unleash death on the unwary.  Its brazen armor lies contrast to the rust-striken halls it traverses, but it remains impossible to know whether this is a machine purposefully built or if it has torn itself from the canvases of some imagined war.",
+    "description": "A massive aperture eye tirelessly scans the labyrinth corridors in accordance to timelost protocol, and mounted beneath it an arsenal bristles ready to unleash death on the unwary.  Its brazen armor lies contrast to the rust-striken halls it traverses, but it remains impossible to know whether this is a machine purposefully built or if it has torn itself from the canvases of an imagined war.",
     "default_faction": "nether_hate_humans",
     "volume": "930 L",
     "weight": "8282 kg",
