@@ -1,0 +1,18 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "afs_peck",
+    "cooldown": 15,
+    "move_cost": 100,
+    "damage_max_instance": [ { "damage_type": "stab", "amount": 12, "armor_penetration": 30 } ],
+    "condition": { "not": { "u_has_effect": "maimed_mandible" } },
+    "hitsize_min": 4,
+    "hit_dmg_u": "%1$s buries its beak in your %2$s!",
+    "hit_dmg_npc": "%1$s buries its beak in <npcname>!",
+    "miss_msg_u": "%1$s tries to peck you, but you dodge!",
+    "miss_msg_npc": "%1$s tries to peck <npcname>, but they dodge!",
+    "no_dmg_msg_u": "%1$s tries to peck your %2$s, but fails to penetrate your armor.",
+    "no_dmg_msg_npc": "%1$s tries to peck <npcname>, but fails to penetrate their armor."
+  }
+]

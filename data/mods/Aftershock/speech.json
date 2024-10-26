@@ -106,5 +106,47 @@
     "speaker": "mon_human_biomachine",
     "sound": "\"dark, dark, where is everything\"",
     "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "\"AWAY AWAY AWAY away away away!\" *Sqwaa*",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "*Schrk* \"PreTTy bIrd!\"",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "\"Hey Hey HEY HEY.\" *Sqwak*",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "gunshots",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "\"hello hii hey\" *Sqwaa*",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "\"NO SIGNAL NOSIGNAL NOGNAL\" *Sqwak*",
+    "volume": 60
+  },
+  {
+    "type": "speech",
+    "speaker": "biomachine_guardian",
+    "sound": "\"hate ice! HATE ice!\" *Sqwaa*",
+    "volume": 60
   }
 ]

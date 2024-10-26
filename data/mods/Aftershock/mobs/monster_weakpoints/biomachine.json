@@ -1,0 +1,70 @@
+{
+  "type": "weakpoint_set",
+  "id": "wps_afs_biomachine",
+  "weakpoints": [
+    {
+      "name": "the head",
+      "armor_mult": { "physical": 0.75 },
+      "crit_mult": { "all": 1.1 },
+      "difficulty": { "melee": 2, "ranged": 2 },
+      "coverage_mult": { "ranged": 0.75 },
+      "coverage": 3,
+      "effects": [
+        {
+          "effect": "stunned",
+          "duration": [ 1, 2 ],
+          "chance": 5,
+          "message": "The %s is stunned!",
+          "damage_required": [ 1, 10 ]
+        },
+        {
+          "effect": "stunned",
+          "duration": [ 1, 2 ],
+          "chance": 25,
+          "message": "The %s is stunned!",
+          "damage_required": [ 11, 100 ]
+        }
+      ]
+    },
+    {
+      "name": "their underside",
+      "armor_mult": { "physical": 0.5 },
+      "damage_mult": { "all": 2.2 },
+      "difficulty": { "melee": 3, "ranged": 1 },
+      "coverage_mult": { "ranged": 0.75 },
+      "coverage": 33,
+      "required_effects": [ "downed" ]
+    },
+    {
+      "name": "the eye",
+      "armor_mult": { "physical": 0 },
+      "coverage": 1,
+      "crit_mult": { "all": 1.25 },
+      "coverage_mult": { "ranged": 0.5 },
+      "difficulty": { "point": 10, "broad": 10 },
+      "effects": [
+        { "effect": "blind", "duration": [ 1, 2 ], "chance": 25, "message": "The %s is blinded!", "damage_required": [ 1, 25 ] },
+        {
+          "effect": "blind",
+          "permanent": true,
+          "chance": 30,
+          "message": "The %s's eyes are obliterated!",
+          "damage_required": [ 26, 100 ]
+        }
+      ]
+    },
+    {
+      "id": "leg",
+      "name": "the leg",
+      "armor_mult": { "bullet": 0.5, "cut": 0.5, "stab": 0.25, "bash": 0.25 },
+      "crit_mult": { "all": 0.75 },
+      "difficulty": { "ranged": 3, "melee": 1 },
+      "coverage_mult": { "point": 0.75 },
+      "effects": [
+        { "effect": "downed", "chance": 15, "message": "The %s is knocked down!", "damage_required": [ 31, 50 ] },
+        { "effect": "downed", "chance": 25, "message": "The %s is knocked down!", "damage_required": [ 51, 100 ] }
+      ],
+      "coverage": 8
+    }
+  ]
+}
