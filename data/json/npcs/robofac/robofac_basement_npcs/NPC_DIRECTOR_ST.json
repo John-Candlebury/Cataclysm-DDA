@@ -26,24 +26,15 @@
     "id": "HUB01_DIRECTOR_1_Intro",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-      "yes": "*You find the director intently studying a desk-embed screen, with her standing figure completely framed by an imposing collection of academic achievements that hangs on the far side of the room.  She doesn't address you until the door is closed behind you.  \"I really hope the trek down wasn't too unwelcoming.  We used to have contingency plans for all types of disaster, but they did fall short of, well, all this.\" \"Doctor Irene, director of Hub 01.  Please, take a seat.\"*",
-      "no": "The guards allow you in?  What are you doing here?" 
+      "yes": "*You find the director intently studying a desk-embed screen, with her standing figure completely framed by an imposing collection of academic achievements that hangs on the far side of the room.  She doesn't address you until the door is closed behind you.  \"I really hope the trek down wasn't too unwelcoming.  There's a place for you here, an\" \"Doctor Irene, director of Hub 01.  Please, take a seat.\"*",
+      "no": "The guards allow you in?  What are you doing here?"
     },
-    "responses": [
-      {
-        "text": "Take a seat.",
-        "topic": "TALK_DONE"
-      },
-      {
-        "text": "Remain Standing.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Take a seat.", "topic": "TALK_DONE" }, { "text": "Remain Standing.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "HUB01_DIRECTOR_REMAIN_STANDING",
     "type": "talk_topic",
-  "dynamic_line": "Feels oddly out of place now, doesn't it?  The fancy desk, the flags in the corner, the diplomas. Already feel like relics of a time when we could afford to pretend that we were in control.  We're not, of course.  We're just trying to survive, like everyone else.\" she continues, \" I called you here because my surface ops team insists that you are as skilled as you are bullheaded.  Now, try to actually listen to me, because I'm sure it'll interest you.\"",
+    "dynamic_line": "I all feels oddly out of place now, doesn't it?  The fancy desk, the flags in the corners, the fancy ofice. All .  We're not, of course.  We're just trying to survive, like everyone else.\" she continues, \" What point is there to sacrifice, if all one can guarantee is their rep",
     "responses": [
       {
         "text": "Hmm.",
@@ -52,7 +43,7 @@
         "effect": "flee"
       },
       {
-        "text": "Sit.",
+        "text": "Remain silent.",
         "topic": "TALK_DONE",
         "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
         "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
@@ -63,8 +54,8 @@
     "id": "TALK_DIRECTOR_1_JOB_OFFER",
     "type": "talk_topic",
     "dynamic_line": "",
-        "responses": [
-          { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
+    "responses": [
+      { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
       { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
       {
         "text": "Director Ma'am we all know what I'm good at.  Dispense with it and just tell me what you need shot and what you are offering.",
@@ -75,9 +66,9 @@
   {
     "id": "TALK_DIRECTOR_1_JOB_OFFER",
     "type": "talk_topic",
-    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We dont expect the mission to be particulalry dangerous, but the site is of immense strategic importance, so we need someone dependable.  Thats your ",
-        "responses": [
-          { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
+    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We dont expect the mission to be particularly dangerous to someone w but the site is of immense strategic importance, so we need someone dependable.  Thats your ",
+    "responses": [
+      { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
       { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
       { "text": "No need.  Lets discuss payment", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
@@ -85,7 +76,7 @@
   {
     "id": "TALK_DIRECTOR_1_OWN_PEOPLE",
     "type": "talk_topic",
-    "dynamic_line": "We don't have "
+    "dynamic_line": "My men are well equipped"
   },
   {
     "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
@@ -97,7 +88,6 @@
     "type": "talk_topic",
     "dynamic_line": "You place your faith with the 2nd fleet remnant?  Do you know that they sank most of the northwestern coast guard and then bombed Natu?  They are traitors and mutineers all, and even if they could be trusted, they are a spent force.  This country wont be comin"
   },
-
   {
     "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
     "type": "talk_topic",
@@ -121,7 +111,7 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_Sand",
     "type": "talk_topic",
-    "dynamic_line": "Fabricator rawstock, put simply.  Mostly a mixture of silica, carbon, iron and assorted heavy metals as fine powder.  Most worringly, it contains trace amounts of aluminum phosphide for semiconductor doping.  It would be fatal to approach the site without an NBC suit.  My assistant can provide you with one if you accept the job.",
+    "dynamic_line": "Fabricator rawstock, put simply.  Mostly a mixture of silica, carbon, iron and assorted heavy metals as fine powder.  Most worringly, it contains trace amounts of aluminum phosphide for semiconductor doping.  It would be fatal to approach the site without an NBC suit.  My assistant can provide you with one if you accept the job."
   },
   {
     "id": "TALK_DIRECTOR_1_Survey_fit a drone inside",
@@ -155,10 +145,7 @@
         "text": "Respectfully ma'am director, I dont think you'll loot 'survival\" from some empty industrial ruins.  But I'll do it, payment upfront.",
         "topic": "TALK_PAYMENT"
       },
-      {
-        "text": "Looks interesting.  Someone should do something",
-        "topic": "TALK_PAYMENT"
-      },
+      { "text": "Looks interesting.  Someone should do something", "topic": "TALK_PAYMENT" },
       {
         "text": "Well if there's any survivors we owe it to them to at least try a rescue.",
         "topic": "TALK_ALTRUIST_PAYMENT"
@@ -171,7 +158,6 @@
       }
     ]
   },
-  
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
@@ -190,14 +176,11 @@
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
-
   {
     "id": "TALK_DIRECTOR_1_Survey_diplomas",
     "type": "talk_topic",
     "dynamic_line": "To your surprise, most of the diretor achievements are completely unrelated to the fields of robotics, mathematics or computing sciences.  You see a few awards for lectures in ",
-    "responses": [
-      { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
-    ]
+    "responses": [ { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" } ]
   },
   {
     "id": "TALK_DIRECTOR_1_wood_feels_nice",
@@ -209,8 +192,6 @@
     "id": "TALK_DIRECTOR_1_END",
     "type": "talk_topic",
     "dynamic_line": "Done.  Direct yourself to my assistant, she'll provide you with the hardware required to access the site.\"  You feel a subtle ambience shift as the hallway guards are summoned by some invisible signal.  \"She's authorized to answer any questions you might still have\"",
-    "responses": [
-      { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "Allow the guards to escort you out.", "topic": "TALK_DONE" } ]
   }
 ]
