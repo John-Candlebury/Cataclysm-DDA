@@ -1,43 +1,30 @@
 [
   {
     "type": "talk_topic",
-    "id": "HUB01_DIRECTOR_1_Guards",
+    "id": "HUB01_DIRECTOR_1_guards",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-      "yes": "You are escorted by a group of four masked guards as you cross through the empty hall of the bunker's administrative wing.  They maintain a respectful distance, but their hands don't leave their weapons even as they open the door to the director's office.  They signal you inside but make no move to follow you themselves."
+      "yes": "You are escorted by a trio of masked guards as you cross through the empty hall of the bunker's administrative wing.  They maintain a respectful distance, but their hands don't leave their weapons even as they open the door to the director's office.  They signal you inside but make no move to follow you themselves."
     },
-    "responses": [
-      {
-        "text": "Eyes forward, you are the important one here.",
-        "topic": "TALK_DONE",
-        "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
-        "effect": "flee"
-      },
-      {
-        "text": "Remain Standing.",
-        "topic": "TALK_DONE",
-        "effect": { "u_add_var": "u_met_ADzvonko", "type": "general", "context": "meeting", "value": "yes" },
-        "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" }
-      }
-    ]
+    "responses": [ { "text": "Enter the office.", "topic": "TALK_DONE", "condition": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } } ]
   },
   {
     "type": "talk_topic",
-    "id": "HUB01_DIRECTOR_1_Intro",
+    "id": "HUB01_DIRECTOR_1_intro",
     "dynamic_line": {
       "u_has_mission": "INTERCOM_MEET_DIRECTOR",
-      "yes": "*You find the director intently studying a desk-embed screen, with her standing figure completely framed by an imposing collection of academic achievements that hangs on the far side of the room.  She doesn't address you until the door is closed behind you.  \"I really hope the trek down wasn't too unwelcoming.  There's a place for you here, an\" \"Doctor Irene, director of Hub 01.  Please, take a seat.\"*",
-      "no": "The guards allow you in?  What are you doing here?"
+      "yes": "*You find the director intently studying a desk-embed screen, her standing figure framed by an intimidating collection of academic achievements that hangs from the far side of the room.  She doesn't address you until the door is closed behind you.  \n\n\"It all feels oddly out of place now, don't you think?  The , uniformed escort, the fancy offices.  Just setup meant to project an idea of prosperity.  We don't thrive, of course.  We merely survive, like everyone else.\" she states, expressing concern that seems too trained to be genuine.  \"What point is there to the sacrifices made today, if they serve only as a springboard for those of tomorrow?\"*",
+      "no": "The guards allow you in?  What are you doing here?'"
     },
-    "responses": [ { "text": "Take a seat.", "topic": "TALK_DONE" }, { "text": "Remain Standing.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "The strong live ", "topic": "" }, { "text": "Remain silent.", "topic": "TALK_DONE" } ]
   },
   {
-    "id": "HUB01_DIRECTOR_REMAIN_STANDING",
+    "id": "HUB01_DIRECTOR_1_intro_continues",
     "type": "talk_topic",
-    "dynamic_line": "I all feels oddly out of place now, doesn't it?  The fancy desk, the flags in the corners, the fancy ofice. All .  We're not, of course.  We're just trying to survive, like everyone else.\" she continues, \" What point is there to sacrifice, if all one can guarantee is their rep",
+    "dynamic_line": "The director continues, unbothered by your interjection. \"We now have an opportunity to break this cycle of misery, and it requires a role be played by someone well versed in the outside.  This I hope, will be you.\"",
     "responses": [
       {
-        "text": "Hmm.",
+        "text": "Its ",
         "topic": "TALK_DIRECTOR_INTERNAL_POLITICS",
         "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
         "effect": "flee"
@@ -66,27 +53,26 @@
   {
     "id": "TALK_DIRECTOR_1_JOB_OFFER",
     "type": "talk_topic",
-    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We dont expect the mission to be particularly dangerous to someone w but the site is of immense strategic importance, so we need someone dependable.  Thats your ",
+    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We don't expect the task to be particularly dangerous to someone with your skillset but the site is of immense strategic importance, so we need someone dependable.  Thats you.",
     "responses": [
+      { "text": "Lo", "topic": "TALK_DIRECTOR_HUB_ROLES" },
       { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
       { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
-      { "text": "No need.  Lets discuss payment", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+      { "text": "And whats in for me.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
   {
     "id": "TALK_DIRECTOR_1_OWN_PEOPLE",
     "type": "talk_topic",
-    "dynamic_line": "My men are well equipped"
+    "dynamic_line": "My men are well equipped, but their ability to work on the surface remains unproved, unlike yours."
   },
   {
-    "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
-    "type": "talk_topic",
-    "dynamic_line": "Your work is worth noticing, your and there's no need to mention your other areas of expertize.  We require as you are well aweare off"
+    
   },
   {
     "id": "TALK_DIRECTOR_1_OLD_GUARD",
     "type": "talk_topic",
-    "dynamic_line": "You place your faith with the 2nd fleet remnant?  Do you know that they sank most of the northwestern coast guard and then bombed Natu?  They are traitors and mutineers all, and even if they could be trusted, they are a spent force.  This country wont be comin"
+    "dynamic_line": "You place your faith with the 2nd fleet remnant?  Do you know that they sank most of the northwestern coast guard and then bombed Natu?  They are traitors and mutineers all, and even if they could be trusted, they are a spent force.  The country will not raise from the ashes, not matter how many flags they hoist."
   },
   {
     "id": "TALK_DIRECTOR_1_GOOD_TO_KNOW",
@@ -102,7 +88,7 @@
     "type": "talk_topic",
     "dynamic_line": "You flip through several aerial photographs of a fortified compound built around a large cubical warehouse.  Someone has drawn a circle around an open maintenance hatch on the warehouse roof and written \"easiest entry point\" in the margin.  A small number of zombies are visible wandering ",
     "responses": [
-      { "text": "Couldn't fit a drone inside?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
+      { "text": "Couldn't fit the survey drone inside?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
       { "text": "What's with the grey sand deposits?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
       { "text": "Continue to the next section of the dossier", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
       { "text": "I've seen enough.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -114,14 +100,19 @@
     "dynamic_line": "Fabricator rawstock, put simply.  Mostly a mixture of silica, carbon, iron and assorted heavy metals as fine powder.  Most worringly, it contains trace amounts of aluminum phosphide for semiconductor doping.  It would be fatal to approach the site without an NBC suit.  My assistant can provide you with one if you accept the job."
   },
   {
-    "id": "TALK_DIRECTOR_1_Survey_fit a drone inside",
+    "id": "TALK_DIRECTOR_1_zombie_count",
     "type": "talk_topic",
-    "dynamic_line": "Not fruitfully, the entire warehouse is EM shielded, we loose connection two feet in.  We know theres a maintenance gantry right behind it, so immediate access to the building should be relatively safe."
+    "dynamic_line": "The site would have been operating with a skeleton crew when disaster struck.  Based on our estimates that would have been around 15 security personel and as many technicians, we don't expect any of them to have made it out or survived, as you can see from the footage. The screen turns to show a single employee profile. \"The site's security chief, in case you find him alive, although I wouldn't count on it.\""
+  },
+  {
+    "id": "TALK_DIRECTOR_1_SURVEY_DRONE",
+    "type": "talk_topic",
+    "dynamic_line": "Not fruitfully, the entire warehouse is EM shielded, we loose connection two feet in.  We know theres a maintenance gantry right behind it, so the immediate access to the building should be relatively safe."
   },
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
-    "dynamic_line": "You proceed through the schematics of an incredibly complex robotic",
+    "dynamic_line": "You proceed through a limited description of a massive robotic assembler, the ",
     "responses": [
       { "text": "This doesnt really look at all diferent to any zombie infested ", "topic": "TALK_DONE" },
       { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
@@ -133,7 +124,7 @@
     "dynamic_line": "The binder continues to list several delivery manifests, all for implausibly large quantities of silica sand.  An assistant has helpfully decoded what was actually delivered, mostly p",
     "responses": [
       { "text": "Power through the end of the document", "topic": "TALK_DONE" },
-      { "text": "I've read enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+      { "text": "I've seen enough.  Lets discuss payment.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
   {
