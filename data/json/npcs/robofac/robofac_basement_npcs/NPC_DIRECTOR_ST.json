@@ -16,15 +16,34 @@
       "yes": "*You find the director intently studying a desk-embed screen, her standing figure framed by an intimidating collection of academic achievements that hangs from the far side of the room.  She doesn't address you until the door is closed behind you.  \n\n\"It all feels oddly out of place now, don't you think?  The , uniformed escort, the fancy offices.  Just setup meant to project an idea of prosperity.  We don't thrive, of course.  We merely survive, like everyone else.\" she states, expressing concern that seems too trained to be genuine.  \"What point is there to the sacrifices made today, if they serve only as a springboard for those of tomorrow?\"*",
       "no": "The guards allow you in?  What are you doing here?'"
     },
-    "responses": [ { "text": "The strong live ", "topic": "" }, { "text": "Remain silent.", "topic": "TALK_DONE" } ]
+    "responses": [
+      { "text": "Sacrifice is the price of progress.  We'll get t", "topic": "HUB01_DIRECTOR_1_intro_continues" },
+      { "text": ", " },
+      {
+        "text": "Director Ma'am we all know what I'm good at.  Dispense with it and just tell me what you need shot and what you are offering.",
+        "topic": "TALK_DIRECTOR_1_JOB_OFFER",
+        "effect": { "npc_add_var": "player_skip_intro", "value": "yes" }
+      },
+      { "text": "Remain silent.", "topic": "HUB01_DIRECTOR_1_intro_continues" }
+    ]
   },
   {
     "id": "HUB01_DIRECTOR_1_intro_continues",
     "type": "talk_topic",
-    "dynamic_line": "The director continues, unbothered by your interjection. \"We now have an opportunity to break this cycle of misery, and it requires a role be played by someone well versed in the outside.  This I hope, will be you.\"",
+    "dynamic_line": {
+      "concatenate": [
+        {
+          "npc_has_var": "player_said_somenthing_intro",
+          "value": "yes",
+          "yes": "The director continues, unbothered by your interjection.",
+          "no": "The question is allowed to hang in the air for a brief moment."
+        },
+        "  \"We now have an opportunity to break this cycle of misery, and it requires a role be played by someone well versed with the surface.  This I hope, will be you.\""
+      ]
+    },
     "responses": [
       {
-        "text": "Its ",
+        "text": "And what would be my role in this?",
         "topic": "TALK_DIRECTOR_INTERNAL_POLITICS",
         "condition": { "not": { "u_has_trait": "PROF_HUB01_ANCILLIARY" } },
         "effect": "flee"
@@ -38,26 +57,25 @@
     ]
   },
   {
-    "id": "TALK_DIRECTOR_1_JOB_OFFER",
+    "id": "TALK_DIRECTOR_IN_FOR",
     "type": "talk_topic",
-    "dynamic_line": "",
+    "dynamic_line": "Direct access to our facilities.  Gear, lodging, research intel and ",
     "responses": [
       { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
-      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
-      {
-        "text": "Director Ma'am we all know what I'm good at.  Dispense with it and just tell me what you need shot and what you are offering.",
-        "topic": "TALK_DIRECTOR_1_JOB"
-      }
+      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
   {
     "id": "TALK_DIRECTOR_1_JOB_OFFER",
     "type": "talk_topic",
-    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We don't expect the task to be particularly dangerous to someone with your skillset but the site is of immense strategic importance, so we need someone dependable.  Thats you.",
+    "dynamic_line": "You realize the desktop screen is much larger than expected when the entire desk surface lights up with an aerial photograph of a fortified compound. \"I'll keep it simple.  We need someone that can scout, clear, and hold the facility shown here until we can send a restoration team.  We don't expect the task to be particularly dangerous to someone with your skill set, but the site is of immense strategic importance, so we need someone dependable.",
     "responses": [
-      { "text": "Lo", "topic": "TALK_DIRECTOR_HUB_ROLES" },
-      { "text": "Your work?", "topic": "TALK_DIRECTOR_HUB_ROLES" },
-      { "text": "And what part do I play in this?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "Look closer into the photograph", "topic": "TALK_DIRECTOR_HUB_MISSION_INTEL" },
+      { "text": "What's the intel on the place?", "topic": "TALK_DIRECTOR_HUB_MISSION_INTEL" },
+      {
+        "text": "Certainly your security could handle this.  What's the catch?",
+        "topic": "TALK_DIRECTOR_INTERNAL_POLITICS"
+      },
       { "text": "And whats in for me.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
@@ -86,23 +104,29 @@
   {
     "id": "TALK_DIRECTOR_1_Survey_room",
     "type": "talk_topic",
-    "dynamic_line": "You flip through several aerial photographs of a fortified compound built around a large cubical warehouse.  Someone has drawn a circle around an open maintenance hatch on the warehouse roof and written \"easiest entry point\" in the margin.  A small number of zombies are visible wandering ",
+    "dynamic_line": "The site consist of a fortified compound built around a large cubical warehouse.  An open maintenance hatch on the warehouse roof has been digitally highlighted as \"recommended access point\".  A small number of zombies are visible wandering, a few wear the remnants of military uniforms.",
     "responses": [
       { "text": "Couldn't fit the survey drone inside?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
-      { "text": "What's with the grey sand deposits?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
-      { "text": "Continue to the next section of the dossier", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "How many zombies inside?", "topic": "TALK_DIRECTOR_1_ZOMBIE_COUNT" },
+      { "text": "What's in the warehouse?", "topic": "TALK_DIRECTOR_1_INSIDE" },
       { "text": "I've seen enough.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
   {
-    "id": "TALK_DIRECTOR_1_Survey_Sand",
+    "id": "TALK_DIRECTOR_1_ZOMBIE_COUNT",
     "type": "talk_topic",
-    "dynamic_line": "Fabricator rawstock, put simply.  Mostly a mixture of silica, carbon, iron and assorted heavy metals as fine powder.  Most worringly, it contains trace amounts of aluminum phosphide for semiconductor doping.  It would be fatal to approach the site without an NBC suit.  My assistant can provide you with one if you accept the job."
+    "dynamic_line": "The site would have been operating with a skeleton crew when disaster struck.  Based on our estimates that would have been around 15 security personel and as many technicians, we don't expect any of them to have made it out or survived, as you can see from the footage\". The screen turns to show a single employee profile.  \"The site's security chief, in case you find him alive.\""
   },
   {
-    "id": "TALK_DIRECTOR_1_zombie_count",
+    "id": "TALK_DIRECTOR_1_INSIDE",
     "type": "talk_topic",
-    "dynamic_line": "The site would have been operating with a skeleton crew when disaster struck.  Based on our estimates that would have been around 15 security personel and as many technicians, we don't expect any of them to have made it out or survived, as you can see from the footage. The screen turns to show a single employee profile. \"The site's security chief, in case you find him alive, although I wouldn't count on it.\""
+    "dynamic_line": "The screen turns to displace a CAD schematic of a complex machine, built into the shape of pillar, and supposedly situated in the central warehouse of the compound.  Segments the machine's interior are unlabeled and undrawn. \"This is a nanofabricator master unit.  One of the two original's retrieved, and from which the simpler prototype models where derived.  By all effects, its a machine that can build anything, given the right materials and a blueprint.",
+    "responses": [
+      { "text": "Shit how do you even build something like this?", "topic": "TALK_DIRECTOR_BUILD_NANOFAB" },
+      { "text": "And it works still?", "topic": "TALK_DIRECTOR_NRE_EXPLANATION" },
+      { "text": "Your restoration team really can fix it?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" },
+      { "text": "I've seen enough.", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
+    ]
   },
   {
     "id": "TALK_DIRECTOR_1_SURVEY_DRONE",
@@ -163,7 +187,7 @@
     "type": "talk_topic",
     "dynamic_line": "Your start from the desk, the obvious centerpiece and the most conveniently placed object around.  It's a massive slab of polished hard-wood, seemingly carved from an implausibly gigantic tree.  The working surface is a single piece of black tempered glass that tastefully hides the embed-screen now that its turned off.  You'd expect to see a piece like this in the penthouse office of some tech CEO, not hidden in the basement of a research facility.  Either this Irene is a secret billionaire or you are witnessing one of the most bloated blacksite budgets in history.",
     "responses": [
-      { "text": "Its wood expensive for sure, is it FEEL nice wood too?", "topic": "TALK_DONE" },
+      { "text": "Its look nice wood but, is it FEEL nice wood too?", "topic": "TALK_DONE" },
       { "text": "And my payment?", "topic": "TALK_DIRECTOR_INTERNAL_POLITICS" }
     ]
   },
