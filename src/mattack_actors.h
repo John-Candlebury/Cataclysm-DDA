@@ -290,7 +290,7 @@ public:
 
         // Method to create a field from the template
         field create_field(const tripoint& pos, const int delay) const {
-            field f(pos, field_type_id("fd_telegraphed_attack_area"));
+            field f(pos, field_type_id("fd_telegraphed_attack_area"), );
             f.set_field_name(name);
             f.set_symbol(symbol);
             f.set_color(color);
@@ -309,7 +309,7 @@ public:
     std::unique_ptr<mattack_actor> clone() const override;
 
     // Apply the telegraphed attack and create the field
-    void on_damage(monster &z, Creature &target, dealt_damage_instance &dealt) const override;
+    void on_damage( monster &z, Creature &target, dealt_damage_instance &dealt ) const override;
 
     // JSON loading
     void load_internal(const JsonObject &obj, const std::string &src) override;
@@ -346,6 +346,9 @@ private:
     bool is_grab = false;
     bool interruptible = false; // Determines if the attack can be interrupted
     bool affect_self = false; // When true, attacks are applied to the attacker if they fall in the AoE
+    bool attack_path = false; // Determines if the attack lands along the path to the target
+
+
 
     std::string interrupt_effect = "cancel_attack"; // Defines what happens when interrupted
 

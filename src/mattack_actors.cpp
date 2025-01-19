@@ -1421,19 +1421,22 @@ std::unique_ptr < mattack_actor > telegraphed_attack_actor::clone() const {
   return std::make_unique < telegraphed_attack_actor > ( * this);
 }
 
-// Vector to store the field locations for this attack
-std::vector < tripoint > telegraphed_attack_actor::created_fields;
+
 
 // Apply the telegraphed attack and create the field
 void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_damage_instance & dealt) const {
 
+    // Vector to store the field locations for this attack
+    std::vector < tripoint_bub_ms > created_fields;  
+
+    map &here = get_map();
     // Currently here to check before running unnecessary code
     // this is "Part One" of the attack, so most checks are here
     if( has_condition ) {
         dialogue d( get_talker_for( &z ), nullptr );
         if( !condition( d ) ) {
             add_msg_debug( debugmode::DF_MATTACK, "Attack conditionals failed" );
-            return false;
+            return;
         }
     }
 
@@ -1459,12 +1462,12 @@ void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_d
             // Calculate path from attacker to target if the target is not adjacent
             // Major TODO is to highlight monster making this attack through examining
             if (abs(attacker_x - target_x) > 1 || abs(attacker_y - target_y) > 1) {
-              std::vector < tripoint > path = g -> m.get_line(tripoint(attacker_x, attacker_y, z.posz()), tripoint(target_x, target_y, target.posz()));
+              std::vector < tripoint_bub_ms > path = here.get_line(tripoint(attacker_x, attacker_y, z.posz()), tripoint(target_x, target_y, target.posz()));
 
               // Apply effects along the path
               for (const tripoint & p: path) {
-                if (g -> m.in_bounds(p.x, p.y)) {
-                  g -> m.add_field(p, field_type_id("fd_telegraphed_attack_area"), attack_delay);
+                if (here.in_bounds(p.x, p.y)) {
+                  here.add_field(p, field_type_id("fd_telegraphed_attack_area"), attack_delay);
                   field & f = g -> m.field_at(tripoint(target_x, target_y, z.posz()));
                 f.set_field_name(field_name);
                 f.set_field_symbol(field_symbol);
@@ -1476,8 +1479,8 @@ void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_d
           }
 
           // Ensure we're within bounds
-          if (g -> m.in_bounds(target_x, target_y)) {
-            g -> m.add_field(tripoint(target_x, target_y, z.posz()), field_type_id("fd_telegraphed_attack_area"), attack_delay);
+          if (here.in_bounds(target_x, target_y)) {
+            here.add_field(tripoint(target_x, target_y, z.posz()), field_type_id("fd_telegraphed_attack_area"), attack_delay);
 
             field & f = g -> m.field_at(tripoint(target_x, target_y, z.posz()));
             f.set_field_name(field_name);
@@ -1489,7 +1492,7 @@ void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_d
       }
     }
     if (!telegraph_warn_msg.empty()) {
-        add_msg_if_player_sees(z, m_warning, telegraph_warn_msg);
+        add_msg_if_player_sees(z, m_warning, telegraph_warn_msg.translated());
     }
   }
 
@@ -1519,7 +1522,7 @@ void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_d
     for (const tripoint & p: created_fields) {
       // Ensure we're within bounds, may be redundant
       if (g -> m.in_bounds(p.x, p.y)) {
-        g -> m.remove_field(p); // Clear the field
+        here.clear_fields(p); // Clear the field
       }
     }
     created_fields.clear(); // Clear the list
@@ -1541,6 +1544,7 @@ void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_d
 
 Creature * telegraphed_attack_actor::find_target(monster & z) const {
   std::vector < Creature * > targets;
+    map &here = get_map();
 
   // Iterate over the attack shape and find creatures in the affected tiles
   for (int y = 0; y < attack_shape.size(); y++) {
@@ -1548,7 +1552,7 @@ Creature * telegraphed_attack_actor::find_target(monster & z) const {
       if (attack_shape[y][x]) {
         int target_x = z.posx() + x;
         int target_y = z.posy() + y;
-        Creature * target_creature = g -> critter_at(target_x, target_y);
+        Creature * target_creature = here.critter_at(target_x, target_y);
 
         if (target_creature && (target_creature != & z || affect_self)) {
           targets.push_back(target_creature);
