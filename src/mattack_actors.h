@@ -377,7 +377,7 @@ private:
     translation no_dmg_msg_npc;
     translation hit_dmg_npc;
     translation throw_msg_npc;
-    translation telegraph_warn_msg
+    translation telegraph_warn_msg;
 
     // FieldTemplate instance to store the field information
     FieldTemplate field_template;

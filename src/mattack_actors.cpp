@@ -1349,7 +1349,6 @@ if (obj.has_member("field_color")) {
     } } else {
       debugmsg("Mandatory field 'attack_size' is missing");
     }
-  }
 
   if (obj.has_member("attack_path")) {
     attack_path = obj.get_bool("attack_path");
@@ -1398,7 +1397,7 @@ if (obj.has_member("field_color")) {
   if (obj.has_member("interrupt_effect")) {
     const JsonObject & interrupt_obj = obj.get_object("interrupt_effect");
 
-    optional(interrupt_obj, was_loaded, "type", interrupt_type)
+    optional(interrupt_obj, was_loaded, "type", interrupt_type);
     optional(interrupt_obj, was_loaded, "accuracy_multiplier", accuracy_multiplier, 1.0 f); // Default multiplier 1.0 (no change)
     optional(interrupt_obj, was_loaded, "damage_multiplier", damage_multiplier, 1.0 f); // Default multiplier 1.0 (no change)
     optional(interrupt_obj, was_loaded, "allow_eoc", allow_eoc, false);

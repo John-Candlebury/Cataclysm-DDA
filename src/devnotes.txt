@@ -1,0 +1,16 @@
+OtherBiscuit here, I've got some notes and to-do tasks I wasn't able to wrap up.
+
+Everything was in working order, but I accidentally deleted the test monsters a while back, and I hadn't put in most of the error messages. Additionally, the code isn't formatted for Cataclysm: DDA. Sorry it isn't more complete, hopefully this doesn't break too badly.
+
+Most of the code is the same as ordinary melee code, only with structure for marking where the attack will land on a delay before and potentially after. This is for the attack type to be marked as "TELEGRAPH", but really this code could be put into the ordinary attack code, or even just call on the existing functions without copying them.
+
+To Do's:
+
+For making sure I didn't brick the code between my test and now:
+-Create the editable attack field (high priority to display above other fields, copied temporarily to be edited by attack json)
+-Create test monsters (I used a test for attack pathing, area attacks at melee range, and an attack that applies a spell to the monster; these are just the ones I used)
+-Compile and boot, make sure nothing prevents loading
+
+A couple ideas I had but didn't add:
+-Highlighting the monster(s) which is(are) targeting a tile, probably by cycling the sprites of the monster between its ordinary sprite and the sprite of the field (similar to the map cycling between "@" and the highlighted tile)
+-Adjust existing monsters for balance. This can definitely be left for later, but I'd had ideas for the zombie spitter family and hulk (calling a random shape, marking the area for a turn or two to allow crazy dodges; melee range, pulling on the target's limbs to try pulling them apart for massive limb damage. These are random ideas, not at all strictly necessary.)
