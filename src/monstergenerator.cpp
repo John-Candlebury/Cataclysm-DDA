@@ -1480,6 +1480,8 @@ mtype_special_attack MonsterGenerator::create_actor( const JsonObject &obj,
         new_attack = std::make_unique<gun_actor>();
     } else if( attack_type == "spell" ) {
         new_attack = std::make_unique<mon_spellcasting_actor>();
+    } else if( attack_type == "telegraph" ) {
+        new_attack = std::make_unique<telegraphed_attack_actor>();
     } else {
         obj.throw_error_at( "attack_type", "unknown monster attack" );
     }

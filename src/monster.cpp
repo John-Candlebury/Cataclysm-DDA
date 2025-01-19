@@ -1413,6 +1413,8 @@ bool monster::can_act() const
            ( effects->empty() ||
              ( !has_effect( effect_stunned ) && !has_effect( effect_psi_stunned ) &&
                !has_effect( effect_downed ) && !has_effect( effect_webbed ) ) );
+            telegraph_turns_left == -1
+            telegraph_recovery_turns_left == 0
 }
 
 int monster::sight_range( const float light_level ) const

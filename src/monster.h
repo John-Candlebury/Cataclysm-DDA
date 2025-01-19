@@ -371,6 +371,7 @@ class monster : public Creature
         void deal_projectile_attack( Creature *source, dealt_projectile_attack &attack,
                                      bool print_messages = true,
                                      const weakpoint_attack &wp_attack = weakpoint_attack() ) override;
+        void telegraphed_attack( Creature &target );
         void deal_damage_handle_type( const effect_source &source, const damage_unit &du, bodypart_id bp,
                                       int &damage, int &pain ) override;
         void apply_damage( Creature *source, bodypart_id bp, int dam,
@@ -598,6 +599,10 @@ class monster : public Creature
 
         // Ammunition if we use a gun.
         std::map<itype_id, int> ammo;
+
+        // Turn delay and recovery for telegraphed attacks
+        int telegraph_turns_left = -1;
+        int telegraph_recovery_turns_left = 0;
 
         /**
          * Convert this monster into an item (see @ref mtype::revert_to_itype).

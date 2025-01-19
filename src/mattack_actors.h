@@ -275,4 +275,115 @@ class gun_actor : public mattack_actor
         std::unique_ptr<mattack_actor> clone() const override;
 };
 
+class telegraphed_attack_actor : public mattack_actor {
+public:
+    // FieldTemplate class to define properties for fields in telegraphed attacks
+    class FieldTemplate {
+    public:
+        std::string name;
+        std::string symbol;
+        nc_color color;
+
+        // Constructor
+        FieldTemplate(const std::string &n, const std::string &s, nc_color c)
+            : name(n), symbol(s), color(c) {}
+
+        // Method to create a field from the template
+        field create_field(const tripoint& pos, const int delay) const {
+            field f(pos, field_type_id("fd_telegraphed_attack_area"));
+            f.set_field_name(name);
+            f.set_symbol(symbol);
+            f.set_color(color);
+            f.set_field_age(delay);
+            return f;
+        }
+    };
+
+    // Constructor
+    telegraphed_attack_actor();
+
+    // Destructor
+    virtual ~telegraphed_attack_actor() override = default;
+
+    // Clone the attack actor
+    std::unique_ptr<mattack_actor> clone() const override;
+
+    // Apply the telegraphed attack and create the field
+    void on_damage(monster &z, Creature &target, dealt_damage_instance &dealt) const override;
+
+    // JSON loading
+    void load_internal(const JsonObject &obj, const std::string &src) override;
+
+    // Find targets in the affected area
+    Creature* find_target(monster &z) const override;
+
+    // Delay before and after the attack occurs, in turns
+    int attack_delay = 3;
+    int attack_recovery = 0;
+
+    // Triggers attack
+    bool call(monster &z) const;
+
+private:
+    // Attack damage instance
+    damage_instance damage_max_instance;
+
+    // Minimum and maximum multipliers on damage
+    float min_mul = 0.5f;
+    float max_mul = 1.0f;
+
+    int accuracy = INT_MIN;
+
+    // Attack range; 1 means melee only, 0 is centered on the user
+    int range = 0;
+
+    bool no_adjacent = false;
+    bool dodgeable = true;
+    bool uncanny_dodgeable = true;
+    bool blockable = true;
+    bool effects_require_dmg = true;
+    bool effects_require_organic = false;
+    bool is_grab = false;
+    bool interruptible = false; // Determines if the attack can be interrupted
+    bool affect_self = false; // When true, attacks are applied to the attacker if they fall in the AoE
+
+    std::string interrupt_effect = "cancel_attack"; // Defines what happens when interrupted
+
+    // Throw strength (for throw-based attacks)
+    int throw_strength = 0;
+
+    // Bodypart hit sizes (for targeting specific bodyparts)
+    int hitsize_min = -1;
+    int hitsize_max = -1;
+
+    // Attack area (e.g., upper body or specific bodyparts)
+    bool attack_upper = true;
+
+    // Grab data (if applicable)
+    grab grab_data;
+
+    // List of effects applied to the attacker
+    std::vector<mon_effect_data> effects;
+    std::vector<mon_effect_data> self_effects_always;
+    std::vector<mon_effect_data> self_effects_onhit;
+    std::vector<mon_effect_data> self_effects_ondmg;
+
+    // Message translations for various outcomes
+    translation miss_msg_u;
+    translation no_dmg_msg_u;
+    translation hit_dmg_u;
+    translation throw_msg_u;
+    translation miss_msg_npc;
+    translation no_dmg_msg_npc;
+    translation hit_dmg_npc;
+    translation throw_msg_npc;
+    translation telegraph_warn_msg
+
+    // FieldTemplate instance to store the field information
+    FieldTemplate field_template;
+
+    // Attack shape as a 2D grid of booleans (e.g., 3x3 area)
+    std::vector<std::vector<bool>> attack_shape;
+};
+
 #endif // CATA_SRC_MATTACK_ACTORS_H

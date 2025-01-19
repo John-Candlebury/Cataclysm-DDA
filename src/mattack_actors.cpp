@@ -29,6 +29,7 @@
 #include "mtype.h"
 #include "npc.h"
 #include "options.h"
+#include "pathfinding.h"
 #include "point.h"
 #include "projectile.h"
 #include "ret_val.h"
@@ -1300,4 +1301,318 @@ bool gun_actor::shoot( monster &z, const tripoint_bub_ms &target, const gun_mode
         z.ammo[ammo_type] -= tmp.fire_gun( target, gun.gun_current_mode().qty );
     }
     return true;
+}
+
+telegraphed_attack_actor::telegraphed_attack_actor(): attack_delay(3), accuracy(INT_MIN), range(1), dodgeable(true),
+  uncanny_dodgeable(true), blockable(true), effects_require_dmg(true),
+  effects_require_organic(false), throw_strength(0), hitsize_min(-1),
+  hitsize_max(-1), attack_upper(true) {
+    // Default descriptions
+    miss_msg_u = to_translation("%s strikes at you, but you dodge!");
+    no_dmg_msg_u = to_translation("%1$s strikes your %2$s, but fails to penetrate armor!");
+    hit_dmg_u = to_translation("%1$s strikes your %2$s!");
+    throw_msg_u = to_translation("%s hits you with such a force that it sends you flying!");
+    miss_msg_npc = to_translation("%s strikes at <npcname>, but they dodge!");
+    no_dmg_msg_npc = to_translation("%1$s strikes <npcname>'s %2$s, but fails to penetrate armor!");
+    hit_dmg_npc = to_translation("%1$s strikes <npcname>'s %2$s!");
+    throw_msg_npc = to_translation("%s hits <npcname> with such a force that it sends them flying!");
+    telegraph_warn_msg = to_translation("%s winds up an attack!");
+  }
+
+void telegraphed_attack_actor::load_internal(const JsonObject & obj,
+  const std::string & src) {
+  mattack_actor::load_internal(obj, src);
+
+// Load field-specific parameters
+if (obj.has_member("field_name")) {
+    field_template.name = obj.get_string("field_name", "Telegraphed Area");
+}
+
+if (obj.has_member("field_symbol")) {
+    field_template.symbol = obj.get_string("field_symbol", "#");
+}
+
+if (obj.has_member("field_color")) {
+    field_template.color = color_from_string(obj.get_string("field_color", "blue"));
+}
+
+  // Mandatory for proper functioning. Coding a default felt unnecessary given the usage
+  if (obj.has_member("attack_size")) {
+    const JsonArray & arr = obj.get_array("attack_size");
+    attack_shape.clear();
+    for (const std::string & line: arr) {
+      std::vector < bool > row;
+      for (char c: line) {
+        row.push_back(c == '!');
+      }
+      attack_shape.push_back(row);
+    } } else {
+      debugmsg("Mandatory field 'attack_size' is missing");
+    }
+  }
+
+  if (obj.has_member("attack_path")) {
+    attack_path = obj.get_bool("attack_path");
+  }
+
+  if( obj.has_member( "condition" ) ) {
+        read_condition( obj, "condition", condition, false );
+        has_condition = true;
+    }
+
+  if (obj.has_member("interruptible")) {
+    interruptible = obj.get_bool("interruptible");
+  }
+  if (obj.has_member("interrupt_effect")) {
+    interrupt_effect = obj.get_string("interrupt_effect");
+  }
+  // For now, this uses a specified modifier instead of the ones already elsewhere
+  if (obj.has_member("interrupt_effect_modifiers")) {
+    const JsonArray & modifiers = obj.get_array("interrupt_effect_modifiers");
+    for (const JsonObject & mod: modifiers) {
+      if (mod.has_member("accuracy")) {
+        accuracy_multiplier = mod.get_float("accuracy", 1.0 f);
+      }
+      if (mod.has_member("damage")) {
+        damage_multiplier = mod.get_float("damage", 1.0 f);
+      }
+    }
+  }
+
+  // Load attack parameters, most have defaults for simplicity when testing
+  optional(obj, was_loaded, "damage_max_instance", damage_max_instance);
+  optional(obj, was_loaded, "accuracy", accuracy, INT_MIN);
+  optional(obj, was_loaded, "min_mul", min_mul, 0.5 f);
+  optional(obj, was_loaded, "max_mul", max_mul, 1.0 f);
+  optional(obj, was_loaded, "attack_delay", attack_delay, 3);
+  optional(obj, was_loaded, "throw_strength", throw_strength, 0);
+  optional(obj, was_loaded, "no_adjacent", no_adjacent, false);
+  optional(obj, was_loaded, "dodgeable", dodgeable, true);
+  optional(obj, was_loaded, "uncanny_dodgeable", uncanny_dodgeable, dodgeable);
+  optional(obj, was_loaded, "blockable", blockable, true);
+  optional(obj, was_loaded, "effects_require_dmg", effects_require_dmg, true);
+  optional(obj, was_loaded, "effects_require_organic", effects_require_organic, false);
+  optional(obj, was_loaded, "affect_self", affect_self, false);
+  optional(obj, was_loaded, "interruptible", interruptible, false);
+  optional(obj, was_loaded, "interrupt_effect", interrupt_effect);
+  if (obj.has_member("interrupt_effect")) {
+    const JsonObject & interrupt_obj = obj.get_object("interrupt_effect");
+
+    optional(interrupt_obj, was_loaded, "type", interrupt_type)
+    optional(interrupt_obj, was_loaded, "accuracy_multiplier", accuracy_multiplier, 1.0 f); // Default multiplier 1.0 (no change)
+    optional(interrupt_obj, was_loaded, "damage_multiplier", damage_multiplier, 1.0 f); // Default multiplier 1.0 (no change)
+    optional(interrupt_obj, was_loaded, "allow_eoc", allow_eoc, false);
+  }
+  optional(obj, was_loaded, "attack_path", attack_path, false); // Causes the attack to land along the path to the target
+
+  // Default message strings
+  optional(obj, was_loaded, "miss_msg_u", miss_msg_u, to_translation("%s strikes at you, but you dodge!"));
+  optional(obj, was_loaded, "no_dmg_msg_u", no_dmg_msg_u, to_translation("%1$s strikes your %2$s, but fails to penetrate armor!"));
+  optional(obj, was_loaded, "hit_dmg_u", hit_dmg_u, to_translation("%1$s strikes your %2$s!"));
+  optional(obj, was_loaded, "throw_msg_u", throw_msg_u, to_translation("%s hits you with such a force that it sends you flying!"));
+  optional(obj, was_loaded, "miss_msg_npc", miss_msg_npc, to_translation("%s strikes at <npcname>, but they dodge!"));
+  optional(obj, was_loaded, "no_dmg_msg_npc", no_dmg_msg_npc, to_translation("%1$s strikes <npcname>'s %2$s, but fails to penetrate armor!"));
+  optional(obj, was_loaded, "hit_dmg_npc", hit_dmg_npc, to_translation("%1$s strikes <npcname>'s %2$s!"));
+  optional(obj, was_loaded, "throw_msg_npc", throw_msg_npc, to_translation("%s hits <npcname> with such a force that it sends them flying!"));
+  optional(obj, was_loaded, "telegraph_warn_msg", telegraph_warn_msg, "%s winds up an attack!");
+}
+
+// Clone the attack actor
+std::unique_ptr < mattack_actor > telegraphed_attack_actor::clone() const {
+  return std::make_unique < telegraphed_attack_actor > ( * this);
+}
+
+// Vector to store the field locations for this attack
+std::vector < tripoint > telegraphed_attack_actor::created_fields;
+
+// Apply the telegraphed attack and create the field
+void telegraphed_attack_actor::on_damage(monster & z, Creature & target, dealt_damage_instance & dealt) const {
+
+    // Currently here to check before running unnecessary code
+    // this is "Part One" of the attack, so most checks are here
+    if( has_condition ) {
+        dialogue d( get_talker_for( &z ), nullptr );
+        if( !condition( d ) ) {
+            add_msg_debug( debugmode::DF_MATTACK, "Attack conditionals failed" );
+            return false;
+        }
+    }
+
+  // Set the telegraph countdown
+  if (z.telegraph_turns_left < 0) {
+    z.telegraph_turns_left = attack_delay;
+  }
+
+  // Setup field and send warning
+  if (z.telegraph_turns_left == attack_delay) {
+    for (int y = 0; y < attack_shape.size(); y++) {
+      for (int x = 0; x < attack_shape[y].size(); x++) {
+        if (attack_shape[y][x]) {
+          int target_x = z.posx() + x;
+          int target_y = z.posy() + y;
+
+          if (attack_path && range > 1) {
+            int attacker_x = z.posx();
+            int attacker_y = z.posy();
+            int target_x = target.posx();
+            int target_y = target.posy();
+
+            // Calculate path from attacker to target if the target is not adjacent
+            // Major TODO is to highlight monster making this attack through examining
+            if (abs(attacker_x - target_x) > 1 || abs(attacker_y - target_y) > 1) {
+              std::vector < tripoint > path = g -> m.get_line(tripoint(attacker_x, attacker_y, z.posz()), tripoint(target_x, target_y, target.posz()));
+
+              // Apply effects along the path
+              for (const tripoint & p: path) {
+                if (g -> m.in_bounds(p.x, p.y)) {
+                  g -> m.add_field(p, field_type_id("fd_telegraphed_attack_area"), attack_delay);
+                  field & f = g -> m.field_at(tripoint(target_x, target_y, z.posz()));
+                f.set_field_name(field_name);
+                f.set_field_symbol(field_symbol);
+                f.set_field_color(field_color);
+                created_fields.push_back(tripoint(target_x, target_y, z.posz()));
+                }
+              }
+            }
+          }
+
+          // Ensure we're within bounds
+          if (g -> m.in_bounds(target_x, target_y)) {
+            g -> m.add_field(tripoint(target_x, target_y, z.posz()), field_type_id("fd_telegraphed_attack_area"), attack_delay);
+
+            field & f = g -> m.field_at(tripoint(target_x, target_y, z.posz()));
+            f.set_field_name(field_name);
+            f.set_field_symbol(field_symbol);
+            f.set_field_color(field_color);
+            created_fields.push_back(tripoint(target_x, target_y, z.posz()));
+          }
+        }
+      }
+    }
+    if (!telegraph_warn_msg.empty()) {
+        add_msg_if_player_sees(z, m_warning, telegraph_warn_msg);
+    }
+  }
+
+  // If not yet time for attack, decrement the delay (happens every turn)
+  if (z.telegraph_turns_left > 0) {
+    z.telegraph_turns_left--;
+    return;
+  }
+
+  if (interruptible && z.telegraph_turns_left > 0) {
+    if (dealt.total_damage() > 0 || z.attacked_this_turn()) {
+      if (interrupt_effect == "cancel_attack") {
+        z.telegraph_turns_left = -1; // Cancel the attack
+        z.telegraph_recovery_turns_left = 0;
+        return;
+      }
+    }
+  }
+
+  if (z.telegraph_turns_left == 0) {
+    telegraphed_attack_actor::call( * this); // Execute
+  }
+
+  // Cleanup after attack ends
+  // Remove all fields created during the telegraphed attack
+  if (z.telegraph_turns_left <= 0) {
+    for (const tripoint & p: created_fields) {
+      // Ensure we're within bounds, may be redundant
+      if (g -> m.in_bounds(p.x, p.y)) {
+        g -> m.remove_field(p); // Clear the field
+      }
+    }
+    created_fields.clear(); // Clear the list
+  }
+
+  if (z.telegraph_turns_left == 0 && z.telegraph_recovery_turns_left == 0) {
+    z.telegraph_recovery_turns_left = recovery_duration; // Set recovery duration once the attack executes
+  }
+
+  if (z.telegraph_recovery_turns_left > 0) {
+    z.telegraph_recovery_turns_left--; // Decrement recovery time each turn
+    return;
+  }
+
+  if (z.telegraph_recovery_turns_left == 0) {
+    z.telegraph_turns_left = -1; // Mark the attack as complete
+  }
+}
+
+Creature * telegraphed_attack_actor::find_target(monster & z) const {
+  std::vector < Creature * > targets;
+
+  // Iterate over the attack shape and find creatures in the affected tiles
+  for (int y = 0; y < attack_shape.size(); y++) {
+    for (int x = 0; x < attack_shape[y].size(); x++) {
+      if (attack_shape[y][x]) {
+        int target_x = z.posx() + x;
+        int target_y = z.posy() + y;
+        Creature * target_creature = g -> critter_at(target_x, target_y);
+
+        if (target_creature && (target_creature != & z || affect_self)) {
+          targets.push_back(target_creature);
+        }
+      }
+    }
+  }
+
+  return targets;
+}
+
+bool telegraphed_attack_actor::call(monster & z) const {
+  std::vector < Creature * > targets = find_target(z); // Get all targets (including the attacker, if affect_self is true)
+
+  if (targets.empty()) {
+    return false; // No targets found
+  }
+
+  // Damage calculation - reusing melee::call
+  damage_instance damage = damage_max_instance;
+  double multiplier = rng_float(min_mul, max_mul);
+  damage.mult_damage(multiplier);
+
+  for (Creature * target: targets) {
+    if (!target) {
+      continue; // Skip null pointers (in case of invalid targets)
+    }
+
+    // Body part selection
+    bodypart_str_id bp_hit = body_parts.empty() ?
+      target -> select_body_part(hitsize_min, hitsize_max, attack_upper, hitspread).id() :
+      *
+      body_parts.pick();
+
+    // Block damage
+    if (blockable) {
+      target -> block_hit( & z, bp_hit, damage);
+    }
+
+    // Deal damage
+    dealt_damage_instance dealt_damage = target -> deal_damage( & z, bp_hit, damage);
+    dealt_damage.bp_hit = bp_hit;
+
+    // On-hit effects
+    for (const mon_effect_data & eff: self_effects_onhit) {
+      if (x_in_y(eff.chance, 100)) {
+        z.add_effect(eff.id, time_duration::from_turns(rng(eff.duration.first, eff.duration.second)),
+          eff.permanent,
+          rng(eff.intensity.first, eff.intensity.second));
+        target -> add_msg_if_player(m_info, eff.message, z.disp_name(false, true));
+      }
+    }
+
+    // Check if any damage was dealt and handle
+    int damage_total = dealt_damage.total_damage();
+    if (damage_total > 0) {
+      on_damage(z, * target, dealt_damage);
+    } else {
+      target -> add_msg_player_or_npc(m_info, no_dmg_msg_u,
+        get_option < bool > ("LOG_MONSTER_ATTACK_MONSTER") ? no_dmg_msg_npc : translation(),
+        z.disp_name(false, true), body_part_name_accusative(bp_hit));
+    }
+  }
+
+  return true;
 }
