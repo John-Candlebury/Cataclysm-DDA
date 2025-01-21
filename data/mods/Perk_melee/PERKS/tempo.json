@@ -17,6 +17,14 @@
   },
   {
     "type": "mutation",
+    "id": "MELEE_PERK_TEMPO_ON_KILL",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Righteous Assault" },
+    "description": "",
+    "flags": "MELEE_PERK_TEMPO_ON_KILL"
+  },
+  {
+    "type": "mutation",
     "id": "MELEE_PERK_TEMPO_THROW",
     "copy-from": "MELEE_PERK_BASE",
     "name": { "str": "Measured Throws" },
