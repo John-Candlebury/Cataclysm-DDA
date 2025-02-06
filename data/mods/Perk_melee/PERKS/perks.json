@@ -72,5 +72,13 @@
     "description": "You have an extra dodge attempt per turn.",
     "flags": "MELEE_PERK_DODGE",
     "enchantments": [ { "values": [ { "value": "BONUS_DODGE", "add": 1 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_lunge_insert",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "lunge_insert" },
+    "description": "Dummy trait for signaling purposes.",
+    "player_display": false
   }
 ]

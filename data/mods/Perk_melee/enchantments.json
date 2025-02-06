@@ -22,6 +22,12 @@
   },
   {
     "type": "enchantment",
+    "id": "melee_perk_ench_duel_lunge",
+    "condition": { "math": [ "u_effect_intensity('mabuff:buff_perk_momentum')", "=", "1" ] },
+    "mutations": "lunge_insert"
+  },
+  {
+    "type": "enchantment",
     "id": "melee_perk_ench_insight_dodge",
     "condition": { "math": [ "u_effect_intensity('perk_insight')", ">", "9" ] },
     "values": [ { "value": "DODGE_CHANCE", "add": 25 } ]
