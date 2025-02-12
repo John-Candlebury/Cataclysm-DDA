@@ -37,12 +37,22 @@
     "category": "other",
     "description": "Time and the elements have reduced them to a mound of filthy ribbons.",
     "weight": "1175 g",
-    "volume": "3 L",
+    "volume": "30 L",
     "price": "0 cent",
     "price_postapoc": "0 cent",
     "to_hit": -1,
     "material": [ "cotton" ],
     "symbol": "[",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "open_container": true,
+        "max_contains_volume": "10 L",
+        "max_contains_weight": "20 kg",
+        "moves": 400
+      }
+    ],
     "looks_like": "cotton_patchwork",
     "color": "brown"
   },
@@ -265,5 +275,68 @@
     "armor": [ { "encumbrance": 5, "coverage": 100, "covers": [ "eyes" ] } ],
     "material_thickness": 1,
     "flags": [ "STURDY", "OUTER" ]
+  },
+  {
+    "id": "afs_ruined_laser_pistol",
+    "type": "GENERIC",
+    "name": { "str": "ruined energy pistol" },
+    "description": "A mass of corroded metal and plastic, identifiable as a pistol only due to its general shape.  Some of its components might still be salvageable.",
+    "weight": "380 g",
+    "volume": "750 ml",
+    "price": "7 USD",
+    "price_postapoc": "7 USD",
+    "material": [ "qt_steel", "plastic" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "material_thickness": 1,
+    "category": "spare_parts"
+  },
+  {
+    "id": "afs_ruined_laser_rifle",
+    "type": "GENERIC",
+    "name": { "str": "ruined energy rifle" },
+    "description": "Pitted and corroded, this weapon is barely recognizable as a rifle.  Some of its components might still be salvageable.",
+    "weight": "2640 g",
+    "volume": "3817 ml",
+    "longest_side": "511 mm",
+    "price": "7 USD",
+    "price_postapoc": "7 USD",
+    "material": [ "qt_steel", "plastic" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "material_thickness": 1,
+    "category": "spare_parts"
+  },
+  {
+    "id": "afs_ruined_rifle",
+    "type": "GENERIC",
+    "name": { "str": "ruined long gun" },
+    "description": "Not much of this weapon remains, at most it could be used to bar a door.",
+    "weight": "2640 g",
+    "volume": "3817 ml",
+    "longest_side": "511 mm",
+    "price": "7 USD",
+    "price_postapoc": "7 USD",
+    "material": [ "qt_steel", "plastic" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "material_thickness": 1,
+    "category": "spare_parts"
+  },
+  {
+    "id": "afs_ruined_magazine",
+    "type": "GENERIC",
+    "name": { "str": "ruined magazine" },
+    "description": "A small box of heavily corroded metal.  Its more fragile internal components wasted away long ago.",
+    "weight": "2640 g",
+    "volume": "3817 ml",
+    "longest_side": "511 mm",
+    "price": "7 USD",
+    "price_postapoc": "7 USD",
+    "material": [ "qt_steel", "plastic" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "material_thickness": 1,
+    "category": "spare_parts"
   }
 ]

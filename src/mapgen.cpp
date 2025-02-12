@@ -464,6 +464,12 @@ static void GENERATOR_riot_damage( map &md, const tripoint_abs_omt &p )
     }
 }
 
+static void GENERATOR_aftershock_ruin( map &md, const tripoint_abs_omt &p )
+{
+        //The simpler parts of this generator are in the json mapgen file below.
+        run_mapgen_update_func( update_mapgen_id( "pp_afs_ruin_json" ), p, {}, nullptr, false );
+}
+
 // Assumptions:
 // - The map supplied is empty, i.e. no grid entries are in use
 // - The map supports Z levels.
@@ -637,6 +643,10 @@ void map::generate( const tripoint_abs_omt &p, const time_point &when, bool save
                 oter_flags::pp_generate_riot_damage ) ) {
             GENERATOR_riot_damage( *this, { p.x(), p.y(), gridz } );
         }
+        if( ( any_missing || !save_results ) && overmap_buffer.ter( {p.x(), p.y(), gridz} )->has_flag(
+            oter_flags::pp_generate_ruined ) ) {
+            GENERATOR_aftershock_ruin( *this, { p.x(), p.y(), gridz } );
+    }
     }
 
     if( save_results ) {

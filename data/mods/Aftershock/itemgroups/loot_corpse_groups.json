@@ -1,5 +1,24 @@
 [
   {
+    "id": "afs_ancient_corpse",
+    "type": "item_group",
+    "subtype": "collection",
+    "//": "Someone who died concurrently with the Discontinuity or very shortly after.  No survival gear.",
+    "entries": [
+      {
+        "distribution": [
+          { "item": "afs_corpse_old", "prob": 70 },
+          {
+            "collection": [ { "item": "bone_human", "count": [ 5, 8 ], "prob": 100 }, { "item": "skull_human", "prob": 95 } ],
+            "prob": 0
+          }
+        ]
+      },
+      { "group": "dead_colonist_tatters", "prob": 90 },
+      { "item": "afs_glass_AR_device", "prob": 5 }
+    ]
+  },
+  {
     "id": "afs_dead_survivor",
     "type": "item_group",
     "subtype": "collection",
@@ -29,6 +48,36 @@
       { "group": "afs_any_makeshift_gun", "prob": 5 },
       { "group": "afs_any_ballistic_s_gun", "prob": 10 },
       { "group": "afs_any_laser_s_gun", "prob": 10 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "//": "items workers could have carried in their pockets before the discontinuity",
+    "id": "dead_colonist_tatters",
+    "container-item": "afs_tattered_garment",
+    "entries": [
+      {
+        "distribution": [
+          { "item": "pockknife", "prob": 50 },
+          { "item": "knife_folding", "prob": 30 },
+          { "item": "knife_swissarmy", "prob": 10 },
+          { "item": "switchblade", "prob": 10 }
+        ],
+        "prob": 5
+      },
+      { "item": "afs_glass_device", "prob": 2 },
+      {
+        "distribution": [
+          { "item": "cig", "prob": 65, "count": [ 0, 20 ], "container-item": "null", "entry-wrapper": "box_cigarette" },
+          { "item": "chaw", "prob": 5 },
+          { "item": "nic_gum", "prob": 10 },
+          { "item": "ecig", "prob": 15 },
+          { "collection": [ { "item": "advanced_ecig" }, { "item": "nicotine_liquid" } ], "prob": 10 }
+        ],
+        "prob": 15
+      },
+      { "item": "afs_glass_device", "prob": 75 }
     ]
   },
   {
