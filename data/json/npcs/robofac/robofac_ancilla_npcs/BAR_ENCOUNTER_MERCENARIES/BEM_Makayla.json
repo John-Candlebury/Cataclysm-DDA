@@ -18,35 +18,25 @@
     "type": "talk_topic",
     "id": "TALK_ARSONIST_BEM",
     "dynamic_line": {
-      "u_has_var": "u_met_makayla",
-      "type": "general",
-      "context": "refugee_center",
-      "value": "yes",
+      "math": [ "u_met_makayla == 1" ],
       "yes": " You find Makayla sitting against The Terminal's bar.",
       "no": {
-        "u_has_var": "u_insulted_makayla",
-        "type": "general",
-        "context": "arsonist",
-        "value": "yes",
-        "yes": "It looks like one of refugee center mutants is in here.",
-        "no": "A knitted cap only calls attention to the scavenger's mutated ears.  The way she leans against the bar clearly communicates she's been here for a while."
+        "math": [ "u_insulted_makayla == 1" ],
+        "yes": "It looks like one of the refugee center mutants is here.",
+        "no": "A knitted cap only calls attention to the scavenger's disguised ears, or lack of them.  The way she leans against the bar easily tells she's been here for a while."
       }
     },
     "responses": [
       {
         "truefalsetext": {
-          "condition": { "u_has_var": "u_met_makayla", "type": "general", "context": "refugee_center ", "value": "yes" },
+          "condition": { "math": [ "u_met_makayla == 1" ] },
           "true": "Hey never thought I'd find you gere",
           "false": "Waiting for something?"
         }
       },
-      { "text": "" },
       {
-        "truefalsetext": {
-          "condition": { "u_has_var": "u_insulted_makayla", "type": "general", "context": "arsonist", "value": "yes" },
-          "true": "[Gross.]",
-          "false": "See you around."
-        }
+        "truefalsetext": { "condition": { "math": [ "u_insulted_makayla == 1" ] }, "true": "[Disgusting.]", "false": "See you around." },
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -57,22 +47,48 @@
       {
         "concatenate": [
           {
-            "u_has_var": "makayla_mutation_trust",
-            "type": "talk",
-            "context": "arsonist",
-            "value": "yes",
-            "yes": "Theres a guy here, part of a scavenging team, sells some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Keeps me from coughing up hairballs all the time.  Just waiting for them to show now, maybe trade some stuff while at it.",
-            "no": "Yeah, waiting for another scavenger to show, but he's a whole day late now.  Not feeling very confident about this at all."
+            "math": [ "u_met_makayla == 1" ],
+            "yes": "Oh hey! Yeah, I show up here every now and then.  You know, to keep up with the news, and to trade too.  Speaking of, I'm supposed to meet someone for a trade, but he's a whole day late now.  Not feeling very confident about it now",
+            "no": "Yeah, waiting for another scavenger to show, but he's a whole day late now.  Not feeling very confident about it now"
           },
           {
-            "u_has_faction_trust": 15,
-            "yes": "Oh but you are one of the regulars here, right?  , I'll pay for sure.",
+            "u_has_faction_trust": 10,
+            "yes": ".  Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him?",
             "no": "."
           }
         ]
       }
     ],
-    "responses": [ { "text": "Well good luck.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "I suppose I'm feeling generous today.  Do you know the guys name?  Or at least how he looks like?",
+        "condition": { "u_has_faction_trust": 10 },
+        "topic": "TALK_BEM_MAKAYLA_HELP"
+      },
+      {
+        "truefalsetext": {
+          "condition": { "u_has_faction_trust": 10 },
+          "true": "Well, he probably got eaten by something.  Good luck though.",
+          "false": "Good luck then."
+        },
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": "BEM_MAKAYLA_HELP",
+    "type": "talk_topic",
+    "dynamic_line": "Thomas I think.  A bit taller than me, tan, dark hair, looks like he got clawed on by a bear in the right side of his face.  Ring any bells?",
+    "responses": [ { "text": "Not really.  Andrew! You know of this guy?", "topic": "TALK_ANDREW", "effect": "end_conversation" } ]
+  },
+  {
+    "id": "TALK_INVOLVE_OTHERS",
+    "type": "talk_topic",
+    "dynamic_line": "*pulls her cap even lower against her head, as you turn to continue this conversation with Andrew.  \"Well, that sounds like Thomas alright.  Figured he had dropped the deal for a reason, but that really isn't like him.  I know he stages lab raids in an unfinished station down the eastern tunnels.  Go check there, maybe you'll find him.  And let me know if he's alright, got it?\"",
+    "responses": [
+      { "text": "There you go, Makayla.  Good luck.", "topic": "TALK_MAKAYLA_BEM_MUTATION" },
+      { "text": "I'll see what I can do.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "type": "talk_topic",
@@ -82,15 +98,19 @@
       "type": "talk",
       "context": "arsonist",
       "value": "yes",
-      "yes": "Oh you are one of the regulars here, right?  Need someone for a favor, I'll pay for sure.",
-      "no": ""
+      "yes": "Uh well\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever the sky goes bad.  ",
+      "no": "Its really important to me alright.  I thought the Hub put up with your group because you were discreet."
     },
-    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+    "responses": [
+      { "text": "Oh so its like some weird werewolf thing?", "topic": "TALK_MAKAYLA_BEM_MUTATION" },
+      { "text": "Alright, lets get your whatever it is.", "topic": "TALK_DONE" },
+      { "text": "Good talk.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "type": "talk_topic",
-    "id": "MAKAYLA_BEM_TRADING",
-    "dynamic_line": "You bet.  What are you looking for today?",
+    "id": "TALK_MAKAYLA_BEM_MUTATION",
+    "dynamic_line": "Yes.\" She sighs. \"",
     "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
   }
 ]

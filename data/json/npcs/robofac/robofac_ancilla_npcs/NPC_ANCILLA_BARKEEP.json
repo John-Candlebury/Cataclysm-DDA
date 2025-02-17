@@ -3,6 +3,8 @@
     "type": "npc",
     "id": "ancilla_barkeep",
     "name_suffix": "Bartender",
+    "name_unique": "Andrew",
+    "gender": "male",
     "class": "NC_ANCILLA_BARTENDER",
     "attitude": 0,
     "mission": 3,

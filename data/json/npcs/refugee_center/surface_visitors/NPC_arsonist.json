@@ -119,10 +119,7 @@
       "yes": "That sure is a shiny badge you got there!",
       "no": "Heh, you look important."
     },
-    "speaker_effect": {
-      "effect": { "u_add_var": "u_met_makayla", "type": "general", "context": "refugee_center", "value": "yes" },
-      "sentinel": "makayla_first_meeting"
-    },
+    "speaker_effect": { "effect": { "math": [ "u_met_makayla = 1" ] }, "sentinel": "makayla_first_meeting" },
     "responses": [
       { "text": "I'm actually new.", "topic": "TALK_ARSONIST_NEW" },
       { "text": "What are you doing here?", "topic": "TALK_ARSONIST_DOING" },
@@ -237,6 +234,7 @@
       "yes": { "gendered_line": "As if you're one to talk.  Screw You.", "relevant_genders": [ "u" ] },
       "no": { "gendered_line": "Screw You!", "relevant_genders": [ "u" ] }
     },
+    "speaker_effect": [ { "math": [ "u_met_makayla = 0" ] }, { "math": [ "u_insulted_makayla = 1" ] } ],
     "responses": [
       {
         "text": "…",
