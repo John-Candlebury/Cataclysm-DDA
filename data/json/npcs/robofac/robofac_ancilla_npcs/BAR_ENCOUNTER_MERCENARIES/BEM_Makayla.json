@@ -5,7 +5,7 @@
     "name_unique": "Makayla Sanchez",
     "name_suffix": "Arsonist",
     "gender": "female",
-    "class": "NC_ARSONIST",
+    "class": "NC_MAKAYLA_FOLLOWER",
     "attitude": 0,
     "mission": 3,
     "age": 24,
@@ -29,7 +29,7 @@
         "context": "arsonist",
         "value": "yes",
         "yes": "It looks like one of refugee center mutants is in here.",
-        "no": "A conspicuous knitted cap only calls attention to the scavenger's mutated ears. The way she leans against the bar easily tells you she's been here for a while."
+        "no": "A knitted cap only calls attention to the scavenger's mutated ears.  The way she leans against the bar clearly communicates she's been here for a while."
       }
     },
     "responses": [
@@ -37,11 +37,9 @@
         "truefalsetext": {
           "condition": { "u_has_var": "u_met_makayla", "type": "general", "context": "refugee_center ", "value": "yes" },
           "true": "Hey never thought I'd find you gere",
-          "false": "Waiting for something now?"
+          "false": "Waiting for something?"
         }
       },
-      { "text": "Do you have any jobs for me?", "topic": "TALK_MISSION_LIST" },
-      { "text": "What's with your ears?", "topic": "TALK_ARSONIST_MUTATION" },
       { "text": "" },
       {
         "truefalsetext": {
@@ -55,15 +53,26 @@
   {
     "type": "talk_topic",
     "id": "MAKAYLA_BEM_DOING",
-    "dynamic_line": {
-      "u_has_var": "makayla_mutation_trust",
-      "type": "talk",
-      "context": "arsonist",
-      "value": "yes",
-      "yes": "Theres a guy here, part of a scavenging team, sells some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Keeps me from coughing up hairballs all the time.  Just waiting for them to show now, maybe trade some stuff while at it.",
-      "no": "I'm just hanging out between runs, waiting for the world to end deader I guess.  Plus the folk here have way better gear and more need for explosives, so trade pays way better than in the center."
-    },
-    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+    "dynamic_line": [
+      {
+        "concatenate": [
+          {
+            "u_has_var": "makayla_mutation_trust",
+            "type": "talk",
+            "context": "arsonist",
+            "value": "yes",
+            "yes": "Theres a guy here, part of a scavenging team, sells some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Keeps me from coughing up hairballs all the time.  Just waiting for them to show now, maybe trade some stuff while at it.",
+            "no": "Yeah, waiting for another scavenger to show, but he's a whole day late now.  Not feeling very confident about this at all."
+          },
+          {
+            "u_has_faction_trust": 15,
+            "yes": "Oh but you are one of the regulars here, right?  , I'll pay for sure.",
+            "no": "."
+          }
+        ]
+      }
+    ],
+    "responses": [ { "text": "Well good luck.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
