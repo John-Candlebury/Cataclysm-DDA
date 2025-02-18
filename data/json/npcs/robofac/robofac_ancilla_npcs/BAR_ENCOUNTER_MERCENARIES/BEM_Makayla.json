@@ -19,7 +19,7 @@
     "id": "TALK_ARSONIST_BEM",
     "dynamic_line": {
       "math": [ "u_met_makayla == 1" ],
-      "yes": " You find Makayla sitting against The Terminal's bar.",
+      "yes": " You find Makayla sitting against The Terminal's bar.  By the looks of it, she's been waiting for a while.",
       "no": {
         "math": [ "u_insulted_makayla == 1" ],
         "yes": "It looks like one of the refugee center mutants is here.",
@@ -53,7 +53,7 @@
           },
           {
             "u_has_faction_trust": 10,
-            "yes": ".  Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him?",
+            "yes": ".  Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him.",
             "no": "."
           }
         ]
@@ -68,7 +68,7 @@
       {
         "truefalsetext": {
           "condition": { "u_has_faction_trust": 10 },
-          "true": "Well, he probably got eaten by something.  Good luck though.",
+          "true": "I don't think so, besides, he probably got eaten by something.  Good luck though.",
           "false": "Good luck then."
         },
         "topic": "TALK_DONE"
@@ -78,17 +78,29 @@
   {
     "id": "BEM_MAKAYLA_HELP",
     "type": "talk_topic",
-    "dynamic_line": "Thomas I think.  A bit taller than me, tan, dark hair, looks like he got clawed on by a bear in the right side of his face.  Ring any bells?",
-    "responses": [ { "text": "Not really.  Andrew! You know of this guy?", "topic": "TALK_ANDREW", "effect": "end_conversation" } ]
+    "dynamic_line": "Thomas I think.  A bit taller than me, tan, dark hair, looks like he got clawed on by a bear in the right side of his face.  Think you know him?",
+    "responses": [
+      {
+        "text": "I think I had a drink with him once, pretty crazy guy, does lab raids while not in contract with hub.  ",
+        "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW"
+      },
+      { "text": "Not really.  Andrew!  You know of this guy?", "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW" }
+    ]
   },
   {
-    "id": "TALK_INVOLVE_OTHERS",
+    "id": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW",
     "type": "talk_topic",
-    "dynamic_line": "*pulls her cap even lower against her head, as you turn to continue this conversation with Andrew.  \"Well, that sounds like Thomas alright.  Figured he had dropped the deal for a reason, but that really isn't like him.  I know he stages lab raids in an unfinished station down the eastern tunnels.  Go check there, maybe you'll find him.  And let me know if he's alright, got it?\"",
+    "dynamic_line": "Hey don't go around telling everyone about my problems-\"  she eyes you while pulling her cap even lower against her head.  Andrew p  \"Well, yes, that sounds like Thomas.  Figured he had dropped the deal for a reason, but that not really his usual MO.  I know he stages lab raids in an unfinished station down the eastern tunnels.  Go check there, maybe you'll find him.  And let me know if he's alright, got it?",
     "responses": [
-      { "text": "There you go, Makayla.  Good luck.", "topic": "TALK_MAKAYLA_BEM_MUTATION" },
-      { "text": "I'll see what I can do.", "topic": "TALK_DONE" }
+      { "text": "There you go, Makayla.  Good luck.", "topic": "TALK_MAKAYLA_BEM_GO" },
+      { "text": "Thanks Andrew, I'll see what I can do.", "topic": "TALK_DONE" }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_MAKAYLA_BEM_GO",
+    "dynamic_line": "I really dont know Thomas well enough to just show up at his place unnanounced.  Would you mind tagging along for this?  I'll pay for sure.",
+    "responses": [ { "text": "Good luck.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -98,7 +110,7 @@
       "type": "talk",
       "context": "arsonist",
       "value": "yes",
-      "yes": "Uh well\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever the sky goes bad.  ",
+      "yes": "Uh well\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever the sky goes bad.  It gets really bad, to",
       "no": "Its really important to me alright.  I thought the Hub put up with your group because you were discreet."
     },
     "responses": [
@@ -110,7 +122,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_MAKAYLA_BEM_MUTATION",
-    "dynamic_line": "Yes.\" She sighs. \"",
-    "responses": [ { "text": "Good talk.", "topic": "TALK_DONE" } ]
+    "dynamic_line": "Yes.  Please forget I said anything\"  She sighs.  \"So l",
+    "responses": [ { "text": "Lets get going.", "topic": "TALK_DONE" } ]
   }
 ]
