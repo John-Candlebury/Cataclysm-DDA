@@ -80,8 +80,10 @@
     "type": "talk_topic",
     "dynamic_line": "Thomas I think.  A bit taller than me, tan, dark hair, looks like he got clawed on by a bear in the right side of his face.  Think you know him?",
     "responses": [
+      { "text": [  ] },
       {
-        "text": "Oh I had a drink with him once, pretty crazy guy, does lab raids while not in contract with Hub.  I think he holes up in an unfinished station down the eastern tunnels.",
+        "text": "Actually,  I think had a drink with him once.  Pretty crazy guy, does lab raids while not in contract with Hub.  I think he holes up in an unfinished station down the eastern tunnels.  Want to pay him a visit?",
+        "condition": { "math": [ "u_chatted_with_bar_veterans > 2" ] },
         "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW"
       },
       { "text": "Not really.  Andrew!  You know of this guy?", "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW" }
@@ -90,7 +92,7 @@
   {
     "id": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW",
     "type": "talk_topic",
-    "dynamic_line": "Hey don't go around telling everyone about my problems!\"  she eyes you while pulling her cap even lower against her head.  She has basically melted into the bar by the time Andrew arrives.   \"Well, yes, that sounds like Thomas.  Figured he had dropped the deal for a reason, but that not really his usual MO.  I know he stages lab raids in an unfinished station down the eastern tunnels.  Go check there, maybe you'll find him.  And let me know if he's alright, got it?",
+    "dynamic_line": "Hey don't just go around telling everyone about my problems!\"  she eyes you while pulling her cap even lower against her head.  She has basically melted into her stool by the time Andrew arrives.   \"Well, yes, that sounds like Thomas.  Figured he had dropped the deal for a reason, but that not really his usual MO.  I know he stages lab raids in an unfinished station down the eastern tunnels, so if you need to find him, I'd start there.",
     "responses": [
       { "text": "There you go, Makayla.  Good luck.", "topic": "TALK_MAKAYLA_BEM_GO" },
       { "text": "Thanks Andrew, I'll see what I can do.", "topic": "TALK_DONE" }
