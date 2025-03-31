@@ -1,0 +1,31 @@
+[
+  {
+    "type": "snippet",
+    "category": "alien_organ",
+    "text": [
+      { "id": "organ_1", "text": "A strange lumpy pink organ, it pulsates in your hand." },
+      { "id": "organ_2", "text": "A trio of bean-shaped organs connected by webbing." },
+      { "id": "organ_3", "text": "A spiral covered in spines, it unfolds in your hand." },
+      { "id": "organ_4", "text": "A hollow organ filled with awful-smelling mucus." },
+      { "id": "organ_5", "text": "A worm-like object." }
+    ]
+  },
+  {
+    "type": "snippet",
+    "category": "history_of_orion",
+    "text": [
+      {
+        "id": "space_economy",
+        "text": "All industrial activity of interstellar importance relies on industrial megacomplexes built before the Discontinuity, and each and every single one of them is powered by vast nano-fabricators that have worked ceaselessly for centuries.  Year over year they decay ever so slightly, introducing flaws at the molecular scale that cascade into macro-scale tragedy when our ships, habitats, and arcologies fail to the rigors of space colonization.  Already nearly all industrial output is not fit for use without extensive manual repair, and most is not fit for any use beyond being recycled into feedstock for the next production cycle.  We've built modern society predicated on the idea that pre-discontinuity technology will work forever..."
+      },
+      {
+        "id": "digital_discontinuity",
+        "text": "By the year 2152, ninety-three percent of all human activity was mediated by digital systems..."
+      },
+      {
+        "id": "discontinuity",
+        "text": "...Nowhere else in the historical record has a single event precipitated the collapse of large scale civilization.  Analogies are often drawn to the collapses of Earth's ancient slave empires, but those were slow complex processes that unfolded over generations, involving compounding factors as climate change, resource depletion, and social unrest.  Much effort has been expended by me and my colleagues to understand the leadup to the Discontinuity, but we remain . At the 23rd of May 2152 at 10:25.2552 AM S.E.T, there was a sudden and unexpected flurry of activity across all hypernetwork nodes, by 10:25.2557 S.E.T. all network activity had ceased"
+      }
+    ]
+  }
+]
