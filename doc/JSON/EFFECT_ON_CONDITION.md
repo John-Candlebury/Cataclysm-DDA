@@ -376,6 +376,22 @@ return true if alpha talker at location that can be transformed to faction camp
 { "npc_at_om_location": "FACTION_CAMP_START" }
 ```
 
+### `overmap_at_point`, 
+- type: string or [variable object](#variable-object)
+- return true if the id of the overmap at the given `point` matches the one specified.  Compares the base ID of the overmap, without rotation or connection prefixes;
+
+#### Valid talkers:
+
+| Avatar | Character | NPC | Monster | Furniture | Item | Vehicle |
+| ------ | --------- | --------- | ---- | ------- | --- | ---- |
+| ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+
+#### Examples
+return true if `{ "global_val": "ship_new" }` is pointing at a `field` overmap
+```jsonc
+{ "overmap_at_point": "field", "point": { "global_val": "ship_new" } },
+```
+
 ### `u_has_trait`, `npc_has_trait`, `u_has_any_trait`, `npc_has_any_trait`
 - type: string or [variable object](#variable-object)
 - check does alpha or beta talker have specific trait/mutation;
@@ -4903,7 +4919,17 @@ Usually used as `revert_location` with `"time_in_future": "infinity"`, to save m
 
 | Syntax | Optionality | Value  | Info |
 | --- | --- | --- | --- | 
-| "revert_location" | **mandatory** | [variable object](#variable-object) | id of variable, where the location would be stored |
+| "copy_loc" | **mandatory** | [variable object](#variable-object) | id of variable, where the location would be stored |
+| "time_in_future" | **mandatory** | int, duration, [variable object](#variable-object)) or value between two  | when the location should be reverted; "infinity" could be used, to make location not update until `key` event happen | 
+| "key" | optional | string or [variable objects](#variable-object) | id of the event, that you can call outside of EoC to trigger location reverse.  Key should be [alter_timed_events](#alter_timed_events) | 
+
+#### `revert_location`
+Save picked location, and then apply it to another location. Functions simillarly to `revert_location`.
+
+| Syntax | Optionality | Value  | Info |
+| --- | --- | --- | --- | 
+| "copy_location" | **mandatory** | [variable object](#variable-object) | id of variable, where the location would be stored.  The map tile which will be copied. |
+| "new_loc" | **mandatory** | [variable object](#variable-object) | id of variable, location where the saved map will be applied. |
 | "time_in_future" | **mandatory** | int, duration, [variable object](#variable-object)) or value between two  | when the location should be reverted; "infinity" could be used, to make location not update until `key` event happen | 
 | "key" | optional | string or [variable objects](#variable-object) | id of the event, that you can call outside of EoC to trigger location reverse.  Key should be [alter_timed_events](#alter_timed_events) | 
 
