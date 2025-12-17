@@ -1,0 +1,47 @@
+[
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_BERSERK",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Berserk" },
+    "description": "There's a 5% chance for you fly into a berserk rage whenever you kill an enemy with a melee attack. While in berserk rage, you will deal 10% increased melee damage and consume 50% less stamina per attack, but will be unable to gain any other martial art stacks.  Berserk rage lasts for 6 turns and can be extended by killing enemies while it is active.",
+    "flags": "MELEE_BERSERK"
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_BERSERK_EXTRA_CHANCE",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Inner rage" },
+    "description": "Your chance to enter berserk rage on a melee kill is increased to 15%."
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_BERSERK_NO_STAMINA",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "War Trance" },
+    "description": "You have infinite stamina while berserk."
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_BERSERK_INSIGHT",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Empty Rage" },
+    "description": "Theres a 75% chance for melee attacks to not consume insight stacks while berserk rage is active."
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_MACHINE_RAGE",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Machine Rage" },
+    "description": "Suffused with hate at the nanoangstrom scale.\n You generate 25 bionic power for every turn berserk rage is active.",
+    "flags": "MELEE_MACHINE_RAGE"
+  },
+  {
+    "type": "mutation",
+    "id": "MELEE_PERK_MACHINE_RAGE_2",
+    "copy-from": "MELEE_PERK_BASE",
+    "name": { "str": "Torment Matrix Optimization" },
+    "description": "\"Arrrgghh!!\"\n- Test Subject 21 \n\nIf berserk rage is active and your bionic are above 50% full, your melee attacks will be will deal additional electric damage with a chance of the damage arcing to other nearby targets.",
+    "flags": "MELEE_PERK_MACHINE_RAGE_2"
+  }
+]
