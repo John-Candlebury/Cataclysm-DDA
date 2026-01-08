@@ -48,15 +48,10 @@
     "id": "afs_street_vendor_food",
     "subtype": "collection",
     "items": [
-      { "item": "afs_streetfood_meat", "count": [ 2, 3 ], "container-item": "ceramic_bowl", "custom-flags": [ "HOT" ] },
-      {
-        "item": "afs_streetfood_veggy",
-        "count": [ 2, 3 ],
-        "container-item": "ceramic_bowl",
-        "custom-flags": [ "HOT" ]
-      },
-      { "item": "afs_soup_meat", "count": [ 2, 3 ], "container-item": "ceramic_bowl", "custom-flags": [ "HOT" ] },
-      { "item": "afs_soup_veggy", "count": [ 2, 3 ], "container-item": "ceramic_bowl", "custom-flags": [ "HOT" ] }
+      { "item": "afs_streetfood_meat", "count": [ 2, 3 ], "container-item": "ceramic_bowl" },
+      { "item": "afs_streetfood_veggy", "count": [ 2, 3 ], "container-item": "ceramic_bowl" },
+      { "item": "afs_soup_meat", "count": [ 2, 3 ], "container-item": "ceramic_bowl" },
+      { "item": "afs_soup_veggy", "count": [ 2, 3 ], "container-item": "ceramic_bowl" }
     ]
   },
   {

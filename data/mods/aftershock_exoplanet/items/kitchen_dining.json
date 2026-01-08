@@ -1,0 +1,25 @@
+[
+  {
+    "type": "ITEM",
+    "category": "container",
+    "id": "ceramic_bowl",
+    "name": { "str": "insulated bowl" },
+    "symbol": ")",
+    "description": "A thick composite ceramic bowl.",
+    "copy-from": "base_ceramic_dish",
+    "volume": "625 ml",
+    "longest_side": "13 cm",
+    "pocket_data": [
+      {
+        "max_contains_volume": "500 ml",
+        "max_contains_weight": "1 kg",
+        "watertight": true,
+        "open_container": true,
+        "insulation": 3000,
+        "rigid": true
+      }
+    ],
+    "use_action": [ "HEAT_LIQUID_ITEMS" ],
+    "qualities": [ [ "BOIL", 2 ], [ "CONTAIN", 1 ] ]
+  }
+]
