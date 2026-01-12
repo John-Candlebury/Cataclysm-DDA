@@ -13,7 +13,8 @@
     "entries": [
       { "group": "afs_plastic_armor_g", "prob": 10 },
       { "group": "afs_armor_spaceship_crew_g", "prob": 5 },
-      { "group": "afs_scrap_armor_g", "prob": 10 }
+      { "group": "afs_scrap_armor_g", "prob": 10 },
+      { "group": "afs_carbide_raider_armor_g", "prob": 1 }
     ]
   },
   {
@@ -78,7 +79,7 @@
       { "item": "legguard_scrap", "prob": 40 },
       { "item": "boots_scrap", "prob": 40 },
       { "item": "armguard_scrap", "prob": 40 },
-      { "item": "cuirass_lightplate", "prob": 90 }
+      { "item": "carbide_cuirass", "prob": 80 }
     ]
   },
   {
