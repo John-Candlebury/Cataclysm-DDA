@@ -432,7 +432,7 @@
     "price": "3 kUSD",
     "price_postapoc": "3 kUSD",
     "to_hit": -1,
-    "material": [ "vacuum_carbide" ],
+    "material": [ "vacuum_carbide", "afs_kevlar" ],
     "symbol": "[",
     "color": "light_gray",
     "warmth": 20,
@@ -440,17 +440,33 @@
     "material_thickness": 1,
     "flags": [ "VARSIZE", "OUTER", "STURDY" ],
     "armor": [
-      { "encumbrance": 20, "coverage": 95, "covers": [ "torso" ] },
+      {
+        "encumbrance": 20,
+        "coverage": 100,
+        "material": [
+          { "type": "vacuum_carbide", "covered_by_mat": 80, "thickness": 1 },
+          { "type": "afs_kevlar", "covered_by_mat": 100, "thickness": 1 }
+        ],
+        "covers": [ "torso" ]
+      },
       {
         "encumbrance": 4,
-        "coverage": 95,
+        "coverage": 100,
         "covers": [ "arm_l", "arm_r" ],
+        "material": [
+          { "type": "vacuum_carbide", "covered_by_mat": 80, "thickness": 1 },
+          { "type": "afs_kevlar", "covered_by_mat": 100, "thickness": 1 }
+        ],
         "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ]
       },
       {
         "encumbrance": 4,
-        "coverage": 95,
+        "coverage": 100,
         "covers": [ "leg_l", "leg_r" ],
+        "material": [
+          { "type": "vacuum_carbide", "covered_by_mat": 80, "thickness": 1 },
+          { "type": "afs_kevlar", "covered_by_mat": 100, "thickness": 1 }
+        ],
         "specifically_covers": [ "leg_hip_l", "leg_hip_r" ]
       }
     ]

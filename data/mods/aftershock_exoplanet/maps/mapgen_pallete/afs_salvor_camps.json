@@ -1,0 +1,38 @@
+{
+  "type": "palette",
+  "id": "afs_salvor_camps",
+  "terrain": {
+    "w": "t_water_hot",
+    "#": "t_ice_wall",
+    ",": [ [ "t_basaltfloor", 5 ], [ "t_lichen", 1 ], [ "t_lichendirt", 1 ] ],
+    "I": [ [ "t_fumarole", 5 ], [ "t_basalt_wall", 5 ], [ "t_lichenyum", 1 ], [ "t_basaltfloor", 5 ] ]
+  },
+  "furniture": {
+    "0": "f_snow_large",
+    "o": "f_snow_medium",
+    "i": "f_micro_terraforming_mill_active",
+    "t": "f_sandbag_half",
+    "T": "f_tourist_table",
+    "y": "f_tourist_table",
+    "h": "f_camp_chair",
+    "x": "f_solar_unit",
+    ".": "f_canvas_floor",
+    "+": "f_canvas_door",
+    "/": "f_canvas_wall",
+    "w": "f_clear"
+  },
+  "traps": {
+    ".": "tr_cot"
+  },
+  "items": {
+    "T": { "item": "afs_camp_kitchen" },
+    "y": { "item": "afs_camp_tool_table" },
+    ".": { "item": "afs_camp_tent" }
+  },
+  "mapping": {
+    "*": {
+      "terrain": [ [ "t_null", 40 ], [ "t_basaltfloor", 5 ], [ "t_lichen", 4 ], [ "t_lichendirt", 5 ] ],
+      "furniture": [ [ "f_basaltspike", 10 ], [ "f_null", 200 ], [ "f_geo_vent", 1 ] ]
+    }
+  }
+}
