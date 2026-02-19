@@ -8,6 +8,44 @@
     "requirements": [ { "event_statistic": "num_avatar_wake_ups", "is": "anything", "description": "Wake up after a night on Salus IV." } ]
   },
   {
+    "id": "afs_destroy_discontinuity_robot",
+    "type": "achievement",
+    "name": "Force Shutdown",
+    "description": "Lets not turn it back on again.",
+    "requirements": [
+      {
+        "event_statistic": "num_avatar_destroyed_discontinuity_robot",
+        "is": ">=",
+        "target": 1,
+        "description": "Destroy a robot from the Late Hyperspace Age."
+      }
+    ]
+  },
+  {
+    "id": "afs_hostile_idependents",
+    "type": "achievement",
+    "name": "Public Enemy",
+    "decription": "You have managed to anger the minor players of Salus to such extent that one thing they can agree on is that you need to be put down.  Good job."
+  },
+  {
+    "id": "finish_bar_mission",
+    "type": "achievement",
+    "name": "The Usual",
+    "description": "Even if the air's poison, the agrav's down and the streets swarm with violence, the spacer's row is open."
+  },
+  {
+    "id": "afs_hacker",
+    "type": "achievement",
+    "name": "Flatline",
+    "description": "You link up and spin up the proxy ney, head full of dreams and heart full of stims.  Punch straight to the corporate adress, eyes wide as dinnerplates, too wide, too far, and too fast. You are gone bef"
+  },
+  {
+    "id": "afs_hostile_UICA",
+    "type": "achievement",
+    "name": "",
+    "description": "I've seen how they look at us, out of the holoscreens and in their chambers of law.  Like we're animals, or worse, machines.  They don't think of us as at all.\n<color_c_dark_gray>  - Note.  Evidence locker 237-B Imenar section, UICA archive MI-45."
+  },
+  {
     "id": "afs_achievement_discontinuity_weapon",
     "type": "achievement",
     "name": { "str": "A civilized Age" },
@@ -62,7 +100,7 @@
     "id": "afs_achievement_discontinous",
     "type": "achievement",
     "name": { "str": "Discontinous" },
-    "description": "[ ERROR: Outside Hypernet Range ]",
+    "description": "[ End of Feed ]",
     "requirements": [
       {
         "event_statistic": "avatar_max_damage",
