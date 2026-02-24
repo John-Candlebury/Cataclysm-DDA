@@ -31,19 +31,19 @@
     "id": "finish_bar_mission",
     "type": "achievement",
     "name": "The Usual",
-    "description": "Even if the air's poison, the agrav's down and the streets swarm with violence, the spacer's row is open."
+    "description": "Even if the air's poison, the agrav's down and the streets swarm with violence, the spacer's row is open.  We are all dead if it isn't."
   },
   {
     "id": "afs_hacker",
     "type": "achievement",
     "name": "Flatline",
-    "description": "You link up and spin up the proxy ney, head full of dreams and heart full of stims.  Punch straight to the corporate adress, eyes wide as dinnerplates, too wide, too far, and too fast. You are gone bef"
+    "description": "You link up and spin up the proxy ney, head full of dreams and heart full of stims.  Punch straight to the corporate adress, eyes wide as dinnerplates, too wide, too far, and too fast. You fry before you can even think. Zeroed in a cheap capsule stat off the orbit of Rhea. You just weren't good enough. No one is."
   },
   {
     "id": "afs_hostile_UICA",
     "type": "achievement",
     "name": "",
-    "description": "I've seen how they look at us, out of the holoscreens and in their chambers of law.  Like we're animals, or worse, machines.  They don't think of us as at all.\n<color_c_dark_gray>  - Note.  Evidence locker 237-B Imenar section, UICA archive MI-45."
+    "description": "I've seen how they look at us, out of the holoscreens and in their chambers of law.  Like we're animals, or worse, machines.  They don't think of us as at all.\n<color_c_dark_gray>  - I.  Evidence locker 237-B Imenar section, UICA archive MI-45."
   },
   {
     "id": "afs_achievement_discontinuity_weapon",
