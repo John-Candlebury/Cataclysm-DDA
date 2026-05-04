@@ -33,5 +33,54 @@
         "false_eocs": { "id": "_EOC_return_to_partyleader_fail_msg", "effect": { "message": "Unable to locate the party leader." } }
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "SMARTLINK_EXTRA_SHOT_MON",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "effect": [ { "run_eocs": [ "SMARTLINK_EXTRA_SHOT" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "SMARTLINK_EXTRA_SHOT_CHAR",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_character",
+    "effect": [ { "run_eocs": [ "SMARTLINK_EXTRA_SHOT" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "SMARTLINK_EXTRA_SHOT",
+    "effect": [
+      { "math": [ "times_firing = 0" ] },
+      { "u_location_variable": { "context_val": "shooter" } },
+      {
+        "u_run_monster_eocs": [
+          {
+            "id": "_vahagn_shootfoes",
+            "condition": {
+              "and": [
+                { "u_has_effect": "smart_targeted" },
+                { "math": [ "u_hp('ALL') > 1" ] },
+                { "math": [ "times_firing < 2" ] },
+                { "not": { "u_has_effect": "vahagan_fired_at" } }
+              ]
+            },
+            "effect": [
+              { "u_add_effect": "vahagan_fired_at", "duration": "1 seconds" },
+              { "math": [ "times_firing++" ] },
+              {
+                "run_eocs": [ "EOC_vahagn_shootfoes" ],
+                "alpha_loc": { "context_val": "shooter" },
+                "beta_talker": "u"
+              }
+            ]
+          }
+        ],
+        "monster_range": 20,
+        "monster_must_see": true
+      },
+      { "math": [ "times_firing = 0" ] }
+    ]
   }
 ]

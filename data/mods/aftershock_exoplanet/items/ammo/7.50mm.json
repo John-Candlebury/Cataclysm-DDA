@@ -80,7 +80,7 @@
     "color": "pink",
     "count": 80,
     "ammo_type": "afs_7.50mm_smart",
-    "range": 110,
+    "range": 20,
     "stack_size": 1,
     "recoil": 100,
     "flags": [ "CASELESS_ROUNDS" ],

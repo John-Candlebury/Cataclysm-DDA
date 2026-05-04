@@ -273,7 +273,8 @@
   {
     "type": "effect_type",
     "id": "smart_targeted",
-    "max_duration": "1 seconds"
+    "max_duration": "1 seconds",
+    "enchantments": [ { "condition": "ALWAYS", "values": [ { "value": "ARMOR_ALL", "add": -15 } ] } ]
   },
   {
     "type": "effect_type",
