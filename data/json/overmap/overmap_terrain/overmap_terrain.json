@@ -121,6 +121,22 @@
   },
   {
     "type": "overmap_terrain",
+    "id": [
+      "highlands_crypt_above",
+      "highlands_crypt_surface",
+      "highlands_crypt_small",
+      "highlands_crypt_royal",
+      "highlands_crypt_royal"
+    ],
+    "name": "crossroads temple",
+    "sym": "T",
+    "color": "light_gray",
+    "travel_cost_type": "structure",
+    "vision_levels": "isolated_building",
+    "see_cost": "high"
+  },
+  {
+    "type": "overmap_terrain",
     "id": [ "conquerors_road", "conquerors_road_above", "conquerors_road_above_1", "conquerors_road_top" ],
     "name": "conqueror's spire",
     "sym": "I",
