@@ -88,7 +88,8 @@
             "IRON_ALLERGY"
           ]
         },
-        { "not": { "u_has_effect": "effect_changeling_winter_cut_off_fey_nature" } }
+        { "not": { "u_has_effect": "effect_changeling_winter_cut_off_fey_nature" } },
+        { "not": { "u_is_wearing": "iron_nullifier_deal_relic_xe" } }
       ]
     },
     "effect": [

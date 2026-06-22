@@ -1,0 +1,332 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_U_HAS_THE_ARMILLARY",
+    "eoc_type": "EVENT",
+    "required_event": "opens_spellbook",
+    "condition": { "u_has_item": "nether_sorcery_deal_relic_xe" },
+    "effect": [ { "math": [ "u_spellcasting_adjustment('difficulty', 'school': 'XE_NETHER_SORCERY' ) = -45" ] } ]
+  },
+  {
+    "id": "nether_sorcery_deal_relic_xe",
+    "type": "ITEM",
+    "subtypes": [ "BOOK", "ARTIFACT" ],
+    "name": { "str": "The Armillary", "str_pl": "copies of The Armillary" },
+    "description": "Its unknown author has translated the mechanics of the outer heavens into plain language, baring the noumenal truth of the cosmos.  It is without a doubt among the greatest works ever penned by the conscious mind.",
+    "weight": "1200 g",
+    "volume": "2500 ml",
+    "price": "30 USD",
+    "material": [ "paper" ],
+    "looks_like": "cookbook",
+    "symbol": "?",
+    "color": "blue",
+    "use_action": {
+      "type": "learn_spell",
+      "spells": [ "xe_nether_sorcery_cold_damage_over_time", "xe_nether_sorcery_summon_kreck_pack" ]
+    },
+    "passive_effects": [
+      {
+        "has": "HELD",
+        "condition": "ALWAYS",
+        "mutations": [ "XE_NETHER_SORCERY" ],
+        "skills": [ { "value": "deduction", "add": 8 } ]
+      }
+    ]
+  },
+  {
+    "id": "dream_dross_generating_deal_relic_xe",
+    "type": "ITEM",
+    "subtypes": [ "ARTIFACT" ],
+    "name": { "str": "dreaming head" },
+    "copy-from": "skull",
+    "description": "A mumified head with a serene expression, a handle has been fashioned out of its braided hair.  It must have belonged to someone of profound insight, as even in death it continues to dream.",
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "scrap_dreamdross": 1000 }, "airtight": true } ],
+    "charge_info": { "recharge_type": "periodic", "time": "2m", "regenerate_ammo": true },
+    "looks_like": "skull",
+    "symbol": "?",
+    "color": "blue"
+  },
+  {
+    "id": "mana_deal_relic_xe",
+    "type": "ITEM",
+    "subtypes": [ "ARMOR", "ARTIFACT" ],
+    "name": { "str": "tree branch amulet" },
+    "description": "A small silver branch hangs from an equally simple chain.  You can feel a faint pulsation when you wear it.",
+    "passive_effects": [
+      {
+        "has": "WORN",
+        "condition": { "not": { "u_has_any_trait": [ "VAMPIRE4" ] } },
+        "intermittent_activation": { "effects": [ { "frequency": "5 minutes", "spell_effects": [ { "id": "potion_recover_mana_xe" } ] } ] }
+      }
+    ]
+  },
+  {
+    "id": "hunger_vial_deal_relic_xe",
+    "type": "ITEM",
+    "subtypes": [ "ARTIFACT" ],
+    "copy-from": "flask_glass",
+    "name": { "str": "cursed vial" },
+    "description": "You desperately wish to feast on the fetid liquid that seeps from the cursed glass.",
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "scrap_dreamdross": 2 }, "airtight": true } ],
+    "flags": [ "NO_UNLOAD", "NO_RELOAD" ],
+    "charge_info": { "recharge_type": "periodic", "time": "24h", "regenerate_ammo": true },
+    "use_action": {
+      "type": "effect_on_conditions",
+      "ammo_scale": 1,
+      "menu_text": "Drink from the vial.",
+      "effect_on_conditions": [ "EOC_HUNGER_VIAL_XE" ]
+    }
+  },
+  {
+    "id": "EOC_HUNGER_VIAL_XE",
+    "type": "effect_on_condition",
+    "//": "This is meant to only grant the amount of blood/ruach vitamins you pasively burn in a day. Anathema, gets the same as VAMPIRE4, try to not be an affront to nature next time.",
+    "effect": [
+      {
+        "if": { "not": { "u_has_trait": "VAMPIRE4" } },
+        "then": [ { "math": [ "u_calories() = u_calories() + 1750" ] }, { "math": [ "u_val('thirst') = 0" ] } ]
+      },
+      {
+        "if": { "u_has_trait": "LILIN_TRAITS" },
+        "then": [ { "math": [ "u_vitamin('lilin_ruach_vitamin') = u_vitamin('lilin_ruach_vitamin') + 240" ] } ]
+      },
+      {
+        "if": { "u_has_any_trait": [ "VAMPIRE4", "VAMPIRE3", "VAMPIRE2", "VAMPIRE1" ] },
+        "then": [
+          { "math": [ "_blood_mult =0" ] },
+          {
+            "foreach": "array",
+            "target": [ "VAMPIRE4", "VAMPIRE3", "VAMPIRE2", "VAMPIRE1" ],
+            "var": { "context_val": "id" },
+            "effect": [ { "if": { "u_has_trait": { "context_val": "id" } }, "then": { "math": [ "_blood_mult++" ] } } ]
+          },
+          { "math": [ "u_vitamin('vit_blood') = u_vitamin('vit_blood') + 120 * _blood_mult" ] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "iron_nullifier_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "small teardrop amulet" },
+    "copy-from": "necklace_iron",
+    "description": "A cheerfully crude pendant, seemingly crafted by a child a long time ago.  Although its made of iron, holding it doesn't bother you at all."
+  },
+  {
+    "id": "imperial_banner_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "imperial banner" },
+    "description": "A blue sun shines proudly above the starry field depicted on this banner, which remains in pristine condition despite its age.  Will its subjects rally around it once more?",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "ammo_scale": 1,
+      "menu_text": "Unfurl the banner.",
+      "effect_on_conditions": [ "EOC_IMPERIAL_BANNER_XE" ]
+    }
+  },
+  {
+    "id": "EOC_IMPERIAL_BANNER_XE",
+    "type": "effect_on_condition",
+    "effect": [
+      {
+        "if": "u_is_outside",
+        "then": [
+          { "u_message": "You hear the distant sound of trumpets and the whistling of arrows above you." },
+          { "u_cast_spell": "spectral_barrage_xe" },
+          {
+            "u_spawn_monster": "mon_geas_knight",
+            "real_count": { "math": [ "rng(3,5)" ] },
+            "min_radius": 1,
+            "max_radius": 3,
+            "lifespan": [ "2 minutes", "5 minutes" ],
+            "spawn_message": "The banner flutters in the wind, and a spectral knight appears to defend it.",
+            "spawn_message_plural": "A company of knights forms around the banner"
+          }
+        ],
+        "else": [
+          { "u_message": "A single trumpet sounds in the distance." },
+          {
+            "u_spawn_monster": "mon_geas_knight",
+            "real_count": { "math": [ "rng(3,5)" ] },
+            "min_radius": 1,
+            "max_radius": 3,
+            "lifespan": [ "2 minutes", "5 minutes" ],
+            "spawn_message": "The banner flutters in the wind, and a spectral knight appears to defend it.",
+            "spawn_message_plural": "A company of knights silently forms around the banner."
+          },
+          {
+            "u_spawn_monster": "mon_geas_knight_xe_mage",
+            "real_count": 1,
+            "min_radius": 1,
+            "max_radius": 3,
+            "lifespan": [ "2 minutes", "5 minutes" ],
+            "spawn_message": "They are led by the honored dead."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SPELL",
+    "id": "spectral_barrage_xe",
+    "name": { "str": "spectral barrage", "//~": "NO_I18N" },
+    "description": { "str": "Spectral arrows rain from the sky.", "//~": "NO_I18N" },
+    "extra_effects": [
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" },
+      { "id": "spectral_barrage_arrow" }
+    ],
+    "valid_targets": [ "ground", "self", "ally" ],
+    "effect": "attack",
+    "shape": "blast",
+    "damage_type": "bash",
+    "min_damage": 1,
+    "max_damage": 1,
+    "flags": [ "LOUD", "RANDOM_TARGET", "RANDOM_DAMAGE", "RANDOM_AOE", "NO_EXPLOSION_SFX", "SILENT" ],
+    "base_casting_time": 100,
+    "min_aoe": 40,
+    "max_aoe": 40,
+    "min_range": 20,
+    "max_range": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "spectral_barrage_arrow",
+    "name": { "str": "Spectral Arrow", "//~": "NO_I18N" },
+    "description": { "str": "A single spectral arrow from the barrage.", "//~": "NO_I18N" },
+    "valid_targets": [ "hostile" ],
+    "target_condition": "npc_is_outside",
+    "effect": "attack",
+    "shape": "blast",
+    "message": "",
+    "damage_type": "bash",
+    "min_damage": 50,
+    "max_damage": 300,
+    "flags": [ "LOUD", "RANDOM_TARGET", "RANDOM_DAMAGE" ],
+    "base_casting_time": 100,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_range": 2,
+    "max_range": 30
+  },
+  {
+    "id": "map_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "perfect atlas" },
+    "description": "This hefty tome somehow contains maps of every single place in existence, the detailed floorplans of your childhood home lie somehow intermingled with the craters of the moon, the rivers of the underhills and the twisting pathways that link them.  A profound study of its contents would be an extremly daunting task, but thankfully the first page you open always contains a map of your current location."
+  },
+  {
+    "id": "philosophers_stone_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "lapis noster" },
+    "description": "A small, perfectly spherical stone that fits comfortably in the palm of your hand.  It is without a doubt the philosopher's stone, a legendary substance said to transmute matter and soul alike.  Now that you have obtained it through deceitful means, you know yourself incapable of attaining the heights of power and understanding that this relic represents.",
+    "symbol": "o",
+    "color": "red"
+  },
+  {
+    "id": "infinite_purse_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "purse full of silver coins" },
+    "description": "This small leather purse is filled to the brim with an unending stream of silver coins.  You can't help but feel a twinge of guilt every time you take a coin from it.",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "transparent": true,
+        "max_contains_volume": "50 ml",
+        "max_contains_weight": "600g",
+        "moves": 400
+      }
+    ],
+    "use_action": {
+      "target": "coin_highlands",
+      "msg": "There's more silver coins in the purse!",
+      "container": "infinite_purse_deal_relic_xe",
+      "target_charges": 40,
+      "moves": 50,
+      "type": "transform",
+      "need_empty": true
+    }
+  },
+  {
+    "id": "killing_knife_deal_relic_xe",
+    "type": "ITEM",
+    "name": { "str": "sharpened fragment" },
+    "copy-from": "knife_baselard",
+    "color": "red",
+    "description": "A jagged crystal shard shaped into a crude knife and adorned with a simple hilt made of red fabric.  It vibrates unnervingly, and whatever it pierces seems to be cleanly excised from the world.  Swinging it is an excruciatingly tiring experience, and you find yourself unable to hold it for long.",
+    "passive_effects": [
+      {
+        "has": "WIELD",
+        "values": [ { "value": "MELEE_STAMINA_CONSUMPTION", "multiply": 4 } ],
+        "hit_you_effect": [ { "id": "killing_blade_banishment_xe" } ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_DEAL_REBIRTH",
+    "eoc_type": "PREVENT_DEATH",
+    "//": "This is some ancient dream magic from the Highland empire.  It doesn't work on the dreamless, and it also only works in proper dimensions.",
+    "condition": {
+      "and": [
+        { "math": [ "u_prevent_death_deal = 1" ] },
+        { "not": { "u_has_trait": "VAMPIRE4" } },
+        { "or": [ { "current_dimension": "default" }, { "current_dimension": "highlands" } ] }
+      ]
+    },
+    "effect": [
+      {
+        "if": { "or": [ { "not": { "one_in_chance": 10 } }, { "math": [ "u_times_revived_by_deal < 7" ] } ] },
+        "then": [
+          {
+            "u_message": "You think to see a shattered moon looming above your nightmare, but the vision is as fleeting as it is disturbing.",
+            "popup": true
+          },
+          {
+            "if": { "math": [ "u_times_revived_by_deal > 7" ] },
+            "then": {
+              "u_message": "The remnants of the moon loom ever larger in your dreams, their presence undeniable and foreboding.",
+              "popup": true
+            }
+          },
+          { "math": [ "u_times_revived_by_deal++" ] },
+          { "run_eocs": [ "EOC_PERENNIAL_REBIRTH_HEAL" ] },
+          {
+            "if": { "current_dimension": "highlands" },
+            "then": [
+              { "u_location_variable": { "u_val": "highland" }, "target_params": { "om_terrain": "highlands", "z": 0 } },
+              { "u_teleport": { "u_val": "safe_highland" } }
+            ],
+            "else": [
+              { "u_location_variable": { "u_val": "forest" }, "target_params": { "om_terrain": "forest", "z": 0 } },
+              { "u_teleport": { "u_val": "forest" } }
+            ]
+          }
+        ],
+        "else": [ { "u_message": "The dream shatters and the cold grip of death takes you for good.", "popup": true } ]
+      }
+    ]
+  },
+  {
+    "id": "killing_blade_banishment_xe",
+    "type": "SPELL",
+    "name": "Greater Banishment",
+    "description": "A more advanced version of Banishment, which is a ritual spell that attempts to banish a monster.  Being closely related to blood magic, the Blood Mage is much more specialized to use a spell like this.",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "SILENT", "NO_EXPLOSION_SFX" ],
+    "effect": "banishment",
+    "shape": "blast",
+    "min_damage": 1000,
+    "max_damage": 1000,
+    "min_range": 1,
+    "max_range": 1
+  }
+]

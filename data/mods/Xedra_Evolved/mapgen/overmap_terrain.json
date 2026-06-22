@@ -76,6 +76,16 @@
   },
   {
     "type": "overmap_terrain",
+    "id": [ "highland_crossroads_temple_xe" ],
+    "name": "crossroads temple",
+    "sym": "T",
+    "color": "magenta",
+    "travel_cost_type": "structure",
+    "vision_levels": "isolated_building",
+    "see_cost": "high"
+  },
+  {
+    "type": "overmap_terrain",
     "id": [ "safe_house_basement" ],
     "copy-from": "generic_city_house_basement",
     "delete": { "post_process_generators": [ "riot_damage" ] }
