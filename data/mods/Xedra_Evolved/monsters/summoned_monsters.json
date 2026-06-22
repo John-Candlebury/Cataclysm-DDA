@@ -114,6 +114,23 @@
     "categories": [ "XE_CLASSIC" ]
   },
   {
+    "type": "MONSTER",
+    "id": "mon_geas_knight_xe",
+    "copy-from": "mon_march_lord_winter",
+    "default_faction": "player",
+    "name": { "str": "spectral knight" },
+    "special_attacks": [  ],
+    "description": "They fall upon the battlefield like moonlight, clad in a resplendent cloak of stars and silvered armor.  Bound by ancient oaths, they are the sworn protectors of their forgotten homeland, and will fight for you so long as you hold their standard aloft."
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_geas_knight_xe_mage",
+    "copy-from": "mon_march_lord_winter",
+    "default_faction": "player",
+    "name": { "str": "knight commander" },
+    "description": "They fall upon the battlefield like moonlight, clad in a resplendent cloak of stars and silvered armor.  Their helmet is adorned by a wreath of laurel in gold foil, and they carry a tall crystalline staff."
+  },
+  {
     "id": "mon_spring_changeling_bashing_vine",
     "looks_like": "mon_tanglevine",
     "type": "MONSTER",

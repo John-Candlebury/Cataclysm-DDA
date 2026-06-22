@@ -1,0 +1,394 @@
+[
+  {
+    "type": "npc",
+    "id": "xe_old_devil",
+    "name_unique": "Naram",
+    "//": "Nice guy found most commonly at crossroads.",
+    "name_suffix": "hermit",
+    "class": "NPC_XE_HERMIT",
+    "attitude": 0,
+    "mission": "GUARD",
+    "chat": "UMON_FIRST_MEET",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "NPC_XE_HERMIT",
+    "name": { "str": "Hermit" },
+    "traits": [
+      { "trait": "RETURN_TO_START_POS" },
+      { "trait": "XE_NETHER_SORCERY" },
+      { "group": "LIAR" },
+      { "group": "Appearance_demographics" }
+    ],
+    "job_description": "You know who this is.",
+    "worn_override": "NPC_XE_HERMIT_worn",
+    "wield_override": "NPC_XE_HERMIT_wield",
+    "bonus_int": { "rng": [ 10, 15 ] },
+    "spells": [
+      { "id": "xe_nether_sorcery_cold_damage_over_time", "level": 15 },
+      { "id": "xe_nether_sorcery_summon_kreck_pack", "level": 15 }
+    ],
+    "skills": [ { "skill": "ALL", "level": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NPC_XE_HERMIT_worn",
+    "subtype": "collection",
+    "items": [
+      { "item": "art_coat" },
+      { "item": "art_ring" },
+      { "item": "pants_gossamer" },
+      { "item": "socks" },
+      { "item": "art_boots" },
+      { "item": "tunic_gossamer" },
+      { "item": "loincloth_gossamer" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NPC_XE_HERMIT_wield",
+    "items": [ { "item": "art_harp" } ]
+  },
+  {
+    "id": [ "UMON_FIRST_MEET" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "gendered_line": "Oh come forward wanderer, its been ages since I've seen another soul in these lands.  Pray tell, are you coming or going?",
+      "relevant_genders": [ "npc" ]
+    },
+    "responses": [
+      { "text": "Uh... what?", "topic": "UMON_WHAT" },
+      { "text": "Coming?", "topic": "UMON_COMING" },
+      { "text": "Going?", "topic": "UMON_GOING" }
+    ]
+  },
+  {
+    "id": [ "UMON_GOING" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "gendered_line": "The hermit nods solemnly, \"What a cursed path you must travel then, if it takes you to places like this.  I am Naram, and I too traveled, but now I rest.\" he gestures to his camp.  \"Sit, share a moment of peace before you continue your journey.\"",
+      "relevant_genders": [ "npc" ]
+    },
+    "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
+  },
+  {
+    "id": [ "UMON_COMING" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "gendered_line": "The hermit nods solemnly, \"Then I fear you are very late, visitor.  The sun has long since set on these lands, its kings dream beneath the earth, and wind alone reigns in their stead.  It is only well that you'll soon return to your home.\" He gestures towards the campfire.  \" Come, sit here with Naram for a moment, and let us rest and share old tales.\"",
+      "relevant_genders": [ "npc" ]
+    },
+    "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
+  },
+  {
+    "id": [ "UMON_WHAT" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "concatenate": [
+        "&The hermit blinks, \"What indeed?  Certainly you must be either coming or going, there is no other option in these parts.",
+        {
+          "math": [ "Boann_Quests_Completed >= 6" ],
+          "yes": { "gendered_line": "A bannerman of the Summer Court would have known this, I thought.", "relevant_genders": [ "u" ] },
+          "no": ""
+        },
+        "Regardless, I'm Naram, and I too wander, often lost.  Share a moment of rest with me before you continue on your way.\""
+      ]
+    },
+    "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
+  },
+  {
+    "id": [ "UMON_MAIN", "UMON_GOING", "UMON_COMING", "UMON_WHAT", "UMON_NAME" ],
+    "type": "talk_topic",
+    "dynamic_line": { "gendered_line": "Now what shall we do my friend?" },
+    "responses": [
+      {
+        "truefalsetext": {
+          "condition": { "math": [ "n_player_must_share_name == 1" ] },
+          "false": "Pleased to meet you, Naram.  I'm <player_name>.",
+          "true": "Naram, my name is <player_name>, and we will trade."
+        },
+        "topic": "UMON_NAME"
+      },
+      { "text": "This is an awfully grim place to rest at.", "topic": "UMON_PLACE" },
+      { "text": "Where are we?  What is this place?", "topic": "UMON_COMING" },
+      { "text": "Safe travels, Naram.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "UMON_PLACE" ],
+    "type": "talk_topic",
+    "dynamic_line": "Aye, it is.",
+    "responses": [
+      { "text": "Where are we anyway?", "topic": "UMON_HISTORY" },
+      { "text": "What are you doing here?", "topic": "UMON_TRADE" },
+      { "text": "Well I'll be looking for my way out.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "UMON_NAME" ],
+    "type": "talk_topic",
+    "//": "This is a very good idea obviously.",
+    "dynamic_line": "Naram returns your greeting with a smile.  It is a strange, toothy, and uncomfortable thing.",
+    "speaker_effects": [ { "effect": { "math": [ "umon_knows_your_name = 1" ] } }, { "effect": { "math": [ "naram_payment = 1200" ] } } ]
+  },
+  {
+    "id": [ "UMON_TRADE" ],
+    "type": "talk_topic",
+    "dynamic_line": "Naram shrugs, \"One finds all sorts of wonders among ruins, and for them kin surrender all manner of things.  I'm resting now, but I suppose I'll be trading again soon enough.\"",
+    "responses": [
+      { "text": "Oh!  Do you have any leads?  I could do with some loot.", "topic": "UMON_LEADS" },
+      {
+        "text": "Well that sounds like a steal, what have you got?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "or": [
+              {
+                "u_has_any_trait": [
+                  "UNKNOWING_CHANGELING_NOBLE",
+                  "FAIR_FOLK_COMMONER_SELECTOR",
+                  "UNKNOWING_CHANGELING_COMMONER_BROWNIE",
+                  "UNKNOWING_CHANGELING_COMMONER_POOKA",
+                  "UNKNOWING_CHANGELING_COMMONER_SELKIE",
+                  "UNKNOWING_CHANGELING_COMMONER_TROW",
+                  "ARVORE",
+                  "SYLPH",
+                  "UNDINE",
+                  "IERDE",
+                  "SALAMANDER",
+                  "HOMULLUS"
+                ]
+              },
+              { "math": [ "Boann_Quests_Completed >= 6" ] }
+            ]
+          }
+        },
+        "success": { "topic": "UMON_DEALS_FAE" },
+        "failure": { "topic": "UMON_DEALS" }
+      },
+      { "text": "I see.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "id": [ "UMON_LEADS" ],
+    "type": "talk_topic",
+    "dynamic_line": "This are poor borderlands, fit only for burials.  Walk on the conquerors' roads, and perhaps you will find the cities of old.  I have seen them, but their gates remain closed to me.  Perhaps you will have better luck, and if you do, I would be most interested to hear of your findings.  Here, I can point you to the closest gate.",
+    "responses": [ { "text": "Thanks for the tip.  See you around.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_DEALS_FAE" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "math": [ "Boann_Quests_Completed >= 6" ],
+      "yes": {
+        "gendered_line": "Poor Bannerman, have you forgotten?  The things you hold dear are no longer yours to give.   Still, I suppose I could help a fellow lost soul, so long as they are not a stranger to me.",
+        "relevant_genders": [ "u" ]
+      },
+      "no": {
+        "gendered_line": "Child, you'd do well to return underhill and forget we ever met.  Still, I suppose I could help you, so long as I know your name and your place among kin.",
+        "relevant_genders": [ "npc" ]
+      }
+    },
+    "speaker_effects": [ { "math": [ "n_player_must_share_name = 1" ] } ],
+    "responses": [ { "text": "I see.", "topic": "UMON_MAIN" } ]
+  },
+  {
+    "id": [ "UMON_DEALS", "UMON_END_CATACLYSM" ],
+    "type": "talk_topic",
+    "dynamic_line": "&You don't notice Naram  producing a small satchel from seemingly nowhere until its already open before you.  Inside lie a collection of relics, each strange in its own right.  \"What will it be?  Power, wisdom, fortune?  Name whatever will sate you, and it shall be yours, but know that all things come with a price, and that there will be no haggling.\"",
+    "responses": [
+      { "text": "[FAE] I wish to dream as men do.", "topic": "TALK_DONE" },
+      {
+        "truefalsetext": {
+          "false": "[Vampire] What lousy things you offer.  What I wish is to never feel hunger again.",
+          "true": "[Lilin] What lousy things you offer. What I desire is freedom from my hunger.",
+          "condition": { "u_trait": "LILIN_TRAITS" }
+        },
+        "condition": { "u_has_any_trait": [ "VAMPIRE4", "VAMPIRE3", "LILIN_TRAITS" ] }
+      },
+      { "text": "Power is the only truth and I desire it above all else.", "topic": "UMON_POWER" },
+      {
+        "text": "Power is wasted without vision, and the gifts of fate are squandered by the foolish.  I wish for wisdom to see the world as it is, and to know how to bend it to my will.  Can you grant this?",
+        "topic": "UMON_WISDOM"
+      },
+      {
+        "text": "The wise read their downfall in the stars and even the strongest are powerless to resist them.  All I wish is for fate to show me kindness, and for luck to favor my endeavors.  Is this a bargain you can make?",
+        "topic": "UMON_FORTUNE"
+      },
+      { "text": "How about money.  But like a lot of it.", "topic": "UMON_MONEY" },
+      { "text": "What worthless things you offer.  Let us talk of other matters.", "topic": "UMON_WORTHLESS" }
+    ]
+  },
+  {
+    "id": [ "UMON_WIND" ],
+    "type": "talk_topic",
+    "dynamic_line": "You sit beside Naram, and rest in silence.  The wind whistles softly through the highland grasses, carrying with it faint echoes.  It is unnerving, there's no peace here, only the silence of the unseen bidding for its return.  After a time, Naram breaks the silence.  \"The wind here knows many things, and most are better left unheard.  You would do well to leave this place soon.\"",
+    "responses": [ { "text": "Yes, I should be going now.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_POWER" ],
+    "type": "talk_topic",
+    "dynamic_line": "Of power I have plenty, but it commands a heavy price.  Name what you seek, and I shall grant it to you.",
+    "responses": [
+      {
+        "text": "I desire command over an undefeatable army.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "imperial_banner_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 5" ] } } ]
+      },
+      {
+        "text": "I desire the powers of the outer night.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "nether_sorcery_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 40" ] } } ]
+      },
+      {
+        "text": "I desire a powerful weapon.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "killing_knife_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 60" ] } } ]
+      },
+      {
+        "text": "I wish to channel great magical power.",
+        "topic": "UMON_PAY_WITH_CONTROL",
+        "effect": [ { "u_spawn_item": "mana_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 40" ] } } ]
+      }
+    ]
+  },
+  {
+    "id": [ "UMON_WISDOM" ],
+    "type": "talk_topic",
+    "dynamic_line": "You'll leave wiser indeed.  Name the nature of what you seek, and it shall be yours.",
+    "responses": [
+      {
+        "text": "I desire the means to shape dreams into reality.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "dream_dross_generating_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = -5" ] } } ]
+      },
+      {
+        "text": "I desire the ability to shape moonlight into weapons and tools.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "fae_hammer_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 15" ] } } ]
+      },
+      {
+        "text": "I desire to know every land I walk as if it were my own.",
+        "topic": "UMON_DECIDES_PAYMENT",
+        "effect": [ { "u_spawn_item": "philosophers_stone_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 15" ] } } ]
+      }
+    ]
+  },
+  {
+    "id": [ "UMON_FORTUNE" ],
+    "type": "talk_topic",
+    "dynamic_line": "Fortune is a fickle thing, and I'm not so powerful as to command it.  Name what you seek, and perhaps fate will smile upon you.",
+    "responses": [
+      {
+        "text": "I desire to hold death at bay.",
+        "effect": [ { "u_spawn_item": "philosophers_stone_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = rng( -5, 60)" ] } } ],
+        "topic": "UMON_DECIDES_PAYMENT"
+      }
+    ]
+  },
+  {
+    "id": [ "UMON_MONEY" ],
+    "type": "talk_topic",
+    "dynamic_line": "How trivial.  Take it and bother me no more.",
+    "speaker_effect": { "effect": { "u_spawn_item": "infinite_purse_deal_relic_xe" } },
+    "responses": [ { "text": "Awesome!", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_WORTHLESS" ],
+    "type": "talk_topic",
+    "dynamic_line": "Naram's eyes narrow, \"If you wish to leave empty-handed, so be it.\"",
+    "responses": [ { "text": "I should be going then.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_DECIDES_PAYMENT" ],
+    "type": "talk_topic",
+    "dynamic_line": "The world seems to pause under the weight of Naram's gaze, and whatever you had envisioned as a boon seems to fade into the distance.  \"It is done. Now I shall claim whatever fits me.\"",
+    "responses": [
+      {
+        "topic": "UMON_PAY_IN_FULL",
+        "condition": { "math": [ "naram_payment > 999" ] },
+        "text": "...",
+        "default": true,
+        "switch": true
+      },
+      {
+        "topic": "UMON_PAY_WITH_FEAR",
+        "condition": { "math": [ "naram_payment > 50" ] },
+        "text": "...",
+        "switch": true
+      },
+      {
+        "topic": "UMON_PAY_WITH_CONTROL",
+        "condition": { "math": [ "naram_payment > 30" ] },
+        "text": "...",
+        "switch": true
+      },
+      {
+        "topic": "UMON_PAY_WITH_SKILL",
+        "condition": { "math": [ "naram_payment > 10" ] },
+        "text": "...",
+        "switch": true
+      },
+      {
+        "topic": "UMON_PAY_WITH_VITALITY",
+        "condition": { "math": [ "naram_payment > -10" ] },
+        "text": "...",
+        "switch": true
+      }
+    ]
+  },
+  {
+    "id": [ "UMON_PAY_WITH_CONTROL" ],
+    "type": "talk_topic",
+    "dynamic_line": "Old I am and bored of my own tale.  All I ask is you think of me when you hold blade and bow against your kin, and that you allow me to guide you in such moments."
+  },
+  {
+    "id": [ "UMON_PAY_WITH_FEAR" ],
+    "type": "talk_topic",
+    "dynamic_line": "I have granted you great power, and yet it will be wasted by your nature.  So I will take no payment from you, and instead grant you a second boon.  Never again will you feel fear and dread in combat, for all things shall be within your grasp.  Leave me now, blessed as you are, and may the ways bend in your favor.",
+    "responses": [ { "text": "It will be so.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_PAY_WITH_VITALITY" ],
+    "type": "talk_topic",
+    "dynamic_line": "Wise and fortunate you are, and yet I see the toll of your travels upon you.  They have left you so weak and frail, that I would not think to extoll any further payment from you.  Consider our debts settled, and might we meet as strangers from now on.",
+    "responses": [ { "text": "What do you mean? I feel fine.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_PAY_WITH_SKILL" ],
+    "type": "talk_topic",
+    "dynamic_line": "I shall take your masteries as my own, such that all shall see you as your are: eclipsed by my gift."
+  },
+  {
+    "id": [ "UMON_PAY_IN_FULL" ],
+    "type": "talk_topic",
+    "dynamic_line": "You have so little of worth, but I believe it to be enough.  I shall have everything you are as you stand before me, and all you shall ever be.  This  payment I shall have in full, when we meet again in the lands between lands.",
+    "responses": [ { "text": "Uhh.  No take backs?", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "UMON_WHERE_ARE_WE" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "concatenate": [
+        "Naram sets sights on the horizon before answering, \"Before the mysteries of creation had withered and its wonders could still be roused, man grappled against the orders tall and low, and overcame.  They laid paths across the spheres, and sought to link all in a living dream.  We rest today at one of the confluences of that ambition.\"",
+        {
+          "u_has_any_trait": [ "DREAMER", "EATER", "DREAMSMITH", "INVENTOR" ],
+          "yes": "Green as you are to the powers of your kind, I suggest you leave to never return, for the dream is rotten and the things that gnaw at it are beyond any horror you have known.\"",
+          "no": "But the hearts and minds of man are pitiful things and not fit for the thrones of creation."
+        }
+      ]
+    },
+    "responses": [
+      { "text": "I have read a history book before, and none of that is true.", "topic": "TALK_UMON_LIES" },
+      { "text": "I think it looks like any other place if you ask me.", "topic": "TALK_UMON_LIES" },
+      { "text": "I see.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "TALK_UMON_LIES" ],
+    "type": "talk_topic",
+    "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of things I have only seen but do not know.",
+    "responses": [  ]
+  }
+]
