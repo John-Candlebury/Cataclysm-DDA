@@ -1,0 +1,131 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_FEARLESS_CURSE",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": { "u_has_trait": "xe_devil_deal_fearless" },
+    "effect": [
+      { "u_location_variable": { "u_val": "avatar_new_pos" }, "min_radius": 0, "max_radius": 0 },
+      {
+        "u_run_monster_eocs": [
+          {
+            "id": "_EOC_FEARLESS_CURSE",
+            "condition": { "math": [ "u_val('difficulty') >= 30" ] },
+            "effect": [ { "run_eocs": "xe_fearless_curse_monster", "beta_talker": "avatar" } ]
+          }
+        ],
+        "monster_range": 65,
+        "monster_must_see": true
+      },
+      { "u_location_variable": { "u_val": "avatar_old_pos" }, "min_radius": 0, "max_radius": 0 }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "xe_fearless_curse_monster",
+    "effect": [
+      { "math": [ "u_new_distance = distance('u', 'npc')" ] },
+      { "u_location_variable": { "u_val": "monster_pos" }, "min_radius": 0, "max_radius": 0 },
+      {
+        "if": {
+          "and": [
+            { "math": [ "has_var(u_old_distance)" ] },
+            { "math": [ "u_new_distance > u_old_distance" ] },
+            { "npc_can_see_location": { "u_val": "monster_pos" } }
+          ]
+        },
+        "then": [ { "npc_teleport": { "npc_val": "avatar_old_pos" } }, { "npc_message": "You see no reason to flee from this fight." } ]
+      },
+      { "math": [ "u_old_distance = distance('u', 'npc')" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "_EOC_CONTROL_CURSE_RANGED",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_attacks",
+    "condition": { "u_has_trait": "xe_devil_deal_control" },
+    "effect": [
+      { "u_location_variable": { "u_val": "avatar_new_pos" }, "min_radius": 0, "max_radius": 0 },
+      {
+        "u_run_monster_eocs": [
+          {
+            "id": "_EOC_CONTROL_CURSE_RANGED",
+            "condition": { "math": [ "u_val('difficulty') >= 30" ] },
+            "effect": [ { "run_eocs": "_EOC_CONTROL_CURSE_MELEE", "beta_talker": "avatar" } ]
+          }
+        ],
+        "monster_range": 65,
+        "monster_must_see": true
+      },
+      { "u_location_variable": { "u_val": "avatar_old_pos" }, "min_radius": 0, "max_radius": 0 }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "_EOC_CONTROL_CURSE_MELEE",
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": { "u_has_trait": "xe_devil_deal_control" },
+    "effect": [
+      {
+        "//": "If theres an adjacent monster, we force an attack. If theres none, we run a leap spell to a random nearest monster.",
+        "if": "u_monsters_nearby('radius': 1, 'attitude': 'hostile') > 0",
+        "then": [
+          {
+            "//": "This here attacks a single adjacent monster. u_assault_attacked is used to ensure the avatar only attacks once.",
+            "u_run_monster_eocs": [
+              {
+                "id": "EOC_control_curse_attack",
+                "condition": { "math": [ "u_assault_attacked != 1" ] },
+                "effect": [
+                  { "run_eocs": "EOC_AUTO_ATTACK", "alpha_talker": "avatar", "beta_talker": "u" },
+                  { "math": [ "u_assault_attacked = 1" ] }
+                ]
+              }
+            ],
+            "monster_range": 1,
+            "monster_must_see": true
+          },
+          { "math": [ "u_assault_attacked = 0" ] }
+        ],
+        "else": [
+          {
+            "u_run_monster_eocs": [
+              {
+                "id": "EOC_control_curse_close_mon",
+                "condition": { "math": [ "u_assault_attacked != 1" ] },
+                "effect": [ { "u_location_variable": { "context_val": "walk_tar" } } ]
+              }
+            ],
+            "monster_range": 16,
+            "monster_must_see": true
+          },
+          {
+            "if": { "math": [ "has_var(_walk_tar)" ] },
+            "then": [
+              { "u_location_variable": { "context_val": "char_pos" } },
+              { "math": [ "_x_offset = _walk_tar.x - _char_pos.x > 0? -1 : 1" ] },
+              { "math": [ "_y_offset = _walk_tar.y - _char_pos.y > 0? -1 : 1" ] },
+              { "math": [ "_char_pos.x = _char_pos.x + _x_offset" ] },
+              { "math": [ "_char_pos.y = _char_pos.y + _y_offset" ] },
+              { "u_teleport": { "context_val": "char_pos" } },
+              { "turn_cost": "1 s" }
+            ],
+            "else": [ { "turn_cost": "1 s" } ]
+          }
+        ]
+      },
+      { "if": { "math": [ "rng(10) > 3" ] }, "then": [ { "run_eocs": "_EOC_CONTROL_CURSE_MELEE" } ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "_EOC_CONTROL_CURSE_RANGED",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_attacks",
+    "condition": { "u_has_trait": "xe_devil_deal_control" },
+    "effect": [  ]
+  }
+]

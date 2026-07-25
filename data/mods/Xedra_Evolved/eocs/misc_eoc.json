@@ -476,6 +476,14 @@
     ]
   },
   {
+    "id": "EOC_AUTO_ATTACK",
+    "type": "effect_on_condition",
+    "effect": [
+      { "set_string_var": { "mutator": "valid_technique" }, "target_var": { "context_val": "random_attack" } },
+      { "u_attack": { "context_val": "random_attack" } }
+    ]
+  },
+  {
     "type": "effect_on_condition",
     "id": "HYDRATING_GOUT_SYMPTOMS_INCUBATION",
     "eoc_type": "EVENT",

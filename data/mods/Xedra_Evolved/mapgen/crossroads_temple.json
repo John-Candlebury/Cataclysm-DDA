@@ -1,7 +1,7 @@
 [
   {
     "type": "mapgen",
-    "om_terrain": "highland_crossroads_temple",
+    "om_terrain": "highland_crossroads_temple_xe",
     "object": {
       "rows": [
         "   F  FFF|    | F   FF  ",
