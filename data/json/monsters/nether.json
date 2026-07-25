@@ -995,6 +995,24 @@
     "armor": { "cut": 15, "bullet": 35, "bash": 20 }
   },
   {
+    "id": "mon_highlands_revenant_unfolded",
+    "type": "MONSTER",
+    "copy-from": "mon_highlands_revenant",
+    "name": { "str": "unshackled revenant" },
+    "description": "The body of this creature spills out from the tattered shroud, twisting and folding into a recursive mass of limbs that extend in all directions.  At times the shadow of a contorted face is visible within the mass, but its dificult to focus on for long.",
+    "speed": 90,
+    "death_drops": "ps_artifact_weak",
+    "special_attacks": [
+      {
+        "id": "multi_scratch",
+        "cooldown": 2,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 20, "armor_penetration": 30 } ],
+        "min_mul": 0.3,
+        "max_mul": 1.1
+      }
+    ]
+  },
+  {
     "id": "mon_tindalos",
     "type": "MONSTER",
     "name": { "str_sp": "star-crowned hound" },
