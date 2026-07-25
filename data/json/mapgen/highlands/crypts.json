@@ -1,7 +1,7 @@
 [
   {
     "type": "mapgen",
-    "om_terrain": [ "highlands_crypt_above" ],
+    "om_terrain": [ "highland_crypt_above" ],
     "object": {
       "fill_ter": "t_stone_masonry_floor",
       "rows": [
@@ -27,6 +27,7 @@
         "                        ",
         "                        ",
         "                        ",
+        "                        ",
         "                        "
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
@@ -35,7 +36,7 @@
   },
   {
     "type": "mapgen",
-    "om_terrain": [ "highlands_crypt_surface" ],
+    "om_terrain": [ "highland_crypt_surface" ],
     "object": {
       "fill_ter": "t_stone_masonry_floor",
       "rows": [
@@ -61,9 +62,11 @@
         "                        ",
         "                        ",
         "                        ",
+        "                        ",
         "                        "
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "highland_structure" ],
       "terrain": {
         ".": [ [ "t_stone_masonry_floor", 10 ], [ "t_highland_groundcover", 1 ] ],
         "s": "t_rock_wall_fake",
@@ -77,7 +80,7 @@
   },
   {
     "type": "mapgen",
-    "om_terrain": [ "highlands_crypt_small" ],
+    "om_terrain": [ "highland_crypt_small" ],
     "object": {
       "fill_ter": "t_stone_masonry_floor",
       "rows": [
@@ -103,9 +106,11 @@
         "%%%%%%%%%%%%%%%%%%%%%%%%",
         "%%%%%%%%%%%%%%%%%%%%%%%%",
         "%%%%%%%%%%%%%%%%%%%%%%%%",
+        "%%%%%%%%%%%%%%%%%%%%%%%%",
         "%%%%%%%%%%%%%%%%%%%%%%%%"
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "highland_structure" ],
       "terrain": {
         "%": "t_soil",
         "s": "t_rock_wall_fake",
@@ -119,7 +124,7 @@
   },
   {
     "type": "mapgen",
-    "om_terrain": [ [ "highlands_crypt_royal", "highlands_crypt_royal_1" ] ],
+    "om_terrain": [ [ "highland_crypt_royal", "highland_crypt_royal_1" ] ],
     "object": {
       "fill_ter": "t_stone_masonry_floor",
       "rows": [
@@ -132,14 +137,14 @@
         "%%|F ||        |v|        || F|||GGGGGGG G--www|",
         "%%|F ||        |t|        || F|%| ||| ||s|||||||",
         "%%|                           |%|||%|||| |%%%%%%",
-        "%%|          _______          |%%%%%%%%| |%%%%%%",
-        "%%|F ||F     _Q---Q_     F|| Fs    ||||| ||||||%",
-        "%%|F vvF     _-GGG-_     Fvv F|%%%%s          |%",
+        "%%|  ||      _______      ||  |%%%%%%%%| |%%%%%%",
+        "%%|F vvF     _Q---Q_     Fvv Fs    ||||| ||||||%",
+        "%%|F ||F     _-GGG-_     F|| F|%%%%s          |%",
         "%%|          _-GGG-_          |%%%%| S      S |%",
         "%%|          ___1___          |%%%||          |%",
-        "%%|F vvF     _-GGG-_     Fvv F|%%%|           |%",
-        "%%|F ||F     _-GGG-_     F|| F||||| S      S ||%",
-        "%%|          _Q---Q_          s   s          |%%",
+        "%%|F ||F     _-GGG-_     F|| F|%%%|           |%",
+        "%%|F vvF     _-GGG-_     Fvv F||||| S      S ||%",
+        "%%|  ||      _Q---Q_      ||  s   s          |%%",
         "%%|          _______          s   s          |%%",
         "%%|F ||        |T|        || F||||| S     S ||%%",
         "%%|F ||        |v|        || F|%%%|         |%%%",
@@ -157,12 +162,13 @@
         " ": [ [ "t_stone_masonry_floor", 10 ], [ "t_highland_groundcover", 1 ] ],
         "Q": "t_little_column",
         "s": "t_rock_wall_fake",
-        "T": "t_highland_holy_tree",
+        "T": "t_stone_masonry_floor",
         "v": [ [ "t_window_stained_blue", 1 ], [ "t_window_stained_red", 2 ], [ "t_window_stained_green", 2 ] ]
       },
       "monster": { "T": { "monster": "mon_highlands_revenant", "chance": 80, "spawn_data": { "patrol": [ { "x": 16, "y": 18 } ] } } },
       "furniture": { "1": "f_imperial_sarcophagus" },
-      "item": { "_": { "item": "highland_censer", "chance": 20 }, "t": [ { "item": "highland_sarcophagus_imperial" } ] }
+      "items": { "t": [ { "item": "highland_sarcophagus_imperial" } ] },
+      "item": { "_": { "item": "highland_censer", "chance": 20 } }
     }
   }
 ]

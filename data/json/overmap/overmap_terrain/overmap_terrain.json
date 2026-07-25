@@ -122,11 +122,11 @@
   {
     "type": "overmap_terrain",
     "id": [
-      "highlands_crypt_above",
-      "highlands_crypt_surface",
-      "highlands_crypt_small",
-      "highlands_crypt_royal",
-      "highlands_crypt_royal"
+      "highland_crypt_above",
+      "highland_crypt_surface",
+      "highland_crypt_small",
+      "highland_crypt_royal",
+      "highland_crypt_royal_1"
     ],
     "name": "crossroads temple",
     "sym": "T",

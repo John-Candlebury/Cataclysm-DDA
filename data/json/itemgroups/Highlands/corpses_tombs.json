@@ -1,6 +1,25 @@
 [
   {
     "type": "item_group",
+    "id": "highland_tomb_revenant",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "highland_shroud", "variant": "guardian" },
+      {
+        "item": "art_dagger",
+        "artifact": {
+          "procgen_id": "cult",
+          "rules": { "power_level": 750, "max_attributes": 3, "max_negative_power": -500, "resonant": true }
+        },
+        "prob": 100
+      },
+      { "item": "gold_ring", "count": [ 2, 8 ] },
+      { "group": "bracelets_gold", "count": [ 4, 12 ] },
+      { "item": "higlands_funeral_crown" }
+    ]
+  },
+  {
+    "type": "item_group",
     "id": "highland_sarcophagus_common",
     "subtype": "collection",
     "items": [

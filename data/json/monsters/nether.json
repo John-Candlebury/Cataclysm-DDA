@@ -941,7 +941,7 @@
     "species": [ "TINDALOS", "NETHER" ],
     "volume": "30000 ml",
     "weight": "40750 g",
-    "hp": 300,
+    "hp": 600,
     "speed": 70,
     "material": [ "flesh" ],
     "symbol": "L",
@@ -958,13 +958,31 @@
     "vision_night": 50,
     "families": [ "prof_wp_netherium_abomination" ],
     "weakpoint_sets": [ "wps_netherium_abomination" ],
+    "death_drops": "ps_artifact_weak",
     "harvest": "exempt",
-    "special_attacks": [ { "id": "longswipe" }, { "id": "push_away", "cooldown": 1 }, { "id": "lash_bash_attack" } ],
+    "special_attacks": [
+      { "id": "longswipe", "cooldown": 1 },
+      { "id": "push_away", "cooldown": 3 },
+      {
+        "id": "lash_bash_attack",
+        "cooldown": 3,
+        "damage_max_instance": [ { "damage_type": "bash", "amount": 20, "armor_penetration": 20 } ],
+        "min_mul": 0.5,
+        "max_mul": 1.3
+      },
+      {
+        "id": "multi_scratch",
+        "cooldown": 2,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 15, "armor_penetration": 30 } ],
+        "min_mul": 0.3,
+        "max_mul": 1.1
+      }
+    ],
     "path_settings": { "max_dist": 10 },
     "flags": [
       "SEES",
       "SMELLS",
-      "GOODHEARING",
+      "HEARS",
       "HAS_MIND",
       "PRIORITIZE_TARGETS",
       "KEENNOSE",
@@ -974,21 +992,7 @@
       "NO_BREATHE",
       "HARDTOSHOOT"
     ],
-    "armor": { "cut": 15, "bullet": 20, "bash": 20 }
-  },
-  {
-    "id": "mon_highlands_revenant_unfolded",
-    "type": "MONSTER",
-    "copy-from": "mon_highlands_revenant",
-    "name": { "str": "unshackled revenant" },
-    "description": "The body of this creature spills out from the tattered shroud, twisting and folding into a recursive mass of limbs that extend in all directions.  At times the shadow of a contorted face is visible within the mass, but its dificult to focus on for long.",
-    "speed": 90,
-    "special_attacks": [
-      { "id": "longswipe", "cooldown": 3 },
-      { "id": "push_away", "cooldown": 5 },
-      { "id": "lash_bash_attack", "cooldown": 3 },
-      { "id": "multi_scratch", "cooldown": 2 }
-    ]
+    "armor": { "cut": 15, "bullet": 35, "bash": 20 }
   },
   {
     "id": "mon_tindalos",
