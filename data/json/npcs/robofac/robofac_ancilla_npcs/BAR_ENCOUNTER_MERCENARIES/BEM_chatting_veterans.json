@@ -4,9 +4,21 @@
     "type": "talk_topic",
     "dynamic_line": "&A pair of veteran mercenaries share stories between bouts of heavy drinking.  You could probably join them if you wanted to.",
     "responses": [
-      { "text": "[Join and hear them out for a while.]", "topic": "BEM_CHATTING_VETERANS_HEAR" },
-      { "text": "[Join them in their heavy drinking.]", "topic": "BEM_CHATTING_VETERANS_DRINKING" },
-      { "text": "[Join them with a story of your own.]", "topic": "BEM_CHATTING_VETERANS_TELL_STORY" },
+      {
+        "text": "[Join and hear them out for a while.]",
+        "topic": "BEM_CHATTING_VETERANS_HEAR",
+        "effect": { "math": [ "u_chatted_with_bar_veterans++" ] }
+      },
+      {
+        "text": "[Join them in their heavy drinking.]",
+        "topic": "BEM_CHATTING_VETERANS_DRINKING",
+        "effect": { "math": [ "u_chatted_with_bar_veterans++" ] }
+      },
+      {
+        "text": "[Join them with a story of your own.]",
+        "topic": "BEM_CHATTING_VETERANS_TELL_STORY",
+        "effect": { "math": [ "u_chatted_with_bar_veterans++" ] }
+      },
       { "text": "[Just move along.]", "topic": "TALK_DONE" }
     ]
   },
