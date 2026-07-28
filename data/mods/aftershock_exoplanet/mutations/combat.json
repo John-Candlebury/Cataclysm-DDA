@@ -1,0 +1,22 @@
+[
+  {
+    "type": "mutation",
+    "id": "SKIN_ARMOR",
+    "name": { "str": "Subcutaneous armor" },
+    "points": 2,
+    "visibility": 7,
+    "ugliness": 1,
+    "description": "The subcutaneous fat in your skin has been engineered to grow in patterns that resemble aramid fibers. This provides moderate protection against physical damage that degrades as you are wounded.  Unfortunately, it also hampers your body's ability to access its own energy reserves, making you more susceptible to starvation.",
+    "types": [ "SKIN" ],
+    "enchantments": [
+      { "values": [ { "value": "STAMINA_REGEN_MOD", "add": 0.1 }, { "value": "METABOLISM", "multiply": 0.5 } ] },
+      {
+        "incoming_damage_mod_post_absorbed": [
+          { "type": "bash", "multiply": { "math": [ "0.2 * u_hp('torso') * u_hp_max('torso')" ] } },
+          { "type": "bullet", "multiply": { "math": [ "0.5 * u_hp('torso') * u_hp_max('torso')" ] } },
+          { "type": "cut", "multiply": { "math": [ "0.2 * u_hp('torso') * u_hp_max('torso')" ] } }
+        ]
+      }
+    ]
+  }
+]

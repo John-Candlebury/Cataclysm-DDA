@@ -139,6 +139,8 @@
       { "part": "head", "good": 7 },
       { "part": "leg_l", "good": 21 },
       { "part": "leg_r", "good": 21 },
+      { "part": "leg_r", "good": 21 },
+      { "part": "tail", "good": 21 },
       { "part": "foot_l", "good": 6 },
       { "part": "foot_r", "good": 6 },
       { "part": "arm_l", "good": 19 },

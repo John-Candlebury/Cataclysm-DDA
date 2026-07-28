@@ -1,0 +1,77 @@
+[
+  {
+    "type": "mutation",
+    "id": "AFS_PAWS",
+    "name": { "str": "Paws" },
+    "description": "Your hands more closely resemble a pair of paws.  You can still manipulate objects, but they remain less dextrous than a normal hand.  They however allow you to move in a quadrupedal stance.",
+    "category": [ "AFS_MAMMAL" ],
+    "types": [ "HANDS" ],
+    "changes_to": [ "PAWS_LARGE" ],
+    "cancels": [ "TALONS" ],
+    "points": 0,
+    "mixed_effect": true,
+    "vitamin_cost": 160,
+    "visibility": 0,
+    "ugliness": 0,
+    "flags": [ "QUADRUPED_CROUCH" ],
+    "craft_skill_bonus": [ [ "electronics", -2 ], [ "tailor", -2 ], [ "mechanics", -2 ] ],
+    "enchantments": [
+      "ench_quadruped_movement_half",
+      {
+        "modified_bodyparts": [ { "lose": "hand_l" }, { "lose": "hand_r" }, { "gain": "paw_l" }, { "gain": "paw_r" } ]
+      }
+    ],
+    "triggers": [
+      [
+        {
+          "condition": {
+            "and": [
+              { "u_has_move_mode": "crouch" },
+              { "u_has_flag": "THRESH_ALLOWS_QUADRUPEDAL_MOVEMENT" },
+              { "not": "u_can_drop_weapon" },
+              { "not": { "u_has_flag": "QUADRUPED_RUN" } }
+            ]
+          },
+          "msg_on": { "text": "You drop down on all fours." },
+          "msg_off": { "text": "You come out of your quadrupedal posture." }
+        }
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "van_derwaals_pads",
+    "name": { "str": "Van der Waals Pads" },
+    "description": "Thin pads on your hands and feet allow you to safely climb vertical surfaces.",
+    "types": [ "CLAWS" ],
+    "points": 1
+  },
+  {
+    "type": "mutation",
+    "id": "CLAWS_RETRACT",
+    "name": { "str": "Retractable Claws" },
+    "description": "You have claws on the ends of your fingers, and can extend or retract them as desired.  Gloves will still get in the way, though.",
+    "category": [ "AFS_MAMMAL" ],
+    "types": [ "CLAWS" ],
+    "prereqs": [ "AFS_PAWS" ],
+    "points": 2,
+    "active": true,
+    "cost": 0,
+    "vitamin_cost": 160,
+    "transform": { "target": "CLAWS_RETRACT_active", "msg_transform": "You extend your claws.", "active": false, "moves": 10 }
+  },
+  {
+    "type": "mutation",
+    "id": "CLAWS_RETRACT_active",
+    "copy-from": "CLAWS_RETRACT",
+    "name": { "str": "Extended Claws" },
+    "description": "Sharp claws are extending from the end of your fingers.",
+    "valid": false,
+    "active": true,
+    "cost": 0,
+    "ugliness": 0,
+    "transform": { "target": "CLAWS_RETRACT", "msg_transform": "You retract your claws.", "active": false, "moves": 10 },
+    "integrated_armor": [ "integrated_claws" ],
+    "enchantments": [ { "ench_effects": [ { "effect": "effect_claw_manipulation_penalty", "intensity": 1 } ] } ]
+  }
+]

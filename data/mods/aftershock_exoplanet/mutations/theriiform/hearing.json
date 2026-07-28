@@ -1,0 +1,79 @@
+[
+  {
+    "type": "mutation",
+    "id": "AFS_EAR_ABSTRACT",
+    "name": { "str": "Sculpted Ears" },
+    "points": 1,
+    "visibility": 4,
+    "ugliness": 1,
+    "vitamin_cost": 60,
+    "valid": false,
+    "types": [ "EARS" ],
+    "category": [ "AFS_MAMMAL" ],
+    "description": "A base trait for ear mutations.",
+    "flags": [ "PARTIAL_DEAF" ],
+    "enchantments": [ { "values": [ { "value": "HEARING_MULT", "multiply": 2 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_CANINE_EARS",
+    "name": { "str": "Canine Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "valid": true,
+    "description": "Your ears have extended into long, pointed ones, like those of a canine.  They enhance your hearing, allowing you to hear at greater distances."
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_FELINE_EARS",
+    "name": { "str": "Feline Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "valid": true,
+    "description": "Your ears have extended into long, pointed, velvety ones, like those of a feline.  You find it easier to tune in on sounds from afar."
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_URSINE_EARS",
+    "name": { "str": "Ursine Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "valid": true,
+    "description": "Your ears have grown longer and rounder, much like those of a bear.  You can hear things a little farther away."
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_ELFA_EARS",
+    "name": { "str": "Pointed Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "valid": true,
+    "description": "Your upper earlobes have grown noticeably higher.  Fortunately, they don't get in the way of your headgear, much.  Unfortunately, they also don't seem to help your hearing.",
+    "flags": [  ],
+    "enchantments": [ { "values": [ { "value": "HEARING_MULT", "multiply": 0.0 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_MOUSE_EARS",
+    "name": { "str": "Rodent Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "valid": true,
+    "description": "Your ears are huge, round, and gray!  They're rather fascinating, and help you hear from a much greater distance."
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_ BATEARS",
+    "name": { "str": "Bat Ears" },
+    "copy-from": "AFS_EAR_ABSTRACT",
+    "description": "Your broad, pointed ears are like radar dishes.  You can hear even the slightest sounds at great distances.",
+    "flags": [ "SAFECRACK_NO_TOOL" ],
+    "enchantments": [ { "values": [ { "value": "HEARING_MULT", "multiply": 5.3 } ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "ECHOLOCATION",
+    "name": { "str": "Echolocation" },
+    "points": 3,
+    "vitamin_cost": 160,
+    "description": "You've learned how to hunt without sight.  Activate this mutation to make a quiet chirp that can reveal obstacles and enemies by its echo.",
+    "prereqs": [ "AFS_BATEARS" ],
+    "threshreq": [ "AFS_THRESH_MAMMAL" ],
+    "active": true
+  }
+]

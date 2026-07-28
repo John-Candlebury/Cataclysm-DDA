@@ -1,0 +1,18 @@
+[
+  {
+    "type": "mutation",
+    "id": "AFS_FUR",
+    "name": { "str": "Furry" },
+    "description": "Your skin is covered by a layer of fur.  Its not nearly warm enough to keep you comfortable in the surfaces of Salus IV, but it does provide some protection from melee damage and the elements.",
+    "category": [ "AFS_MAMMAL" ],
+    "types": [ "SKIN" ],
+    "prereqs": [ "LIGHTFUR" ],
+    "changes_to": [ "URSINE_FUR", "URSINE_FUR_SUMMER" ],
+    "points": 2,
+    "vitamin_cost": 160,
+    "visibility": 10,
+    "ugliness": 3,
+    "integrated_armor": [ "integrated_fur" ],
+    "enchantments": [ { "values": [ { "value": "BODYTEMP_SLEEP", "add": 0.4 } ] } ]
+  }
+]

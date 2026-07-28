@@ -1,0 +1,59 @@
+[
+  {
+    "type": "mutation_category",
+    "id": "AFS_MAMMAL",
+    "name": "Theriiform",
+    "threshold_mut": "THRESH_AFS_MAMMAL",
+    "memorial_message": "Became an exemplar of Earth's genetic diversity."
+  },
+  {
+    "type": "mutation",
+    "id": "THRESH_AFS_MAMMAL",
+    "name": { "str": "Theriiform" },
+    "points": 1,
+    "description": "Millions of years of Earth based evolution express themselves across your form in all their varied glory.",
+    "valid": false,
+    "purifiable": false,
+    "threshold": true,
+    "flags": [ "THRESH_ALLOWS_QUADRUPEDAL_MOVEMENT" ],
+    "threshold_substitutes": [ "THRESH_CHIMERA" ]
+  },
+  {
+    "type": "mutation",
+    "id": "UPLIFTED_BASE",
+    "//": "This is the base trait that all uplifts should have, to be used in dialogue/eocs/to restrict abilities instead of the visible species-specific traits.",
+    "name": { "str": "Uplift" },
+    "points": 1,
+    "visibility": 4,
+    "vitamin_cost": 60,
+    "valid": false,
+    "purifiable": false,
+    "description": "The ancients saw fit to rise your species above the natural order, granting you the ability to reason and communicate.  For what purpose, you cannot say."
+  },
+  {
+    "type": "mutation",
+    "id": "UPLIFTED_FELINE",
+    "name": { "str": "Uplift (Feline)" },
+    "types": [ "HERITAGE" ],
+    "flags": [ "THRESH_ALLOWS_QUADRUPEDAL_MOVEMENT" ],
+    "threshold": true,
+    "copy-from": "UPLIFTED_BASE"
+  },
+  {
+    "type": "mutation",
+    "id": "UPLIFTED_CANINE",
+    "name": { "str": "Uplift (Canine)" },
+    "types": [ "HERITAGE" ],
+    "flags": [ "THRESH_ALLOWS_QUADRUPEDAL_MOVEMENT" ],
+    "threshold": true,
+    "copy-from": "UPLIFTED_BASE"
+  },
+  {
+    "type": "mutation",
+    "id": "UPLIFTED_GECKO",
+    "name": { "str": "Uplift (Gecko)" },
+    "types": [ "HERITAGE" ],
+    "threshold": true,
+    "copy-from": "UPLIFTED_BASE"
+  }
+]

@@ -1,0 +1,195 @@
+[
+  {
+    "id": "afs_tail",
+    "type": "body_part",
+    "name": "long tail",
+    "accusative": { "ctxt": "bodypart_accusative", "str": "long tail" },
+    "heading": "tail",
+    "heading_multiple": "tails",
+    "encumbrance_text": "Balance is hampered.",
+    "encumbrance_limit": 25,
+    "hp_bar_ui_text": "TAIL",
+    "limb_types": "tail",
+    "main_part": "torso",
+    "opposite_part": "afs_tail",
+    "side": "both",
+    "hit_size": 6,
+    "hit_difficulty": 0.4,
+    "hot_morale_mod": 2,
+    "cold_morale_mod": 2,
+    "wet_morale": -15,
+    "fire_warmth_bonus": 150,
+    "squeamish_penalty": 6,
+    "limb_scores": [ [ "balance", 0.1 ], [ "reaction", 0.2 ] ],
+    "base_hp": 25,
+    "health_limit": 5,
+    "similar_bodypart": "tail",
+    "effects_on_hit": [
+      {
+        "id": "bleed",
+        "dmg_type": "cut",
+        "dmg_threshold": 5,
+        "dmg_scale_increment": 2,
+        "duration": 60,
+        "duration_dmg_scaling": 30,
+        "max_duration": 960
+      },
+      {
+        "id": "bleed",
+        "dmg_type": "stab",
+        "dmg_threshold": 1,
+        "dmg_scale_increment": 1.5,
+        "duration": 60,
+        "duration_dmg_scaling": 60,
+        "max_duration": 1200
+      },
+      {
+        "id": "bleed",
+        "dmg_type": "bullet",
+        "dmg_threshold": 1,
+        "dmg_scale_increment": 3,
+        "duration": 60,
+        "duration_dmg_scaling": 60
+      }
+    ],
+    "drench_capacity": 700,
+    "bionic_slots": 10,
+    "is_limb": true,
+    "sub_parts": [ "tail_long_base", "tail_long_center", "tail_long_tip" ],
+    "techniques": [
+      "TAIL_CLUB_BASH",
+      "TAIL_CLUB_BASH_VS_LARGE",
+      "TAIL_CLUB_BASH_NATURAL",
+      "TAIL_CLUB_BASH_NATURAL_VS_LARGE",
+      "TAIL_CLUB_BASH_CRIT"
+    ],
+    "smash_message": "You thwap %s with your tail.",
+    "smash_efficiency": 0.25
+  },
+  {
+    "type": "mutation",
+    "id": "AFS_TAIL_ABSTRACT",
+    "name": { "str": "Sculpted tail" },
+    "points": 1,
+    "visibility": 4,
+    "ugliness": 1,
+    "vitamin_cost": 60,
+    "valid": false,
+    "allow_soft_gear": true,
+    "types": [ "TAIL" ],
+    "category": [ "AFS_MAMMAL" ],
+    "allowed_items": [ "ALLOWS_TAIL" ],
+    "description": "A base trait for tail mutations.",
+    "restricts_gear": [ "leg_hip_l", "leg_hip_r" ],
+    "enchantments": [
+      { "condition": "ALWAYS", "modified_bodyparts": [ { "gain": "afs_tail" } ] },
+      { "values": [ { "value": "DODGE_CHANCE", "add": 3 } ] }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_STUB",
+    "name": { "str": "Stubby Tail" },
+    "valid": true,
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "description": "You have a short, stubby tail, like a rabbit's.  It serves no purpose.",
+    "types": [ "TAIL" ],
+    "enchantments": [  ],
+    "changes_to": [ "TAIL_LONG", "TAIL_THICK", "TAIL_FIN", "TAIL_RAT", "TAIL_RAPTOR" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_FIN",
+    "name": { "str": "Tail Fin" },
+    "description": "You have a fin-like tail.  It allows you to swim more quickly.  Prevents wearing non-fabric pants.",
+    "prereqs": [ "TAIL_STUB" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_LONG",
+    "name": { "str": "Long Tail" },
+    "description": "You have a long, graceful tail, like that of a big cat.  Prevents wearing non-fabric pants.",
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "prereqs": [ "TAIL_STUB" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_CATTLE",
+    "name": { "str": "Cattle Tail" },
+    "description": "You have a long tail with a tuft on the end.  Prevents wearing non-fabric pants.",
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "prereqs": [ "TAIL_STUB" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_RAT",
+    "name": { "str": "Rodent Tail" },
+    "description": "You have a long but hairless tail.  Prevents wearing non-fabric pants.",
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "prereqs": [ "TAIL_STUB" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_THICK",
+    "name": { "str": "Thick Tail" },
+    "description": "You have a long, thick, lizardlike tail.  Prevents wearing non-fabric pants.",
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "prereqs": [ "TAIL_STUB" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_FLUFFY",
+    "name": { "str": "Fluffy Tail" },
+    "description": "You have a long, fluffy-furred tail.  Prevents wearing non-fabric pants.",
+    "copy-from": "AFS_TAIL_ABSTRACT",
+    "prereqs": [ "TAIL_LONG" ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_STING",
+    "name": { "str": "Tail Spike" },
+    "points": 0,
+    "vitamin_cost": 130,
+    "visibility": 6,
+    "ugliness": 3,
+    "description": "Your tail ends in a sharp, retractable blade.",
+    "types": [ "TAIL" ],
+    "restricts_gear": [ "leg_hip_l", "leg_hip_r" ],
+    "allowed_items": [ "ALLOWS_TAIL" ],
+    "category": [ "INSECT" ],
+    "threshreq": [ "THRESH_INSECT" ],
+    "allow_soft_gear": true,
+    "attacks": {
+      "attack_text_u": "You sting %s with your tail!",
+      "attack_text_npc": "%1$s stings %2$s with their tail!",
+      "chance": 20,
+      "base_damage": { "damage_type": "stab", "amount": 20 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_CLUB",
+    "name": { "str": "Tail Club" },
+    "points": 0,
+    "vitamin_cost": 130,
+    "visibility": 7,
+    "ugliness": 2,
+    "description": "Your tail ends in a large, club-like mass.  It reduces the balance benefits of your tail, but allows you to use it as a powerful bludgeon.  Prevents wearing non-fabric pants.",
+    "types": [ "TAIL" ],
+    "prereqs": [ "TAIL_THICK" ],
+    "category": [ "CHIMERA" ],
+    "restricts_gear": [ "leg_hip_l", "leg_hip_r" ],
+    "allowed_items": [ "ALLOWS_TAIL" ],
+    "allow_soft_gear": true,
+    "attacks": {
+      "attack_text_u": "You club %s with your tail!",
+      "attack_text_npc": "%1$s clubs %2$s with their tail!",
+      "chance": 20,
+      "base_damage": { "damage_type": "bash", "amount": 30 }
+    },
+    "enchantments": [
+      { "condition": "ALWAYS", "modified_bodyparts": [ { "gain": "afs_tail" } ] },
+      { "values": [ { "value": "DODGE_CHANCE", "add": 3 } ] }
+    ]
+  }
+]
