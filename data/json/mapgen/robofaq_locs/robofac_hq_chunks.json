@@ -426,6 +426,7 @@
     "object": {
       "remove_npcs": [
         { "class": "BEM_hireable", "x": 0, "y": 0 },
+        { "class": "makayla", "x": 0, "y": 0 },
         { "class": "BEM_anchor_seller", "x": 0, "y": 0 },
         { "class": "BEM_human_sample", "x": 0, "y": 0 },
         { "class": "BEM_gunrunner", "x": 0, "y": 0 },

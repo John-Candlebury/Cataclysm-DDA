@@ -1,0 +1,18 @@
+[
+  {
+    "type": "snippet",
+    "category": "<makayla_fire_bad>",
+    "//": "NPC complaint when there is an uncontrolled fire in the vicinity and the NPC wants to run away.",
+    "text": [
+      "Uh… it ain't my fault!  Run!",
+      "Whoops.  Run maybe?",
+      "Ok maybe I got a little carried away now.",
+      "I didn't start it!  Not on purpose!",
+      "Its on fire now.  Lets circle back later.",
+      "Fire!",
+      "Fire's spreading, we better move!",
+      "Burn, baby, burn… oh wait, that's us!",
+      "This fire's out of control, run!"
+    ]
+  }
+]

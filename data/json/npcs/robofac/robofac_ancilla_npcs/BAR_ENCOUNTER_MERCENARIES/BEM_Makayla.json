@@ -1,7 +1,7 @@
 [
   {
     "type": "npc",
-    "id": "arsonist_bem",
+    "id": "makayla",
     "name_unique": "Makayla Sanchez",
     "name_suffix": "Arsonist",
     "gender": "female",
@@ -19,20 +19,22 @@
     "id": "TALK_ARSONIST_BEM",
     "dynamic_line": {
       "math": [ "u_met_makayla == 1" ],
-      "yes": " You find Makayla sitting against The Terminal's bar.  By the looks of it, she's been waiting for a while.",
+      "yes": " You find Makayla sitting against The Terminal's bar.",
       "no": {
         "math": [ "u_insulted_makayla == 1" ],
         "yes": "It looks like one of the refugee center mutants is here.",
-        "no": "A knitted cap only calls attention to the scavenger's disguised ears, or lack of them.  The way she leans against the bar easily tells she's been here for a while."
+        "no": "A knitted cap only calls attention to the scavenger's disguised ears, or lack of them."
       }
     },
     "responses": [
       {
         "truefalsetext": {
           "condition": { "math": [ "u_met_makayla == 1" ] },
-          "true": "Hey never thought I'd find you gere",
+          "true": "Hey never thought I'd find you here!",
           "false": "Waiting for something?"
-        }
+        },
+        "condition": { "and": [ { "math": [ "u_met_makayla != 1" ] }, { "math": [ "u_insulted_makayla != 1" ] } ] },
+        "topic": "MAKAYLA_BEM_DOING"
       },
       {
         "truefalsetext": { "condition": { "math": [ "u_insulted_makayla == 1" ] }, "true": "[Disgusting.]", "false": "See you around." },
@@ -48,13 +50,13 @@
         "concatenate": [
           {
             "math": [ "u_met_makayla == 1" ],
-            "yes": "Oh hey! Yeah, I show up here every now and then.  You know, to keep up with the news, and to trade too.  Speaking of, I'm supposed to meet someone for a trade, but he's a whole day late now.  Not feeling very confident about it now",
-            "no": "Yeah, waiting for another scavenger to show, but he's a whole day late now.  Not feeling very confident about it now"
+            "yes": "Hey! Yeah, I show up here every now and then.  Mostly to trade rumors, like everyone else.  In fact, I'm waiting for another survivor to show up and finish a deal we had.",
+            "no": "Yeah, waiting for another scavenger to show up.  Not feeling very confident about it now."
           },
           {
             "u_has_faction_trust": 10,
-            "yes": ".  Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him.",
-            "no": "."
+            "yes": "Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him.",
+            "no": ""
           }
         ]
       }
@@ -78,12 +80,11 @@
   {
     "id": "BEM_MAKAYLA_HELP",
     "type": "talk_topic",
-    "dynamic_line": "Thomas I think.  A bit taller than me, tan, dark hair, he looks like cra.  Think you know him?",
+    "dynamic_line": "Made a deal with one of your guys, Thomas, but he never showed up.  Its about the sixth time we meet for trade, so I dont think he just got cold feet.  Was hoping he might show here eventually, but I guess not.",
     "responses": [
-      { "text": [  ] },
       {
-        "text": "Actually,  I think had a drink with him once, does lab raids while not in contract with Hub.  ",
-        "condition": { "math": [ "u_chatted_with_bar_veterans > 2" ] },
+        "text": "Actually,  I think had a drink with him once, does lab raids while not in contract with Hub.  Might as well check he isn't dead now.",
+        "condition": { "math": [ "u_chatted_with_bar_veterans > 6" ] },
         "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW"
       },
       { "text": "Not really.  Andrew!  You know of this guy?", "topic": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW" }
@@ -92,28 +93,32 @@
   {
     "id": "TALK_BEM_MAKAYLA_INVOLVE_ANDREW",
     "type": "talk_topic",
-    "dynamic_line": "Hey don't just go around telling everyone about my problems!\"  she eyes you while pulling her cap even lower against her head.  She has basically melted into her stool by the time Andrew arrives.   \"Well, yes, that sounds like Thomas.  Figured he had, so if you need to find him, I'd start there.",
+    "dynamic_line": "Hey don't just go around telling everyone about my problems!\"  she eyes you while pulling her cap even lower against her head.  She has basically melted into her stool by the time Andrew arrives.\n\nAndrew, Bartender: \"Does sound familiar.  If you are going to vouch for whatever this is, I know he holds up in an old cabin not that far from here.",
     "responses": [
-      { "text": "There you go, Makayla.  Good luck.", "topic": "TALK_MAKAYLA_BEM_GO" },
+      { "text": "Well theres your guy.  Good luck.", "topic": "TALK_MAKAYLA_BEM_GO" },
       { "text": "Thanks Andrew, I'll see what I can do.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_MAKAYLA_BEM_GO",
-    "dynamic_line": "I really dont know Thomas well enough to just show up at his place unannounced.  Would you mind tagging along for this?  I'll pay for sure.",
-    "responses": [ { "text": "Good luck.", "topic": "TALK_DONE" } ]
+    "dynamic_line": "Well, I really dont know Thomas well enough to just show up at his place unannounced.  Would you mind tagging along for this?  I'll pay for sure.",
+    "responses": [
+      {
+        "text": "I'm in the middle of something right now, give me a bit and I'll come back for you.",
+        "topic": "TALK_MAKAYLA_BEM_READY",
+        "effect": [{ "npc_first_topic": "TALK_MAKAYLA_BEM_READY" }
+      },
+      { "text": "Sure, lets go.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "MAKAYLA_BEM_DOING",
     "dynamic_line": {
-      "u_has_var": "makayla_mutation_trust",
-      "type": "talk",
-      "context": "arsonist",
-      "value": "yes",
-      "yes": "Uh well\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever the sky goes bad.  It gets really bad, to",
-      "no": "Its really important to me alright.  I thought the Hub put up with your group because you were discrete."
+      "math": [ "u_makayla_mutation_trust == 1" ],
+      "yes": "Uh well.\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever there's one of those weird storms.  It gets really bad.",
+      "no": "Its some really important medicine.  I thought the Hub put up with your group because you were discreet."
     },
     "responses": [
       { "text": "Oh so its like some weird werewolf thing?", "topic": "TALK_MAKAYLA_BEM_MUTATION" },
@@ -122,8 +127,20 @@
   },
   {
     "type": "talk_topic",
+    "id": "TALK_MAKAYLA_BEM_READY",
+    "dynamic_line": "Ready to go when you are.  Just let me know.",
+    "responses": [ { "text": "Lets get going.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_MAKAYLA_BEM_MUTATION",
-    "dynamic_line": "Yes.  Please forget I said anything",
+    "dynamic_line": "Yes.  Please forget I said anything.\"  She sighs.  \"Lets just get on the way.",
+    "responses": [ { "text": "Sure thing.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_MAKAYLA_FOUND_BODY",
+    "dynamic_line": "Waow.  This is a lot of blood.  Well, uhh, do you mind if take a look around? I mean, I still need my meds.",
     "responses": [ { "text": "Lets get going.", "topic": "TALK_DONE" } ]
   }
 ]
