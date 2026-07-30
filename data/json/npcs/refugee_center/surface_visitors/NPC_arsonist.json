@@ -39,9 +39,9 @@
       { "trait": "FELINE_EARS" },
       { "trait": "MAKAYLA_MUTATOR" }
     ],
-    "bonus_dex": { "rng": [ 2, 2 ] },
-    "bonus_int": { "rng": [ 1, 1 ] },
-    "bonus_per": { "rng": [ 2, 2 ] },
+    "bonus_dex": 2,
+    "bonus_int": 1,
+    "bonus_per": 2,
     "bonus_aggression": { "rng": [ 0, 1 ] },
     "bonus_collector": { "rng": [ 0, 2 ] },
     "shopkeeper_item_group": "NC_ARSONIST_STOCK",
