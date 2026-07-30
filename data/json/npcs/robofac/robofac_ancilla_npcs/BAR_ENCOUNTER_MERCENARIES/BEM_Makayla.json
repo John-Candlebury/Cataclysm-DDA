@@ -7,23 +7,25 @@
     "gender": "female",
     "class": "NC_ARSONIST",
     "attitude": 0,
-    "mission": 3,
+    "mission": "GUARD",
     "age": 24,
     "height": 165,
     "chat": "TALK_ARSONIST_BEM",
     "//": "This version of Makayla is part of the Ancilla to simplify interactions with the player, and other npcs.",
-    "faction": "robofac_auxiliaries"
+    "faction": "robofac_auxiliaries",
+    "talk_friend_guard": "TALK_FRIEND_GUARD_Makayla"
   },
   {
     "type": "talk_topic",
     "id": "TALK_ARSONIST_BEM",
+    "speaker_effect": [ { "effect": [ { "u_add_faction_trust": 5 } ] } ],
     "dynamic_line": {
       "math": [ "u_met_makayla == 1" ],
-      "yes": " You find Makayla sitting against The Terminal's bar.",
+      "yes": "&You find Makayla sitting against The Terminal's bar.",
       "no": {
         "math": [ "u_insulted_makayla == 1" ],
-        "yes": "It looks like one of the refugee center mutants is here.",
-        "no": "A knitted cap only calls attention to the scavenger's disguised ears, or lack of them."
+        "yes": "&It looks like one of the refugee center mutants is here.",
+        "no": "&A knitted cap only calls attention to the scavenger's disguised ears, or lack of them."
       }
     },
     "responses": [
@@ -54,8 +56,8 @@
             "no": "Yeah, waiting for another scavenger to show up.  Not feeling very confident about it now."
           },
           {
-            "u_has_faction_trust": 10,
-            "yes": "Oh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him.",
+            "u_has_faction_trust": 1,
+            "yes": "\n\nOh, but you are one of the regulars here, right?  Maybe you know him?  At least enough to help me find him.",
             "no": ""
           }
         ]
@@ -64,12 +66,12 @@
     "responses": [
       {
         "text": "I suppose I'm feeling generous today.  Do you know the guys name?  Or at least how he looks like?",
-        "condition": { "u_has_faction_trust": 10 },
+        "condition": { "u_has_faction_trust": 1 },
         "topic": "TALK_BEM_MAKAYLA_HELP"
       },
       {
         "truefalsetext": {
-          "condition": { "u_has_faction_trust": 10 },
+          "condition": { "u_has_faction_trust": 1 },
           "true": "I don't think so, besides, he probably got eaten by something.  Good luck though.",
           "false": "Good luck then."
         },
@@ -80,7 +82,7 @@
   {
     "id": "BEM_MAKAYLA_HELP",
     "type": "talk_topic",
-    "dynamic_line": "Made a deal with one of your guys, Thomas, but he never showed up.  Its about the sixth time we meet for trade, so I dont think he just got cold feet.  Was hoping he might show here eventually, but I guess not.",
+    "dynamic_line": "Made a deal with one of your guys, Thomas, but he never showed up.  Its about the sixth time we meet for trade, so I don't think he just got cold feet.  Was hoping he might show here eventually, but I guess not.",
     "responses": [
       {
         "text": "Actually,  I think had a drink with him once, does lab raids while not in contract with Hub.  Might as well check he isn't dead now.",
@@ -109,12 +111,16 @@
         "topic": "TALK_MAKAYLA_BEM_READY",
         "effect": [ { "npc_first_topic": "TALK_MAKAYLA_BEM_READY" } ]
       },
-      { "text": "Sure, lets go.", "topic": "TALK_DONE" }
+      {
+        "text": "Sure, lets get to it.",
+        "topic": "TALK_DONE",
+        "effect": [ { "add_mission": "BEM_makayla_investigate_cabin" } ]
+      }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "MAKAYLA_BEM_DOING",
+    "id": "MAKAYLA_BEM_DOING_2",
     "dynamic_line": {
       "math": [ "u_makayla_mutation_trust == 1" ],
       "yes": "Uh well.\" She looks around, worried about the prospect of being overheard.  \"He's got some sort of medicine for my thing.\"  She rapidly gestures towards her knit cap.  \"Sure, I look normal-ish now, but it gets worse whenever there's one of those weird storms.  It gets really bad.",
@@ -129,7 +135,10 @@
     "type": "talk_topic",
     "id": "TALK_MAKAYLA_BEM_READY",
     "dynamic_line": "Ready to go when you are.  Just let me know.",
-    "responses": [ { "text": "Lets get going.", "topic": "TALK_DONE" } ]
+    "responses": [
+      { "text": "Lets get going.", "topic": "TALK_DONE", "effect": [ { "add_mission": "BEM_makayla_investigate_cabin" } ] },
+      { "text": "I still need to finish something.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "type": "talk_topic",
@@ -148,5 +157,33 @@
     "id": "TALK_MAKAYLA_KILLED_MUTANT",
     "dynamic_line": "Ok that was awful.  I hope that followed Thomas, and not you know, used to be him.",
     "responses": [ { "text": "Agreed.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "BEM_makayla_investigate_cabin",
+    "type": "mission_definition",
+    "name": "Investigate the mercenary's cabin",
+    "goal": "MGOAL_NULL",
+    "description": "Investigate Thomas' cabin with Makayla.",
+    "difficulty": 1,
+    "value": 0,
+    "start": {
+      "effect": [ "follow", { "u_spawn_item": "sarcophagus_access_code" }, { "npc_first_topic": "TALK_FRIEND_Makayla" } ],
+      "assign_mission_target": { "om_terrain": "cabin_3", "reveal_radius": 2, "random": true, "search_range": 240, "z": 0 },
+      "update_mapgen": { "place_nested": [ { "chunks": [ "makayla_bem_mission_1" ], "x": 0, "y": 0 } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "//": "All dialogue about this mission is handled through talk_topics, so we don't use any of these strings.",
+      "describe": "…",
+      "offer": "…",
+      "accepted": "…",
+      "rejected": "…",
+      "advice": "…",
+      "inquire": "…",
+      "success": "…",
+      "success_lie": "…",
+      "failure": "…"
+    }
   }
 ]

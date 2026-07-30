@@ -1,6 +1,6 @@
 [
   {
-    "id": [ "TALK_FRIEND_Makayla", "TALK_FRIEND_Makayla_Abilities" ],
+    "id": [ "TALK_FRIEND_Makayla", "TALK_FRIEND_Makayla_Abilities", "TALK_FRIEND_Makayla_no_radio_chitchat" ],
     "type": "talk_topic",
     "dynamic_line": {
       "is_by_radio": "*pshhhttt* Hey rando.  *pshhhttt* Makayla here.  *pshhhttt*",
@@ -14,8 +14,7 @@
         "effect": "reveal_stats"
       },
       { "text": "Please go to this location.", "topic": "TALK_GOTO_LOCATION", "effect": "goto_location" },
-      { "text": "There's something I want you to do.", "topic": "TALK_FRIEND_Makayla_ORDERS" },
-      { "text": "I'd like your opinion on a job we're doing.", "topic": "TALK_FRIEND_Makayla_Opinions" },
+      { "text": "There's something I want you to do.", "topic": "TALK_ALLY_ORDERS" },
       {
         "text": "I just wanted to talk for a bit.",
         "condition": { "and": [ "at_safe_space", { "not": "is_by_radio" } ] },
@@ -34,7 +33,7 @@
   {
     "id": "TALK_FRIEND_Makayla_Abilities",
     "type": "talk_topic",
-    "dynamic_line": "Still remember most of my spanish lit quotes if you need them.  Otherwise I suppose I can set things on fire, or blow them up."
+    "dynamic_line": "Still remember most of my spanish lit quotes if you need them.  Otherwise I suppose I can set things on fire, or blow them up.  That's usually more useful."
   },
   {
     "id": "TALK_FRIEND_Makayla_no_radio_chitchat",
