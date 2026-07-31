@@ -20,7 +20,10 @@
       },
       "update_mapgen": { "place_monster": [ { "monster": "mon_jabberwock", "x": 11, "y": 11, "target": true } ] }
     },
-    "end": { "effect": { "u_add_var": "dialogue_bem_completed_bem_jabberwock", "value": "yes" } },
+    "end": {
+      "effect": { "u_add_var": "dialogue_bem_completed_bem_jabberwock", "value": "yes" },
+      "math": [ "faction_trust('robofac_auxiliaries') += 2" ]
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "//": "All dialogue about this mission is handled through talk_topics, so we don't use any of these strings.",

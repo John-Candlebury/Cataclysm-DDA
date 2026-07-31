@@ -913,6 +913,25 @@
     "melee_damage": { "bash": 1, "cut": 1 }
   },
   {
+    "id": "ancilla_bar_dice",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "name": { "str_sp": "Debug bar dies" },
+    "description": "Four strange dies, marked with images of people instead of numbers.",
+    "weight": "22 g",
+    "volume": "1 ml",
+    "price": "100 USD",
+    "price_postapoc": "10 USD",
+    "material": [ "superalloy" ],
+    "symbol": ";",
+    "color": "yellow",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "description": "Roll the dies.",
+      "effect_on_conditions": [ "EOC_reroll_bar_mercs_debug" ]
+    }
+  },
+  {
     "id": "tindalos_whistle",
     "type": "ITEM",
     "subtypes": [ "TOOL" ],

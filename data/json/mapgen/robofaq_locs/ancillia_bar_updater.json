@@ -19,5 +19,21 @@
         "target_var": { "global_val": "ancilla_bar_loc" }
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_reroll_bar_mercs_debug",
+    "effect": [
+      {
+        "mapgen_update": "nest_ancilla_bar_remove_BEMs",
+        "om_terrain": "robofachq_subcc_a2",
+        "target_var": { "global_val": "ancilla_bar_loc" }
+      },
+      {
+        "mapgen_update": "nest_ancilla_bar_place_BEMs",
+        "om_terrain": "robofachq_subcc_a2",
+        "target_var": { "global_val": "ancilla_bar_loc" }
+      }
+    ]
   }
 ]
