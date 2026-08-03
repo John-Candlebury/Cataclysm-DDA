@@ -13,7 +13,8 @@
     "chat": "BEM_MAKAYLA",
     "//": "This version of Makayla is part of the Ancilla to simplify interactions with the player, and other npcs.",
     "faction": "no_faction",
-    "talk_friend_guard": "TALK_FRIEND_GUARD_Makayla"
+    "talk_friend_guard": "TALK_FRIEND_GUARD_Makayla",
+    "talk_mission_inquire": "TALK_makayla_inquire"
   },
   {
     "type": "talk_topic",
@@ -97,7 +98,7 @@
     "type": "talk_topic",
     "dynamic_line": "Hey don't just go around telling everyone about my problems!\"  she eyes you while pulling her cap even lower against her head.  She has basically melted into her stool by the time Andrew arrives.\n\n<color_light_cyan>Andrew, Bartender</color>\n\"Does sound familiar.  If you are going to vouch for whatever this is, I know he holds up in an old cabin not that far from here.",
     "responses": [
-      { "text": "Well theres your guy.  Good luck.", "topic": "BEM_MAKAYLA_INVOLVE_ANDREW" },
+      { "text": "Well theres your guy.  Good luck.", "topic": "BEM_MAKAYLA_GO" },
       { "text": "Thanks Andrew, I'll see what I can do.", "topic": "BEM_MAKAYLA_GO" }
     ]
   },
@@ -108,8 +109,8 @@
     "responses": [
       {
         "text": "I'm in the middle of something right now, give me a bit and I'll come back for you.",
-        "topic": "BEM_MAKAYLA_READY",
-        "effect": [ { "npc_first_topic": "BEM_MAKAYLA_READY" } ]
+        "topic": "TALK_DONE",
+        "effect": [ { "npc_first_topic": "BEM_MAKAYLA_WAITING" } ]
       },
       {
         "text": "Sure, lets get to it.",
@@ -133,8 +134,12 @@
   },
   {
     "type": "talk_topic",
-    "id": "BEM_MAKAYLA_READY",
-    "dynamic_line": "Ready to go when you are.  Just let me know.",
+    "id": "BEM_MAKAYLA_WAITING",
+    "dynamic_line": {
+      "u_at_om_location": "robofachq_subcc_a2",
+      "yes": "Alright, I'll be waiting in the lobby upstairs. Let me know when you are ready to go.",
+      "no": "Ready to go when you are.  Just let me know."
+    },
     "responses": [
       { "text": "Lets get going.", "topic": "TALK_DONE", "effect": [ { "add_mission": "BEM_makayla_investigate_cabin" } ] },
       { "text": "I still need to finish something.", "topic": "TALK_DONE" }
