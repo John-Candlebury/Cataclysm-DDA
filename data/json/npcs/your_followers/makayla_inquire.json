@@ -7,37 +7,26 @@
       "no": { "has_reason": { "use_reason": true }, "no": "Alright, what's up?" }
     },
     "responses": [
-      { "text": "[rules] Let's talk about how we'll work together.", "topic": "TALK_DONE", "effect": "npc_rules_menu" },
       {
-        "text": "I'd like to know a bit more about your abilities.",
-        "topic": "TALK_FRIEND_Makayla_Abilities",
-        "effect": "reveal_stats"
-      },
-      { "text": "Please go to this location.", "topic": "TALK_GOTO_LOCATION", "effect": "goto_location" },
-      { "text": "There's something I want you to do.", "topic": "TALK_ALLY_ORDERS" },
-      {
-        "text": "I just wanted to talk for a bit.",
-        "condition": { "and": [ "at_safe_space", { "not": "is_by_radio" } ] },
-        "topic": "TALK_FRIEND_Makayla_SOCIAL"
-      },
-      { "text": "Can you help me understand something?  (HELP/TUTORIAL)", "topic": "TALK_ALLY_TUTORIAL" },
-      {
-        "text": "[DEBUG MIND CONTROL] Now listen closely… (DEBUG FUNCTIONS)",
-        "condition": { "u_has_trait": "DEBUG_MIND_CONTROL" },
-        "topic": "TALK_ALLY_DEBUG"
-      },
-      { "text": "I'm going to go my own way for a while.", "topic": "TALK_LEAVE" },
-      { "text": "<lets_go>", "topic": "TALK_DONE" }
+        "text": "So about finding Thomas...",
+        "topic": "MAKAYLA_BEM_DOING_2",
+        "condition": { "u_has_mission": "BEM_makayla_investigate_cabin" }
+      }
     ]
   },
   {
-    "id": "TALK_FRIEND_Makayla_Abilities",
+    "id": [ "MAKAYLA_BEM_DOING_2" ],
     "type": "talk_topic",
-    "dynamic_line": "Still remember most of my spanish lit quotes if you need them.  Otherwise I suppose I can set things on fire, or blow them up.  That's usually more useful."
-  },
-  {
-    "id": "TALK_FRIEND_Makayla_no_radio_chitchat",
-    "type": "talk_topic",
-    "dynamic_line": "*pshhhttt* Oh, you want to gossip from a distance?  Old world style?  You do know anyone can hear us, right?  *pshhhttt*"
+    "dynamic_line": {
+      "math": [ "time_since('u_start_makayla_investigate_cabin') >= 5" ],
+      "yes": "Oh yeah I was thinking we should really get going on that.  I don't mind helping you out these past days, but I really need that medicine.",
+      "no": "Oh yeah, what about it?"
+    },
+    "responses": [
+      {
+        "text": "I was wondering why do you need it that urgently, can't you just loot any pharmacy around?",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]

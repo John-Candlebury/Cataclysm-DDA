@@ -1,6 +1,11 @@
 [
   {
-    "id": [ "TALK_FRIEND_Makayla", "TALK_FRIEND_Makayla_Abilities", "TALK_FRIEND_Makayla_no_radio_chitchat" ],
+    "id": [
+      "TALK_FRIEND_Makayla",
+      "TALK_makayla_inquire",
+      "TALK_FRIEND_Makayla_Abilities",
+      "TALK_FRIEND_Makayla_no_radio_chitchat"
+    ],
     "type": "talk_topic",
     "dynamic_line": {
       "is_by_radio": "*pshhhttt* Hey rando.  *pshhhttt* Makayla here.  *pshhhttt*",
