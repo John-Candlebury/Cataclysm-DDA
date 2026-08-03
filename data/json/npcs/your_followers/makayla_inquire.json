@@ -23,6 +23,7 @@
       "no": "Oh yeah, what about it?"
     },
     "responses": [
+      {  },
       {
         "text": "I was wondering why do you need it that urgently, can't you just loot any pharmacy around?",
         "topic": "TALK_DONE"
