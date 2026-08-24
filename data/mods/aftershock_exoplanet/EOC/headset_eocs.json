@@ -24,10 +24,9 @@
     "message": "",
     "damage_type": "bash",
     "effect_str": "smart_targeted",
-    "min_damage": 0,
-    "max_damage": 0,
-    "target_condition": { "not": { "npc_has_effect": "smart_targeted" } },
-    "flags": [ "SILENT", "NO_PROJECTILE", "RANDOM_TARGET", "RANDOM_CRITTER", "NO_EXPLOSION_SFX" ],
+    "min_duration": 3000,
+    "max_duration": 3000,
+    "flags": [ "SILENT", "NO_PROJECTILE", "NO_EXPLOSION_SFX", "RANDOM_TARGET", "RANDOM_CRITTER" ],
     "base_casting_time": 100,
     "min_range": 15,
     "max_range": 60,
@@ -37,17 +36,17 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_HEADSET_SPOT_CLOSE",
-    "recurrence": [ "5 seconds" ],
+    "recurrence": "5 seconds",
     "condition": { "u_is_wearing": "afs_combat_headset" },
-    "effect": [ { "u_cast_spell": { "id": "afs_paint_target", "min_level": 1 } } ]
+    "effect": [ { "u_cast_spell": { "id": "afs_paint_target_attempt", "min_level": 1, "hit_self": true } } ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_HEADSET_SPOT_FAR",
-    "recurrence": [ "5 seconds" ],
+    "recurrence": "5 seconds",
     "condition": { "u_is_wearing": "afs_combat_headset_sniping" },
     "effect": [
-      { "u_cast_spell": { "id": "afs_paint_target", "min_level": 4 } },
+      { "u_cast_spell": { "id": "afs_paint_target_attempt", "min_level": 4 } },
       {
         "u_run_monster_eocs": [
           {

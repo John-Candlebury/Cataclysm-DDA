@@ -59,8 +59,7 @@
     "material_thickness": 1,
     "environmental_protection": 15,
     "flags": [ "MUNDANE", "OUTER", "PADDED" ],
-    "tool_ammo": "battery",
-    "passive_effects": [ { "id": "afs_combat_headset_basic" } ]
+    "tool_ammo": "battery"
   },
   {
     "id": "afs_combat_headset",
@@ -99,7 +98,7 @@
     ]
   },
   {
-    "id": "afs_combat_headset_sniping",
+    "id": "afs_combat_headset_sniping_off",
     "type": "ITEM",
     "subtypes": [ "TOOL", "ARMOR", "ARTIFACT" ],
     "category": "clothing",
@@ -123,19 +122,18 @@
       "SPAWN_ACTIVE"
     ],
     "faults": [ { "fault_group": "electronic_general" } ],
-    "revert_to": "afs_combat_headset_off",
     "use_action": [
       {
         "ammo_scale": 0,
-        "target": "afs_combat_headset_off",
-        "menu_text": "Turn off",
-        "msg": "You flick the visor off, and push it off your face.",
+        "target": "afs_combat_headset_sniping",
+        "menu_text": "Turn on",
+        "msg": "You flick the visor on, and push it onto your face.",
         "type": "transform"
       }
     ]
   },
   {
-    "id": "afs_combat_headset_sniping_active",
+    "id": "afs_combat_headset_sniping",
     "type": "ITEM",
     "subtypes": [ "TOOL", "ARMOR", "ARTIFACT" ],
     "category": "clothing",
@@ -160,11 +158,11 @@
       "SPAWN_ACTIVE"
     ],
     "faults": [ { "fault_group": "electronic_general" } ],
-    "revert_to": "afs_combat_headset_off",
+    "revert_to": "afs_combat_headset_sniping_off",
     "use_action": [
       {
         "ammo_scale": 0,
-        "target": "afs_combat_headset_off",
+        "target": "afs_combat_headset_sniping_off",
         "menu_text": "Turn off",
         "msg": "You flick the visor off, and push it off your face.",
         "type": "transform"
@@ -244,7 +242,7 @@
     "id": "afs_recon_headset",
     "type": "ITEM",
     "subtypes": [ "TOOL", "ARMOR", "ARTIFACT" ],
-    "copy-from": "afs_recon_headset",
+    "copy-from": "afs_recon_headset_off",
     "name": { "str": "OmniWare screen (active)" },
     "power_draw": "1 W",
     "extend": {

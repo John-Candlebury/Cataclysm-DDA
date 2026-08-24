@@ -52,23 +52,23 @@
     "type": "effect_on_condition",
     "id": "SMARTLINK_EXTRA_SHOT",
     "effect": [
-      { "math": [ "times_firing = 0" ] },
+      { "math": [ "times_firing_extra = 0" ] },
       { "u_location_variable": { "context_val": "shooter" } },
       {
         "u_run_monster_eocs": [
           {
-            "id": "_vahagn_shootfoes",
+            "id": "_smart_link_extra_shot",
             "condition": {
               "and": [
                 { "u_has_effect": "smart_targeted" },
                 { "math": [ "u_hp('ALL') > 1" ] },
-                { "math": [ "times_firing < 2" ] },
+                { "math": [ "times_firing_extra < 1" ] },
                 { "not": { "u_has_effect": "vahagan_fired_at" } }
               ]
             },
             "effect": [
               { "u_add_effect": "vahagan_fired_at", "duration": "1 seconds" },
-              { "math": [ "times_firing++" ] },
+              { "math": [ "times_firing_extra++" ] },
               {
                 "run_eocs": [ "EOC_vahagn_shootfoes" ],
                 "alpha_loc": { "context_val": "shooter" },
@@ -80,7 +80,7 @@
         "monster_range": 20,
         "monster_must_see": true
       },
-      { "math": [ "times_firing = 0" ] }
+      { "math": [ "times_firing_extra = 0" ] }
     ]
   }
 ]
