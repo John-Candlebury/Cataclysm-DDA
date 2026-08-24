@@ -30,6 +30,15 @@
     "passive_effects": [ { "id": "afs_ench_headset_sound" } ]
   },
   {
+    "id": "afs_headset_active_targeting",
+    "copy-from": "memory_card",
+    "type": "ITEM",
+    "subtypes": [ "TOOL", "ARTIFACT" ],
+    "name": { "str": "active targeting (headset)" },
+    "description": "Updated firmware and components for a headset.  Provides advanced targeting assistance, improving aiming accuracy. Must be installed in a compatible headset to function.",
+    "price": "0 USD"
+  },
+  {
     "id": "afs_headset_surgery",
     "copy-from": "memory_card",
     "type": "ITEM",

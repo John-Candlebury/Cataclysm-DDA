@@ -51,13 +51,16 @@
   {
     "type": "effect_on_condition",
     "id": "SMARTLINK_EXTRA_SHOT",
+    "condition": { "and": [ { "not": { "u_has_effect": "vahagan_fired_at" } } ] },
     "effect": [
+      { "u_add_effect": "vahagan_fired_at", "duration": "1 seconds" },
+      { "u_cast_spell": { "id": "spell_vahagn" }, "loc": { "context_val": "targeted_location" } },
       { "math": [ "times_firing_extra = 0" ] },
       { "u_location_variable": { "context_val": "shooter" } },
       {
         "u_run_monster_eocs": [
           {
-            "id": "_smart_link_extra_shot",
+            "id": "_smartlink_shootfoes",
             "condition": {
               "and": [
                 { "u_has_effect": "smart_targeted" },
@@ -77,7 +80,7 @@
             ]
           }
         ],
-        "monster_range": 20,
+        "monster_range": 45,
         "monster_must_see": true
       },
       { "math": [ "times_firing_extra = 0" ] }
