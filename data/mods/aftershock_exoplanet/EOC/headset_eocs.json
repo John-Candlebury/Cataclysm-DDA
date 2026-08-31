@@ -35,13 +35,6 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_HEADSET_SPOT_CLOSE",
-    "recurrence": "5 seconds",
-    "condition": { "u_is_wearing": "afs_combat_headset" },
-    "effect": [ { "u_cast_spell": { "id": "afs_paint_target_attempt", "min_level": 1, "hit_self": true } } ]
-  },
-  {
-    "type": "effect_on_condition",
     "id": "EOC_HEADSET_SPOT_FAR",
     "recurrence": "5 seconds",
     "condition": { "u_is_wearing": "afs_combat_headset_sniping" },
@@ -71,5 +64,26 @@
         "local": true
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "BALLISTIC_TARGETING_MON",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": { "u_is_wearing": "afs_headset_active_targeting" },
+    "effect": [ { "run_eocs": [ "BALLISTIC_TARGETING" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "BALLISTIC_TARGETING_CHAR",
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_character",
+    "condition": { "u_is_wearing": "afs_headset_active_targeting" },
+    "effect": [ { "run_eocs": [ "BALLISTIC_TARGETING" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "BALLISTIC_TARGETING",
+    "effect": [ { "message": "Target acquired." }, { "npc_add_effect": "smart_targeted", "duration": "10 seconds" } ]
   }
 ]

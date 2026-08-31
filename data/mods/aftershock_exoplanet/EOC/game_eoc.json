@@ -39,6 +39,13 @@
     "id": "SMARTLINK_EXTRA_SHOT_MON",
     "eoc_type": "EVENT",
     "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        { "u_has_wielded_with_skill": "smartgun" },
+        { "u_is_wearing": "afs_headset_smartlink" },
+        { "not": { "u_has_effect": "vahagan_fired_at" } }
+      ]
+    },
     "effect": [ { "run_eocs": [ "SMARTLINK_EXTRA_SHOT" ] } ]
   },
   {
@@ -46,15 +53,20 @@
     "id": "SMARTLINK_EXTRA_SHOT_CHAR",
     "eoc_type": "EVENT",
     "required_event": "character_ranged_attacks_character",
+    "condition": {
+      "and": [
+        { "u_has_wielded_with_skill": "smartgun" },
+        { "u_is_wearing": "afs_headset_smartlink" },
+        { "not": { "u_has_effect": "vahagan_fired_at" } }
+      ]
+    },
     "effect": [ { "run_eocs": [ "SMARTLINK_EXTRA_SHOT" ] } ]
   },
   {
     "type": "effect_on_condition",
     "id": "SMARTLINK_EXTRA_SHOT",
-    "condition": { "and": [ { "not": { "u_has_effect": "vahagan_fired_at" } } ] },
     "effect": [
       { "u_add_effect": "vahagan_fired_at", "duration": "1 seconds" },
-      { "u_cast_spell": { "id": "spell_vahagn" }, "loc": { "context_val": "targeted_location" } },
       { "math": [ "times_firing_extra = 0" ] },
       { "u_location_variable": { "context_val": "shooter" } },
       {
@@ -71,6 +83,7 @@
             },
             "effect": [
               { "u_add_effect": "vahagan_fired_at", "duration": "1 seconds" },
+              { "u_lose_effect": "smart_targeted" },
               { "math": [ "times_firing_extra++" ] },
               {
                 "run_eocs": [ "EOC_vahagn_shootfoes" ],

@@ -56,7 +56,7 @@
     "material_thickness": 1,
     "environmental_protection": 15,
     "faults": [ { "fault_group": "electronic_general" } ],
-    "flags": [ "MUNDANE", "OUTER", "PADDED", "STURDY", "MODULE_HOLDER", "OVERSIZE", "CAN_USE_IN_DARK" ],
+    "flags": [ "MUNDANE", "OUTER", "PADDED", "STURDY", "OVERSIZE", "CAN_USE_IN_DARK" ],
     "tool_ammo": "battery"
   },
   {
@@ -69,7 +69,18 @@
     "description": "An armored black headset that coalesces the feeds of several sensors into a single screen display.  It will periodically expose weaknesses in the armor of nearby threats and provide passive targeting assistance for as long as it is active.",
     "power_draw": "310 mW",
     "extend": {
-      "flags": [ "ZOOM", "WATCH", "ALARMCLOCK", "THERMOMETER", "PARTIAL_DEAF", "SUN_GLASSES", "ELECTRONIC", "SPAWN_ACTIVE" ]
+      "flags": [
+        "ZOOM",
+        "WATCH",
+        "ALARMCLOCK",
+        "THERMOMETER",
+        "PARTIAL_DEAF",
+        "SUN_GLASSES",
+        "ELECTRONIC",
+        "MODULE_HOLDER",
+        "SPAWN_ACTIVE",
+        "ACTIVE_HEADSET"
+      ]
     },
     "revert_to": "afs_combat_headset_off",
     "use_action": [
@@ -113,7 +124,18 @@
     "description": "It used to be that marksmanship was a real skill, honed over arduous years spent killing farmhands while hiding in a ditch somewhere.  Now, thanks to tech, anyone can drop a few grand and be an unhinged psycho killer. This one is 11th gen, with six high definition cameras and movement prediction algorithms ensure that you'll nail gatekeepers from miles away.",
     "power_draw": "310 mW",
     "extend": {
-      "flags": [ "ZOOM", "WATCH", "ALARMCLOCK", "THERMOMETER", "SUN_GLASSES", "PARTIAL_DEAF", "ELECTRONIC", "SPAWN_ACTIVE" ]
+      "flags": [
+        "ZOOM",
+        "WATCH",
+        "ALARMCLOCK",
+        "THERMOMETER",
+        "MODULE_HOLDER",
+        "SUN_GLASSES",
+        "PARTIAL_DEAF",
+        "ELECTRONIC",
+        "ACTIVE_HEADSET",
+        "SPAWN_ACTIVE"
+      ]
     },
     "revert_to": "afs_combat_headset_sniping_off",
     "use_action": [
@@ -193,6 +215,8 @@
         "PARTIAL_DEAF",
         "ALARMCLOCK",
         "WATCH",
+        "MODULE_HOLDER",
+        "ACTIVE_HEADSET",
         "THERMOMETER",
         "FLASH_PROTECTION",
         "SWIM_GOGGLES"

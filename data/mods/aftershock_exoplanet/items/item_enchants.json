@@ -239,8 +239,6 @@
     "special_vision": [
       {
         "distance": 6,
-        "precise": true,
-        "ignores_aiming_cone": true,
         "descriptions": [
           {
             "id": "sound_creature_tiny",
@@ -258,7 +256,7 @@
             "id": "sound_creature_medium",
             "text_condition": { "math": [ "n_val('size') == 3" ] },
             "symbol": "o",
-            "text": "Footsteps from a human or similar sized creature."
+            "text": "A human or similar sized creature."
           },
           {
             "id": "sound_creature_large",
@@ -290,7 +288,7 @@
             "id": "electric_creature_sense",
             "symbol": "?",
             "color": "c_cyan",
-            "text": "You sense something emitting electricity here."
+            "text": "A creature is emitting an electric field."
           }
         ]
       }
