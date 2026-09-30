@@ -329,22 +329,6 @@
   },
   {
     "type": "overmap_terrain",
-    "id": [ "ravine_landing_baa" ],
-    "name": "ravine landing pad",
-    "sym": "+",
-    "color": "red",
-    "see_cost": "low",
-    "flags": [ "SOURCE_PEOPLE", "SOURCE_SAFETY", "RAVINE", "NO_ROTATE" ]
-  },
-  {
-    "type": "overmap_terrain",
-    "id": [ "ravine_landing_aaa", "ravine_landing_caa" ],
-    "see_cost": "low",
-    "copy-from": "ravine_edge",
-    "flags": [ "RAVINE_EDGE", "NO_ROTATE" ]
-  },
-  {
-    "type": "overmap_terrain",
     "id": [ "ravine_landing_bba" ],
     "name": "landing pad outpost",
     "sym": "+",
@@ -354,19 +338,13 @@
   },
   {
     "type": "overmap_terrain",
-    "id": [
-      "ravine_landing_aaa",
-      "ravine_landing_caa",
-      "smuggler_ravine_aaa",
-      "smuggler_ravine_baa",
-      "smuggler_ravine_caa",
-      "smuggler_ravine_aab",
-      "smuggler_ravine_bab",
-      "smuggler_ravine_cab",
-      "smuggler_ravine_aac",
-      "smuggler_ravine_bac",
-      "smuggler_ravine_cac"
-    ],
+    "id": [ "ravine_landing_baa" ],
+    "copy-from": "ravine_edge",
+    "flags": [ "RAVINE", "NO_ROTATE" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [ "ravine_landing_aaa", "ravine_landing_caa" ],
     "copy-from": "ravine_edge",
     "flags": [ "RAVINE_EDGE", "NO_ROTATE" ]
   },
@@ -397,8 +375,34 @@
   },
   {
     "type": "overmap_terrain",
-    "id": "smuggler_ravine_ccb",
-    "name": "sinkhole",
+    "id": [
+      "smuggler_ravine_aac",
+      "smuggler_ravine_bac",
+      "smuggler_ravine_cac",
+      "smuggler_ravine_aaa",
+      "smuggler_ravine_baa",
+      "smuggler_ravine_caa"
+    ],
+    "copy-from": "ravine_edge",
+    "flags": [ "RAVINE_EDGE", "NO_ROTATE" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "smuggler_ravine_abc",
+      "smuggler_ravine_bbc",
+      "smuggler_ravine_cbc",
+      "smuggler_ravine_acc",
+      "smuggler_ravine_bcc",
+      "smuggler_ravine_ccc",
+      "smuggler_ravine_aba",
+      "smuggler_ravine_bba",
+      "smuggler_ravine_cba",
+      "smuggler_ravine_aca",
+      "smuggler_ravine_bca",
+      "smuggler_ravine_cca"
+    ],
+    "name": "concealed hangar",
     "sym": "v",
     "color": "light_blue",
     "see_cost": "all_clear",
@@ -406,40 +410,24 @@
   },
   {
     "type": "overmap_terrain",
-    "id": [ "smuggler_ravine_acb", "smuggler_ravine_bcb", "smuggler_ravine_abb", "smuggler_ravine_bbb", "smuggler_ravine_cbb" ],
-    "copy-from": "generic_open_land",
-    "name": "Ice Fields",
-    "sym": ".",
-    "travel_cost_type": "field",
-    "color": "light_gray",
-    "looks_like": "field",
-    "see_cost": "none",
-    "extras": "field",
+    "id": [
+      "smuggler_ravine_abb",
+      "smuggler_ravine_bbb",
+      "smuggler_ravine_cbb",
+      "smuggler_ravine_acb",
+      "smuggler_ravine_bcb",
+      "smuggler_ravine_ccb"
+    ],
+    "name": "glacial fields",
+    "sym": "v",
+    "color": "light_blue",
+    "see_cost": "all_clear",
     "flags": [ "NO_ROTATE" ]
   },
   {
     "type": "overmap_terrain",
-    "id": [
-      "smuggler_ravine_aba",
-      "smuggler_ravine_bba",
-      "smuggler_ravine_cba",
-      "smuggler_ravine_aca",
-      "smuggler_ravine_bca",
-      "smuggler_ravine_cca",
-      "smuggler_ravine_abc",
-      "smuggler_ravine_bbc",
-      "smuggler_ravine_cbc",
-      "smuggler_ravine_acc",
-      "smuggler_ravine_bcc",
-      "smuggler_ravine_ccc",
-      "smuggler_ravine_abd",
-      "smuggler_ravine_bbd",
-      "smuggler_ravine_cbd",
-      "smuggler_ravine_acd",
-      "smuggler_ravine_bcd",
-      "smuggler_ravine_ccd"
-    ],
-    "name": "concealed hangar",
+    "id": [ "smuggler_ravine_aab", "smuggler_ravine_bab", "smuggler_ravine_cab" ],
+    "name": "glacial fields",
     "sym": "v",
     "color": "light_blue",
     "see_cost": "all_clear",
