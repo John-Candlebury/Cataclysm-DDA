@@ -64,7 +64,6 @@
     "responses": [
       {
         "text": "[ Make him notice you. ]",
-        "topic": "TALK_MS_GROUND_QUARTERMASTER_HAN",
         "effect": "start_trade",
         "trial": { "type": "CONDITION", "condition": { "u_has_cash": 500 } },
         "success": { "topic": "TALK_MS_GROUND_QUARTERMASTER" },
@@ -96,16 +95,24 @@
   {
     "id": [ "TALK_MS_GROUND_QUARTERMASTER_HAN" ],
     "type": "talk_topic",
-    "dynamic_line": "The Boss says we let you here, but that don't mean I we like it, fuck off.",
+    "dynamic_line": "I don't care what the Boss says. I don't know what's your angle here, and I sure as hell don't like it.",
     "responses": [
       {
-        "text": "Give it a chance, it'll be worth it.",
+        "truefalsetext": {
+          "condition": "u_male",
+          "true": "My angle?  I'm just a helpful kind of guy.",
+          "false": "My angle?  I'm just a helpful kind of gal."
+        },
         "trial": { "type": "PERSUADE", "difficulty": 50 },
         "success": { "topic": "TALK_MS_GROUND_QUARTERMASTER_SURE", "effect": [  ] },
         "failure": { "topic": "TALK_MS_GROUND_QUARTERMASTER_DONT_LIKE_YOU" }
       },
       {
-        "text": "[LIE] It's good to have me around, you know?",
+        "truefalsetext": {
+          "condition": "u_male",
+          "true": "[LIE] My angle?  I'm just a helpful kind of guy.",
+          "false": "[LIE] My angle?  I'm just a helpful kind of gal."
+        },
         "trial": { "type": "PERSUADE", "difficulty": 50 },
         "success": { "topic": "TALK_MS_GROUND_QUARTERMASTER_SURE", "effect": [  ] },
         "failure": { "topic": "TALK_MS_GROUND_QUARTERMASTER_DONT_LIKE_YOU" }
@@ -116,7 +123,7 @@
   {
     "id": [ "TALK_MS_GROUND_QUARTERMASTER_SURE" ],
     "type": "talk_topic",
-    "dynamic_line": "Sure.",
+    "dynamic_line": "Exactly.  Who simply helps people out these days?",
     "responses": [ { "text": "Understood.", "topic": "TALK_DONE" } ]
   },
   {
