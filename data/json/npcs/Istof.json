@@ -173,7 +173,7 @@
   {
     "id": [ "UMON_LEADS" ],
     "type": "talk_topic",
-    "dynamic_line": "This are poor borderlands, fit only for burials.  Walk on the conquerors' roads, and perhaps you will find the cities of old.  I have seen them, but their gates remain closed to me.  Perhaps you will have better luck, and if you do, I would be most interested to hear of your findings.  Here, I can point you to the closest gate.",
+    "dynamic_line": "These are lonely borderlands, fit only for burials.  Walk on the conquerors' roads, and perhaps you will find the cities of old.  I have stumbled onto their gates before, but they remain closed to my kind.  You are closer to men, and might yet find what I cannot.",
     "responses": [ { "text": "Thanks for the tip.  See you around.", "topic": "TALK_DONE" } ]
   },
   {
@@ -371,15 +371,19 @@
     "type": "talk_topic",
     "dynamic_line": {
       "concatenate": [
-        "Naram sets sights on the horizon as they answer, \"Before the Mystery of creation had withered and its wonders could still be roused, man grappled against the orders tall and low, and overcame.  He sought to link all into living dream, and from the thrones creation wrought great works to span across the spheres.  It was an age of miracles, and like all things, it came to pass.  The dream lies broken by ambition, the paths of conquest are lost, and we are left to wander the ruins of what could have been.",
+        "Naram sets sights on the horizon as they answer, \"Before the Mystery of creation had withered and its wonders could still be roused, man grappled against the orders tall and low, and overcame.  He sought to link all into living dream, and from the thrones creation wrought great works to span across the countless spheres. The paths between stars were laid with precious stones, water's were drawn from the domains of the heavens, and towers rose that could pierce the skies, yet all has faded into memory.",
         {
           "u_has_any_trait": [ "DREAMER", "EATER", "DREAMSMITH", "INVENTOR" ],
-          "yes": "Poor dreamer, you have lost so much more than you could ever know. ",
-          "no": "Perhaps your world retains ancient tales of such an age, but I had the fortune to meet those who saw them in life."
+          "yes": "Poor dreamer, that you remain ignorant of what has been lost is a mercy.",
+          "no": "But men, you must know, make for poor masters, and power easily slips through their irresolute wills."
         }
       ]
     },
     "responses": [
+      {
+        "text": "Mystery of creation? Countless spheres? Roads and towers in the sky.  What even are you talking about?",
+        "topic": "UMON_WHERE_ARE_WE"
+      },
       { "text": "I have read a history book before, and none of that is true.", "topic": "TALK_UMON_LIES" },
       { "text": "I think it looks like any other place if you ask me.", "topic": "TALK_UMON_LIES" },
       { "text": "I see.", "topic": "TALK_DONE" }
@@ -389,6 +393,6 @@
     "id": [ "TALK_UMON_LIES" ],
     "type": "talk_topic",
     "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of fanciful tales and ancient wonders.  They are tales for common folk and you are wise in many ways.",
-    "responses": [  ]
+    "responses": [ "Let's talk about something else." ]
   }
 ]

@@ -51,7 +51,7 @@
     "type": "ITEM",
     "subtypes": [ "ARMOR", "ARTIFACT" ],
     "name": { "str": "tree branch amulet" },
-    "description": "A small silver branch hangs from an equally simple chain.  You can feel a faint pulsation when you wear it.",
+    "description": "A small silver branch hangs from an unadorned chain.  You can feel a faint pulsation when you wear it.",
     "passive_effects": [
       {
         "has": "WORN",
@@ -66,7 +66,7 @@
     "subtypes": [ "ARTIFACT" ],
     "copy-from": "flask_glass",
     "name": { "str": "cursed vial" },
-    "description": "You desperately wish to feast on the fetid liquid that seeps from the cursed glass.",
+    "description": "Only the truly desperate would wish to feast on the fetid liquids that seep from its cursed glass.",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "scrap_dreamdross": 2 }, "airtight": true } ],
     "flags": [ "NO_UNLOAD", "NO_RELOAD" ],
     "charge_info": { "recharge_type": "periodic", "time": "24h", "regenerate_ammo": true },
@@ -110,7 +110,7 @@
     "type": "ITEM",
     "name": { "str": "small teardrop amulet" },
     "copy-from": "necklace_iron",
-    "description": "A cheerfully crude pendant, seemingly crafted by a child a long time ago.  Although its made of iron, holding it doesn't bother you at all."
+    "description": "A cheerfully crude pendant, clearly crafted a long time ago.  Although its made of iron, holding it doesn't bother you at all."
   },
   {
     "id": "imperial_banner_deal_relic_xe",
@@ -220,7 +220,7 @@
     "id": "map_deal_relic_xe",
     "type": "ITEM",
     "name": { "str": "perfect atlas" },
-    "description": "This hefty tome somehow contains maps of every single place in existence, the detailed floorplans of your childhood home lie somehow intermingled with the craters of the moon, the rivers of the underhills and the twisting pathways that link them.  A profound study of its contents would be an extremly daunting task, but thankfully the first page you open always contains a map of your current location."
+    "description": "This hefty tome somehow contains maps of every single place in existence, the detailed floorplans of your childhood home lie somehow intermingled with the craters of the moon, the rivers of the underhill, and the twisting pathways that link them.  A profound study of its contents would be an extremly daunting task, but thankfully the first page you open always contains a map of your current location."
   },
   {
     "id": "philosophers_stone_deal_relic_xe",
@@ -284,18 +284,15 @@
     },
     "effect": [
       {
-        "if": { "or": [ { "not": { "one_in_chance": 10 } }, { "math": [ "u_times_revived_by_deal < 7" ] } ] },
+        "if": { "or": [ { "not": { "one_in_chance": 5 } }, { "math": [ "u_times_revived_by_deal < 7" ] } ] },
         "then": [
           {
-            "u_message": "You think to see a shattered moon looming above your nightmare, but the vision is as fleeting as it is disturbing.",
+            "u_message": "You think to see the moon loom above your nightmare, but it remains veiled and distant.",
             "popup": true
           },
           {
             "if": { "math": [ "u_times_revived_by_deal > 7" ] },
-            "then": {
-              "u_message": "The remnants of the moon loom ever larger in your dreams, their presence undeniable and foreboding.",
-              "popup": true
-            }
+            "then": { "u_message": "The broken moon shines its dead light upon your dreams, sharp and unforgiving.", "popup": true }
           },
           { "math": [ "u_times_revived_by_deal++" ] },
           { "run_eocs": [ "EOC_PERENNIAL_REBIRTH_HEAL" ] },
@@ -318,8 +315,8 @@
   {
     "id": "killing_blade_banishment_xe",
     "type": "SPELL",
-    "name": "Greater Banishment",
-    "description": "A more advanced version of Banishment, which is a ritual spell that attempts to banish a monster.  Being closely related to blood magic, the Blood Mage is much more specialized to use a spell like this.",
+    "name": "Undoing",
+    "description": "Kills you very very dead.  Transcendentally dead.",
     "valid_targets": [ "hostile" ],
     "flags": [ "SILENT", "NO_EXPLOSION_SFX" ],
     "effect": "banishment",
