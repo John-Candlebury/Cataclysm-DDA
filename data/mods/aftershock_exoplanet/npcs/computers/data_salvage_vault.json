@@ -2,13 +2,13 @@
   {
     "type": "talk_topic",
     "id": "COMPUTER_VAULT_SALVAGE_LOCKED",
-    "dynamic_line": { "concatenate": [ ">" ] },
+    "dynamic_line": { "concatenate": [ "&>" ] },
     "responses": [
       {
         "text": "Attempt system recovery.",
         "trial": { "type": "CONDITION", "condition": { "roll_contested": { "math": [ "afs_hack_skill(1)" ] }, "difficulty": 15 } },
-        "success": { "topic": "COMPUTER_GENERIC_SALVAGE_SUCCESS" },
-        "failure": { "topic": "COMPUTER_GENERIC_SALVAGE_FAIL" }
+        "success": { "topic": "COMPUTER_VAULT_SALVAGE_SUCCESS" },
+        "failure": { "topic": "COMPUTER_VAULT_SALVAGE_FAIL" }
       },
       { "text": "Leave.", "topic": "TALK_DONE" }
     ]
@@ -18,7 +18,7 @@
     "id": "COMPUTER_VAULT_SALVAGE_SUCCESS",
     "dynamic_line": {
       "concatenate": [
-        "<A#><A#><A#><A#><A#> ............. <A#>\n",
+        "&<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
@@ -36,8 +36,8 @@
         "show_always": true,
         "show_reason": "Requires powered personal computer with archiving software.",
         "trial": { "type": "CONDITION", "condition": { "roll_contested": { "math": [ "u_skill('computer')" ] }, "difficulty": 12 } },
-        "success": { "topic": "COMPUTER_GENERIC_SALVAGE_COPIED" },
-        "failure": { "topic": "COMPUTER_GENERIC_SALVAGE_FAIL" }
+        "success": { "topic": "COMPUTER_VAULT_SALVAGE_COPIED" },
+        "failure": { "topic": "COMPUTER_VAULT_SALVAGE_FAIL" }
       },
       {
         "text": "Shut down the terminal.",
@@ -48,16 +48,16 @@
   },
   {
     "type": "talk_topic",
-    "id": "COMPUTER_GENERIC_SALVAGE_FAIL",
-    "dynamic_line": { "concatenate": [ "Unauthorized user." ] },
+    "id": "COMPUTER_VAULT_SALVAGE_FAIL",
+    "dynamic_line": { "concatenate": [ "&Unauthorized user." ] },
     "responses": [ { "text": "[…]", "effect": [ { "run_eocs": "EOC_COMPUTER_GENERIC_SALVAGE_FAIL" } ], "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "COMPUTER_GENERIC_SALVAGE_COPIED",
+    "id": "COMPUTER_VAULT_SALVAGE_COPIED",
     "dynamic_line": {
       "concatenate": [
-        "<A#><A#><A#><A#><A#> ............. <A#>\n",
+        "&<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
         "<A#><A#><A#><A#><A#> ............. <A#>\n",
@@ -86,7 +86,7 @@
             ]
           }
         ],
-        "topic": "COMPUTER_GENERIC_SALVAGE_FAIL"
+        "topic": "COMPUTER_VAULT_SALVAGE_FAIL"
       }
     ]
   }
