@@ -21,6 +21,10 @@
       {
         "if": { "compare_string": [ { "context_val": "data_type" }, "generic_ruin" ] },
         "then": [ { "u_spawn_item": "generated_ruin_data", "use_item_group": true, "force_equip": true } ]
+      },
+      {
+        "if": { "compare_string": [ { "context_val": "data_type" }, "generic_vault" ] },
+        "then": [ { "u_spawn_item": "generated_vault_data", "use_item_group": true, "force_equip": true } ]
       }
     ]
   }
