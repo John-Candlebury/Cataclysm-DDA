@@ -67,7 +67,7 @@
     "id": [ "UMON_GOING" ],
     "type": "talk_topic",
     "dynamic_line": {
-      "gendered_line": "The hermit nods solemnly, \"What a cursed roads you must travel then, if it has brought you to this place.  I am Idu, and once I kept watch over these lands, although now I rest.\" he gestures to his camp.  \"Sit, share a moment of peace before you continue your journey.\"",
+      "gendered_line": "The hermit nods solemnly, \"What a cursed  you must travel then, if it has brought you to this place.  I am Idu, and once I kept watch over these lands, although now I rest.\" he gestures to his camp.  \"Sit, share a moment of peace before you continue your journey.\"",
       "relevant_genders": [ "npc" ]
     },
     "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
@@ -182,7 +182,7 @@
   {
     "id": [ "UMON_NOT_HUMAN" ],
     "type": "talk_topic",
-    "dynamic_line": "Do not fear, friend.  Certainly I could not be a man, for what is in these lands that would sustain flesh and blood?  Besides, it is not my nature to cause harm.",
+    "dynamic_line": "Do not fear, friend.  Certainly I could not be a man, for what is in this place that would sustain flesh and blood?  Besides, it is not my nature to cause harm.  Yes I'm from another kind, ",
     "responses": [ { "text": "I suppose.", "topic": "TALK_DONE" } ]
   },
   {
@@ -207,7 +207,7 @@
     "type": "talk_topic",
     "dynamic_line": "&You don't notice Idu producing a small satchel from seemingly nowhere until its already open before you.  Inside lie a collection of relics, each strange in its own right.  \"What will it be?  Power, wisdom, fortune?  Name whatever will sate you, and it shall be yours, but know that all things come with a price, and that there will be no haggling.\"",
     "responses": [
-      { "text": "[FAE] I wish to dream as men do.", "topic": "TALK_DONE" },
+      { "text": "I wish to dream as men do.", "topic": "TALK_DONE" },
       {
         "truefalsetext": {
           "false": "[Vampire] What lousy things you offer.  What I desire is freedom from my hunger.",
@@ -217,7 +217,7 @@
         "condition": { "u_has_any_trait": [ "VAMPIRE4", "VAMPIRE3", "LILIN_TRAITS" ] }
       },
       {
-        "text": "I desire no baubles, for if you truly were a guardian of men, then I ask you protect me from the perils that lie ahead.",
+        "text": "I desire no baubles, if you truly were a guardian of men, then I ask you protect me from the perils that lie ahead.",
         "condition": {
           "not": {
             "u_has_any_trait": [
@@ -261,7 +261,7 @@
   {
     "id": [ "UMON_WIND" ],
     "type": "talk_topic",
-    "dynamic_line": "You sit beside Idu, and rest.  The wind whistles softly through the highland grasses, carrying with it faint echoes.  It is unnerving, there's no peace here, only the silence of the unseen bidding for its time. As you ponder this, Idu breaks the silence  \"The wind here remembers many things, and most are better left unheard.  You would do well to leave this place soon.\"",
+    "dynamic_line": "You sit beside Idu, and rest.  The wind whistles softly through the black expanse, carrying with it faint echoes.  It is unnerving, there's no peace here, only the silence of the unseen bidding for its time. As you ponder this, Idu breaks the silence  \"The wind here remembers many things, and most are better left unheard.  You would do well to leave this place soon.\"",
     "responses": [ { "text": "Yes, I should be going now.", "topic": "TALK_DONE" } ]
   },
   {
@@ -350,13 +350,13 @@
   {
     "id": [ "UMON_WORTHLESS" ],
     "type": "talk_topic",
-    "dynamic_line": "Naram's eyes narrow, \"If you wish to leave empty-handed, so be it.\"",
+    "dynamic_line": "If you wish to leave empty-handed, so be it.",
     "responses": [ { "text": "I should be going then.", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "UMON_DECIDES_PAYMENT" ],
     "type": "talk_topic",
-    "dynamic_line": "Idu seems to grow and envelop the world in its presence, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"It is done. Now I shall claim whatever fits me.\"",
+    "dynamic_line": "The accursed road seems to bend and fold around Idu, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"It is done. Now I shall claim whatever fits me.\"",
     "responses": [
       {
         "topic": "UMON_PAY_IN_FULL",
@@ -424,7 +424,7 @@
     "type": "talk_topic",
     "dynamic_line": {
       "concatenate": [
-        "It is an ancient place\" Idu sets sights on the horizon as they answer, \"See, before the Mystery of creation had withered and its wonders could still be roused, men grappled against the orders tall and low, and overcame.  The sought to link all into living dream, and from the thrones of conquest wrought great works to span across the countless spheres.   This is but one of the confluences of that ambition.",
+        "It is an ancient place\" Idu sets sights on the gate as they answer, \"See, before the Mystery of creation had withered and its wonders could still be roused, men grappled against the orders tall and low, and overcame.  The sought to link all into living dream, and from the thrones of conquest wrought great works to span across the countless spheres.   This is but one of the confluences of that ambition.",
         {
           "u_has_any_trait": [ "DREAMER", "EATER", "DREAMSMITH", "INVENTOR" ],
           "yes": "Poor dreamer, that you remain ignorant of what has been lost is a mercy.",
@@ -444,15 +444,20 @@
     ]
   },
   {
+    "id": [ "UMON_WHERE_ARE_WE_REALLY" ],
+    "type": "talk_topic",
+    "dynamic_line": "First among the great works, man built a road that would span the realms, and paved it with all manner of precious stones.  Did you not enter it purposely? "
+  },
+  {
     "id": [ "UMON_ANCIENT" ],
     "type": "talk_topic",
-    "dynamic_line": "On the early days, I was sworn as a steward to men, and indeed I've guided and aided them since their leaving of the primeval gardens.  Yes my friend, I saw the ancient wonders with my own eyes.",
+    "dynamic_line": "On the early days, I was sworn as a steward to men, and indeed I've guided and aided them since their awakening to reason.  Yes my friend, I saw the ancient wonders with my own eyes.",
     "responses": [ { "text": "....", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "TALK_UMON_LIES" ],
     "type": "talk_topic",
-    "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of fanciful tales and ancient wonders.  They are tales for common folk and you seem wise in many ways.",
+    "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of fanciful tales, they are for common folk and you seem wise in many ways.",
     "responses": [ { "text": "Let's talk about something else.", "topic": "TALK_DONE" } ]
   }
 ]
