@@ -39,7 +39,7 @@
     "subtypes": [ "ARTIFACT" ],
     "name": { "str": "dreaming head" },
     "copy-from": "skull",
-    "description": "A mumified head with a serene expression, a handle has been fashioned out of its braided hair.  It must have belonged to someone of profound insight, as even in death it continues to dream.",
+    "description": "A mummified head with a serene expression, a handle has been fashioned out of its braided hair.  It must have belonged to someone of profound insight, as even in death it continues to dream.",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "scrap_dreamdross": 1000 }, "airtight": true } ],
     "charge_info": { "recharge_type": "periodic", "time": "2m", "regenerate_ammo": true },
     "looks_like": "skull",
@@ -220,7 +220,7 @@
     "id": "map_deal_relic_xe",
     "type": "ITEM",
     "name": { "str": "perfect atlas" },
-    "description": "This hefty tome somehow contains maps of every single place in existence, the detailed floorplans of your childhood home lie somehow intermingled with the craters of the moon, the rivers of the underhill, and the twisting pathways that link them.  A profound study of its contents would be an extremly daunting task, but thankfully the first page you open always contains a map of your current location."
+    "description": "This hefty tome somehow contains maps of every single place in existence. The detailed floor plans of your childhood home lie somehow intermingled with the craters of the moon, the rivers of the underhill, and the twisting pathways that link them.  A profound study of its contents would be an extremely daunting task, but thankfully the first page you open always contains a map of your current location."
   },
   {
     "id": "philosophers_stone_deal_relic_xe",
@@ -261,7 +261,7 @@
     "name": { "str": "sharpened fragment" },
     "copy-from": "knife_baselard",
     "color": "red",
-    "description": "A jagged crystal shard shaped into a crude knife and adorned with a simple hilt made of red fabric.  It vibrates unnervingly, and whatever it pierces seems to be cleanly excised from the world.  Swinging it is an excruciatingly tiring experience, and you find yourself unable to hold it for long.",
+    "description": "A jagged crystal shard has been shaped into a crude knife and adorned with a simple hilt made of red fabric.  It vibrates unnervingly, and whatever it pierces seems to be cleanly excised from the world.  Swinging it is an excruciatingly tiring experience, and you find yourself unable to hold it for long.",
     "passive_effects": [
       {
         "has": "WIELD",
@@ -274,7 +274,7 @@
     "type": "effect_on_condition",
     "id": "EOC_DEAL_REBIRTH",
     "eoc_type": "PREVENT_DEATH",
-    "//": "This is some ancient dream magic from the Highland empire.  It doesn't work on the dreamless, and it also only works in proper dimensions.",
+    "//": "This is some ancient dream magic.  It doesn't work on the dreamless, and it also only works in proper dimensions.",
     "condition": {
       "and": [
         { "math": [ "u_prevent_death_deal = 1" ] },
@@ -321,8 +321,8 @@
     "flags": [ "SILENT", "NO_EXPLOSION_SFX" ],
     "effect": "banishment",
     "shape": "blast",
-    "min_damage": 1000,
-    "max_damage": 1000,
+    "min_damage": 14000,
+    "max_damage": 14000,
     "min_range": 1,
     "max_range": 1
   }

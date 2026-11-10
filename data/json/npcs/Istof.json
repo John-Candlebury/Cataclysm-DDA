@@ -2,8 +2,8 @@
   {
     "type": "npc",
     "id": "xe_old_devil",
-    "name_unique": "Naram",
-    "//": "Nice guy found watching.",
+    "name_unique": "Idu",
+    "//": "Nice guy found across many places and times.",
     "name_suffix": "hermit",
     "class": "NPC_XE_HERMIT",
     "attitude": 0,
@@ -67,7 +67,7 @@
     "id": [ "UMON_GOING" ],
     "type": "talk_topic",
     "dynamic_line": {
-      "gendered_line": "The hermit nods solemnly, \"What a cursed roads you must travel then, if it takes you to places like this.  I am Idu, and once I kept watch over these parts, but now I rest.\" he gestures to his camp.  \"Sit, share a moment of peace before you continue your journey.\"",
+      "gendered_line": "The hermit nods solemnly, \"What a cursed roads you must travel then, if it has brought you to this place.  I am Idu, and once I kept watch over these lands, although now I rest.\" he gestures to his camp.  \"Sit, share a moment of peace before you continue your journey.\"",
       "relevant_genders": [ "npc" ]
     },
     "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
@@ -92,7 +92,7 @@
           "yes": { "gendered_line": "A bannerman of the Summer Court would have known this, I thought.", "relevant_genders": [ "u" ] },
           "no": ""
         },
-        "Regardless, I'm Idu.  Share a moment of rest with me before you continue on your way.\""
+        "Regardless, I'm Idu.  Come, share a moment of rest with me before you continue on your way.\""
       ]
     },
     "speaker_effect": [ { "effect": { "npc_first_topic": "UMON_MAIN" } } ]
@@ -121,7 +121,7 @@
     "dynamic_line": "Aye, it is.",
     "responses": [
       { "text": "Where are we anyway?", "topic": "UMON_HISTORY" },
-      { "text": "What are you doing here?", "topic": "UMON_TRADE" },
+      { "text": "What are you doing here anyway?", "topic": "UMON_TRADE" },
       { "text": "Well I'll be looking for my way out.", "topic": "TALK_DONE" }
     ]
   },
@@ -173,8 +173,17 @@
   {
     "id": [ "UMON_LEADS" ],
     "type": "talk_topic",
-    "dynamic_line": "These are lonely borderlands, fit only for burials.  Walk on the conquerors' roads, and perhaps you will find the cities of old.  I have stumbled onto their gates but it is not in my nature to cross them.  You are closer to men, and might yet find what I cannot.",
-    "responses": [ { "text": "Thanks for the tip.  See you around.", "topic": "TALK_DONE" } ]
+    "dynamic_line": "Well, these are lonely borderlands, fit only for burials.  Walk on the conquerors' roads, and perhaps you will find the cities of old.  They are barred to me, but you are closer to men, and might yet find what I cannot.",
+    "responses": [
+      { "text": "Closer to men?", "topic": "UMON_NOT_HUMAN" },
+      { "text": "Thanks for the tip.  See you around.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "UMON_NOT_HUMAN" ],
+    "type": "talk_topic",
+    "dynamic_line": "Do not fear, friend.  Certainly I could not be a man, for what is in these lands that would sustain flesh and blood?  Besides, it is not my nature to cause harm.",
+    "responses": [ { "text": "I suppose.", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "UMON_DEALS_FAE" ],
@@ -207,6 +216,28 @@
         },
         "condition": { "u_has_any_trait": [ "VAMPIRE4", "VAMPIRE3", "LILIN_TRAITS" ] }
       },
+      {
+        "text": "I desire no baubles, for if you truly were a guardian of men, then I ask you protect me from the perils that lie ahead.",
+        "condition": {
+          "not": {
+            "u_has_any_trait": [
+              "UNKNOWING_CHANGELING_NOBLE",
+              "FAIR_FOLK_COMMONER_SELECTOR",
+              "UNKNOWING_CHANGELING_COMMONER_BROWNIE",
+              "UNKNOWING_CHANGELING_COMMONER_POOKA",
+              "UNKNOWING_CHANGELING_COMMONER_SELKIE",
+              "UNKNOWING_CHANGELING_COMMONER_TROW",
+              "ARVORE",
+              "SYLPH",
+              "UNDINE",
+              "IERDE",
+              "SALAMANDER",
+              "HOMULLUS"
+            ]
+          }
+        },
+        "topic": "UMON_SUMMON"
+      },
       { "text": "Power is the only truth and I desire it above all else.", "topic": "UMON_POWER" },
       {
         "text": "Power is wasted without vision, and the gifts of fate are squandered by the foolish.  I wish for wisdom to see the world as it is, and to know how to bend it to my will.  Can you grant this?",
@@ -225,7 +256,7 @@
     "id": [ "UMON_CHEAT_ME" ],
     "type": "talk_topic",
     "dynamic_line": "I could not do such a thing, for evil is unknown to me.",
-    "responses": [ { "text": "I understand.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "UMON_WIND" ],
@@ -236,8 +267,17 @@
   {
     "id": [ "UMON_CANT_DO" ],
     "type": "talk_topic",
-    "dynamic_line": "You'd expect me to spun miracles into being, yet I see nothing on you that would command such a prize.",
-    "responses": [ { "text": "I understand.", "topic": "TALK_DONE" } ]
+    "dynamic_line": "You'd expect me to spun miracles into being, yet you bring nothing that would command such a prize.",
+    "responses": [
+      { "text": "Let me find a proper payment then.", "topic": "TALK_DONE" },
+      { "text": "Let me reconsider.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "UMON_SUMMON" ],
+    "type": "talk_topic",
+    "dynamic_line": " ",
+    "responses": [ { "text": " ", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "UMON_POWER" ],
@@ -245,7 +285,7 @@
     "dynamic_line": "Of power I have plenty, but it commands a heavy price.  Name what you seek, and it shall come to you.",
     "responses": [
       {
-        "text": "I desire command over an undefeatable army.",
+        "text": "I desire command over an invincible army.",
         "topic": "UMON_DECIDES_PAYMENT",
         "effect": [ { "u_spawn_item": "imperial_banner_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = 5" ] } } ]
       },
@@ -295,7 +335,7 @@
     "responses": [
       {
         "text": "I desire to hold death at bay.",
-        "effect": [ { "u_spawn_item": "philosophers_stone_deal_relic_xe" }, { "effect": { "math": [ "naram_payment = rng( -5, 60)" ] } } ],
+        "effect": [ { "math": [ "u_prevent_death_deal = 1" ] }, { "math": [ "naram_payment = rng( -5, 60)" ] } ],
         "topic": "UMON_DECIDES_PAYMENT"
       }
     ]
@@ -316,7 +356,7 @@
   {
     "id": [ "UMON_DECIDES_PAYMENT" ],
     "type": "talk_topic",
-    "dynamic_line": "The world seems to pause under the weight of Naram's gaze, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"It is done. Now I shall claim whatever fits me.\"",
+    "dynamic_line": "Idu seems to grow and envelop the world in its presence, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"It is done. Now I shall claim whatever fits me.\"",
     "responses": [
       {
         "topic": "UMON_PAY_IN_FULL",
@@ -371,12 +411,12 @@
   {
     "id": [ "UMON_PAY_WITH_SKILL" ],
     "type": "talk_topic",
-    "dynamic_line": "I shall take your masteries as my own, such that all shall see you as your are: eclipsed by my gift."
+    "dynamic_line": "I shall take your masteries as my own, such that all shall see you as your are: eclipsed by my boon."
   },
   {
     "id": [ "UMON_PAY_IN_FULL" ],
     "type": "talk_topic",
-    "dynamic_line": "You have so little of worth, but I believe it to be enough.  I shall have everything you are as you stand before me, and all you shall ever be.  This  payment I shall have in full, when we meet again the steps.",
+    "dynamic_line": "You have so little of worth, but I believe it to be enough.  I shall have everything you are as you stand before me, and all you shall ever be.  This  payment I shall have in full, when we meet again at the confluence of worlds.",
     "responses": [ { "text": "Uhh.  No take backs?", "topic": "TALK_DONE" } ]
   },
   {
@@ -384,17 +424,18 @@
     "type": "talk_topic",
     "dynamic_line": {
       "concatenate": [
-        "Idu sets sights on the horizon as they answer, \"Before the Mystery of creation had withered and its wonders could still be roused, man grappled against the orders tall and low, and overcame.  He sought to link all into living dream, and from the thrones creation wrought great works to span across the countless spheres. The paths between stars were laid with precious stones, water's were drawn from the domains of the heavens, and towers rose that could pierce the skies, yet all has faded into memory.",
+        "It is an ancient place\" Idu sets sights on the horizon as they answer, \"See, before the Mystery of creation had withered and its wonders could still be roused, men grappled against the orders tall and low, and overcame.  The sought to link all into living dream, and from the thrones of conquest wrought great works to span across the countless spheres.   This is but one of the confluences of that ambition.",
         {
           "u_has_any_trait": [ "DREAMER", "EATER", "DREAMSMITH", "INVENTOR" ],
           "yes": "Poor dreamer, that you remain ignorant of what has been lost is a mercy.",
-          "no": "But men make for poor masters, and power easily slips through their irresolute wills."
+          "no": "But men make for poor masters, and creation would not bend to their fleeting desires."
         }
       ]
     },
     "responses": [
+      { "text": "And you saw those things yourself?", "topic": "UMON_ANCIENT" },
       {
-        "text": "Mystery of creation? Countless spheres? Roads and towers in the sky.  What even are you talking about?",
+        "text": "Mystery of creation? Countless spheres?  What even are you talking about?",
         "topic": "UMON_WHERE_ARE_WE"
       },
       { "text": "I have read a history book before, and none of that is true.", "topic": "TALK_UMON_LIES" },
@@ -403,9 +444,15 @@
     ]
   },
   {
+    "id": [ "UMON_ANCIENT" ],
+    "type": "talk_topic",
+    "dynamic_line": "On the early days, I was sworn as a steward to men, and indeed I've guided and aided them since their leaving of the primeval gardens.  Yes my friend, I saw the ancient wonders with my own eyes.",
+    "responses": [ { "text": "....", "topic": "TALK_DONE" } ]
+  },
+  {
     "id": [ "TALK_UMON_LIES" ],
     "type": "talk_topic",
-    "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of fanciful tales and ancient wonders.  They are tales for common folk and you are wise in many ways.",
-    "responses": [ "Let's talk about something else." ]
+    "dynamic_line": "Ah, of course, I'm simply a wanderer and a fool.  Perhaps I do wrong to speak of fanciful tales and ancient wonders.  They are tales for common folk and you seem wise in many ways.",
+    "responses": [ { "text": "Let's talk about something else.", "topic": "TALK_DONE" } ]
   }
 ]
