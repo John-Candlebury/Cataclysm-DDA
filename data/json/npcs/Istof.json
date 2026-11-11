@@ -182,7 +182,7 @@
   {
     "id": [ "UMON_NOT_HUMAN" ],
     "type": "talk_topic",
-    "dynamic_line": "Do not fear, friend.  Certainly I could not be a man, for what is in this place that would sustain flesh and blood?  Besides, it is not my nature to cause harm.  Yes I'm from another kind, ",
+    "dynamic_line": "Do not fear, friend.  Certainly I'm among the imperishable, for what is in this place that would sustain flesh and blood?",
     "responses": [ { "text": "I suppose.", "topic": "TALK_DONE" } ]
   },
   {
@@ -356,7 +356,7 @@
   {
     "id": [ "UMON_DECIDES_PAYMENT" ],
     "type": "talk_topic",
-    "dynamic_line": "The accursed road seems to bend and fold around Idu, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"It is done. Now I shall claim whatever fits me.\"",
+    "dynamic_line": "The accursed road seems to bend and fold around Idu, and whatever you had envisioned as a boon seems to fade into irrelevance.  \"You have your prize. Now I shall claim whatever fits me.\"",
     "responses": [
       {
         "topic": "UMON_PAY_IN_FULL",
@@ -399,7 +399,7 @@
   {
     "id": [ "UMON_PAY_WITH_FEAR" ],
     "type": "talk_topic",
-    "dynamic_line": "I have granted you great power, and yet it will be wasted by your nature.  So I will take no payment from you, and instead grant you a second boon.  Never again will you feel fear and dread in combat, for all things shall be within your grasp.  Leave me now, blessed as you are, and may the ways bend in your favor.",
+    "dynamic_line": "I have granted you great power, and yet it will be wasted by your nature.  So I will take no payment from you, and instead grant you a second boon.  Never again will you feel fear and dread in combat, for all things shall be within your grasp.  Leave me now, blessed as you are, and may the road bend in your favor.",
     "responses": [ { "text": "It will be so.", "topic": "TALK_DONE" } ]
   },
   {
@@ -446,7 +446,8 @@
   {
     "id": [ "UMON_WHERE_ARE_WE_REALLY" ],
     "type": "talk_topic",
-    "dynamic_line": "First among the great works, man built a road that would span the realms, and paved it with all manner of precious stones.  Did you not enter it purposely? "
+    "dynamic_line": "First among the great works, man built a road that would span the realms, and paved it with all manner of precious stones.  Did you not enter it purposely?",
+    "responses": [ { "text": "Yes, I did.", "topic": "TALK_DONE" }, { "text": "Not really.", "topic": "TALK_DONE" } ]
   },
   {
     "id": [ "UMON_ANCIENT" ],
