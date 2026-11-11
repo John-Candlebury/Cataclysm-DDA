@@ -836,6 +836,27 @@
   },
   {
     "type": "overmap_terrain",
+    "id": [
+      "material_silo_a1",
+      "material_silo_b1",
+      "material_silo_a2",
+      "material_silo_b2",
+      "material_silo_a3",
+      "material_silo_b3",
+      "material_silo_a4",
+      "material_silo_b4",
+      "material_silo_a5",
+      "material_silo_b5",
+      "material_silo_a6",
+      "material_silo_b6"
+    ],
+    "name": "prefab silo",
+    "sym": "s",
+    "color": "yellow",
+    "see_cost": "high"
+  },
+  {
+    "type": "overmap_terrain",
     "name": "Cafe",
     "id": [ "afs_cafe_a1_floor_1", "afs_cafe_a1_floor_2" ],
     "sym": "c",

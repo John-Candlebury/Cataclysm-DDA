@@ -120,9 +120,9 @@
     "object": {
       "mapgensize": [ 24, 24 ],
       "rows": [
-        "                        ",
-        " 1]]1                   ",
-        " 1__1                   ",
+        "ssssssssssssssssssssssss",
+        "s1]]1sssssssssssssssssss",
+        " 1__1sss            ssss",
         " 1__1                   ",
         " /__/               //  ",
         " /../2              2/  ",
@@ -149,6 +149,7 @@
       "terrain": {
         "/": "t_wall_metal",
         "1": "t_wall_glass",
+        "s": [ [ "t_pavement", 4 ], [ "t_region_groundcover_urban", 1 ] ],
         "_": "t_metal_floor_no_roof",
         "]": "t_door_glass_c",
         ".": "t_metal_floor_olight"

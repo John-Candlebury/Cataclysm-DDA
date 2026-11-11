@@ -721,5 +721,52 @@
       "furniture": { "0": "f_storage_tank" },
       "monsters": { "2": { "monster": "GROUP_ROBOT_FARM_HOSTILE", "chance": 15, "density": 0.1 } }
     }
+  },
+  {
+    "type": "mapgen",
+    "nested_mapgen_id": "afs_modular_habitat_into_silo",
+    "object": {
+      "mapgensize": [ 24, 24 ],
+      "rows": [
+        "....                    ",
+        "....                    ",
+        "....                    ",
+        "....                    ",
+        "..--                    ",
+        "..-_                    ",
+        "..--                    ",
+        "....                    ",
+        "....                    ",
+        "....                    ",
+        "..--                    ",
+        "..-.                    ",
+        "..-.                    ",
+        "..--                    ",
+        "....                    ",
+        "....                    ",
+        "....                    ",
+        "..--                    ",
+        "..-.                    ",
+        "..--                    ",
+        "....                    ",
+        "....                    ",
+        "....                    ",
+        "....                    "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure" ],
+      "terrain": {
+        "0": "t_metal_floor_no_roof",
+        ".": "t_open_air",
+        ">": "t_ladder_down",
+        "<": "t_ladder_up",
+        "X": "t_ladder_up_down",
+        "_": "t_grate",
+        "1": "t_sewage_pipe",
+        "2": "t_toxic_water"
+      },
+      "furniture": { "0": "f_storage_tank" },
+      "monsters": { "2": { "monster": "GROUP_ROBOT_FARM_HOSTILE", "chance": 15, "density": 0.1 } }
+    }
   }
 ]

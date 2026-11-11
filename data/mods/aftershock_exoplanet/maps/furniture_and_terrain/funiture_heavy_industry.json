@@ -237,5 +237,19 @@
         { "item": "hose", "prob": 50 }
       ]
     }
+  },
+  {
+    "type": "furniture",
+    "id": "f_loose_nanosand",
+    "name": "loose metal sand",
+    "looks_like": "t_pillar",
+    "description": "A pile of incredibly fine metallic sand, almost like dust, that is employed in advanced sintering and metalworking processes.  Extremely hazardous if inhaled.",
+    "symbol": "0",
+    "color": "light_cyan",
+    "move_cost_mod": -1,
+    "coverage": 55,
+    "emissions": [ "weak_toxic_dust" ],
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "ALLOW_FIELD_EFFECT", "MOUNTABLE", "SHORT" ]
   }
 ]

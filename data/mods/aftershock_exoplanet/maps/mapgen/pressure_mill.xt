@@ -1,0 +1,271 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": "pressure_mill_5",
+    "object": {
+      "rows": [
+        "       p        [_[     ",
+        "       p        [_[     ",
+        "       p        [_[     ",
+        "       p        [_[     ",
+        "    [[[p[[[[[[[[[.[[    ",
+        "    [..p...........[    ",
+        "    [.|1||.........[    ",
+        "    [.|  #.........[    ",
+        "    [.|  |.........[    ",
+        "    [.||||.........[    ",
+        "    [..............[    ",
+        "    [..............[    ",
+        "    [..............[    ",
+        "    [..............[    ",
+        "    [..............[    ",
+        "    [....[[[[[[[[[[[    ",
+        "    [....[              ",
+        "    [....[              ",
+        "    [[[[[[              ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure", "afs_habitat_heavy_industry_furnishing" ],
+      "terrain": { " ": "t_open_air" }
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": "pressure_mill_4",
+    "object": {
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "    ||||||||||||||||    ",
+        "    |....|....|....|    ",
+        "    |....1....|..0.|    ",
+        "    |....2....|....|    ",
+        "    |....1....|....|    ",
+        "    |||||||121||121|    ",
+        "    |....|....|....|    ",
+        "    |....1....1....|    ",
+        "    |....2....2..0.|    ",
+        "    |....1....1....|    ",
+        "    |....|....|....|    ",
+        "    ||||||||||||||||    ",
+        "    /..../_________[    ",
+        "    /..../_________[    ",
+        "    //////[[[[[[[[[[    ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure", "afs_habitat_residential_furnishing" ],
+      "terrain": { "0": "t_wall_clearcrete_alarm", "1": "t_open_air", "2": "t_wall_prefab_glass_reinforced" },
+      "furniture": {
+        "1": "f_powder_fusion_forge",
+        "2": "f_security_panel",
+        "3": "f_rack",
+        "4": "f_rack",
+        "5": "f_metal_table",
+        "6": "f_metal_table",
+        "7": "f_heatsink",
+        "8": "f_security_panel",
+        "9": "f_cryo_storage_l"
+      },
+      "items": {
+        "3": { "item": "afs_tools_robot_maintenance", "chance": 33, "repeat": [ 2, 5 ] },
+        "4": { "item": "afs_laserlab_scrap", "repeat": [ 2, 5 ], "chance": 22 },
+        "5": { "item": "afs_tools_electric_repair", "chance": 33, "repeat": [ 2, 5 ] },
+        "6": { "item": "afs_common_material_scrapgroup", "chance": 33, "repeat": [ 2, 3 ] }
+      },
+      "monsters": { ",": { "monster": "AFS_GROUP_ROBOT_LOW_RISK", "chance": 15, "density": 0.1 } },
+      "place_nested": [ { "chunks": [ "afs_modular_habitat_industry_roof" ], "x": 0, "y": 0, "z": 1 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": "pressure_mill_3",
+    "object": {
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "    ||||||||||||||||    ",
+        "    |...........|..|    ",
+        "    |..|||||||..|..|111 ",
+        "    |....0|.....|..|111 ",
+        "    |....0|.|||||..|111 ",
+        "    |||||||1.......|111 ",
+        "    |....||.|||||..|111 ",
+        "    |....0|.....|..|111 ",
+        "    |....0|.....|..|111 ",
+        "    |..||||||||.|..|111 ",
+        "    |...........|..|    ",
+        "    ||||||||||||||||[[[ ",
+        "          [           [ ",
+        "          [           [ ",
+        "          [[[[[[[[[[[[[ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure", "afs_habitat_residential_furnishing" ],
+      "terrain": {
+        "0": "t_wall_clearcrete_alarm",
+        ".": "t_open_air",
+        "=": "t_wall_prefab_glass_reinforced",
+        " ": "t_metal_floor",
+        "!": "t_afs_door_metal_elocked"
+      },
+      "furniture": {
+        "1": "f_powder_fusion_forge",
+        "2": "f_security_panel",
+        "3": "f_rack",
+        "4": "f_rack",
+        "5": "f_metal_table",
+        "6": "f_metal_table",
+        "7": "f_heatsink",
+        "8": "f_security_panel",
+        "9": "f_cryo_storage_l"
+      },
+      "items": {
+        "3": { "item": "afs_tools_robot_maintenance", "chance": 33, "repeat": [ 2, 5 ] },
+        "4": { "item": "afs_laserlab_scrap", "repeat": [ 2, 5 ], "chance": 22 },
+        "5": { "item": "afs_tools_electric_repair", "chance": 33, "repeat": [ 2, 5 ] },
+        "6": { "item": "afs_common_material_scrapgroup", "chance": 33, "repeat": [ 2, 3 ] }
+      },
+      "monsters": { ",": { "monster": "AFS_GROUP_ROBOT_LOW_RISK", "chance": 15, "density": 0.1 } },
+      "place_nested": [ { "chunks": [ "afs_modular_habitat_industry_roof" ], "x": 0, "y": 0, "z": 1 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": "pressure_mill_1",
+    "object": {
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "    |..............|    ",
+        "    ...............     ",
+        "    ...|||...|||...     ",
+        "    ...|.......|...     ",
+        "    ...|..|||..|...     ",
+        "    ...|..|||..|...     ",
+        "    ...|..|||..|...     ",
+        "    ...|..|||..|...     ",
+        "    ...|.......|...     ",
+        "    ...|||...|||...     ",
+        "    ...............     ",
+        "  |||..............     ",
+        "  |................     ",
+        "  |||..............     ",
+        "               |||      ",
+        "               |<|      ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure", "afs_habitat_residential_furnishing" ],
+      "terrain": {
+        "0": "t_wall_clearcrete_alarm",
+        ".": "t_open_air",
+        "=": "t_wall_prefab_glass_reinforced",
+        " ": "t_metal_floor",
+        "!": "t_afs_door_metal_elocked"
+      },
+      "furniture": {
+        "1": "f_powder_fusion_forge",
+        "2": "f_security_panel",
+        "3": "f_rack",
+        "4": "f_rack",
+        "5": "f_metal_table",
+        "6": "f_metal_table",
+        "7": "f_heatsink",
+        "8": "f_security_panel",
+        "9": "f_cryo_storage_l"
+      },
+      "items": {
+        "3": { "item": "afs_tools_robot_maintenance", "chance": 33, "repeat": [ 2, 5 ] },
+        "4": { "item": "afs_laserlab_scrap", "repeat": [ 2, 5 ], "chance": 22 },
+        "5": { "item": "afs_tools_electric_repair", "chance": 33, "repeat": [ 2, 5 ] },
+        "6": { "item": "afs_common_material_scrapgroup", "chance": 33, "repeat": [ 2, 3 ] }
+      },
+      "monsters": { ",": { "monster": "AFS_GROUP_ROBOT_LOW_RISK", "chance": 15, "density": 0.1 } },
+      "place_nested": [ { "chunks": [ "afs_modular_habitat_industry_roof" ], "x": 0, "y": 0, "z": 1 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": "pressure_mill_2",
+    "object": {
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "       |||0000000000000 ",
+        "       |.....2222.2.220 ",
+        "       |.........222.30 ",
+        "       |||.....4...2..0 ",
+        "       |||........32220 ",
+        "       |.......2....220 ",
+        "       |.......22.22220 ",
+        "       |||0000000000000 ",
+        "                        ",
+        "                   [[[  ",
+        "                   [x[  ",
+        "                   [[[  ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "afs_habitat_structure", "afs_habitat_residential_furnishing" ],
+      "terrain": {
+        "0": "t_wall_clearcrete_alarm",
+        ".": "t_open_air",
+        "=": "t_wall_prefab_glass_reinforced",
+        " ": "t_metal_floor",
+        "!": "t_afs_door_metal_elocked"
+      },
+      "furniture": {
+        "1": "f_powder_fusion_forge",
+        "2": "f_security_panel",
+        "3": "f_rack",
+        "4": "f_rack",
+        "5": "f_metal_table",
+        "6": "f_metal_table",
+        "7": "f_heatsink",
+        "8": "f_security_panel",
+        "9": "f_cryo_storage_l"
+      },
+      "items": {
+        "3": { "item": "afs_tools_robot_maintenance", "chance": 33, "repeat": [ 2, 5 ] },
+        "4": { "item": "afs_laserlab_scrap", "repeat": [ 2, 5 ], "chance": 22 },
+        "5": { "item": "afs_tools_electric_repair", "chance": 33, "repeat": [ 2, 5 ] },
+        "6": { "item": "afs_common_material_scrapgroup", "chance": 33, "repeat": [ 2, 3 ] }
+      },
+      "monsters": { ",": { "monster": "AFS_GROUP_ROBOT_LOW_RISK", "chance": 15, "density": 0.1 } },
+      "place_nested": [ { "chunks": [ "afs_modular_habitat_industry_roof" ], "x": 0, "y": 0, "z": 1 } ]
+    }
+  }
+]
