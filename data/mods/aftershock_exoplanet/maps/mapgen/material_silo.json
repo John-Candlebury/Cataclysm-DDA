@@ -74,7 +74,7 @@
         "<": "t_ladder_up_down",
         ">": "t_ladder_down",
         "0": [ [ "t_open_air", 5 ], "t_bridge", 1 ],
-        "1": [ [ "t_strconc_floor", 2 ], "t_concrete_wall", 1 ],
+        "1": [ [ "t_strconc_floor", 3 ], "t_concrete_wall", 1 ],
         "2": "t_afs_industrial_card_reader"
       },
       "furniture": { "3": "f_future_industy_pump", "4": "f_security_panel", "5": "f_ancient_processor" }
@@ -119,7 +119,16 @@
         "0": [ [ "t_open_air", 5 ], "t_bridge", 1 ],
         "1": [ [ "t_strconc_floor", 1 ], "t_concrete_wall", 1 ]
       },
-      "furniture": { "3": "f_future_industy_pump" }
+      "furniture": { "3": "f_future_industy_pump" },
+      "place_nested": [
+        {
+          "chunks": [ "afs_silo_into_modular_habitat" ],
+          "x": 24,
+          "y": 0,
+          "z": 0,
+          "neighbors": { "north": [ "afs_modular_habitat" ] }
+        }
+      ]
     }
   },
   {
@@ -248,9 +257,9 @@
     "object": {
       "mapgensize": [ 24, 24 ],
       "rows": [
-        "             [__[[      ",
-        "             [___[      ",
-        "|||| ||||| |||||_[[[[[  ",
+        "              [__[      ",
+        "              [__[      ",
+        "                _[[[[[  ",
         "                        ",
         "                        ",
         "                        ",
@@ -274,8 +283,8 @@
         "                        "
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
-      "palettes": [ "afs_habitat_structure", "afs_habitat_heavy_industry_furnishing" ],
-      "terrain": { " ": "t_open_air", "_": "t_bridge" }
+      "palettes": [  ],
+      "terrain": { "[": "t_metal_railing", "_": "t_bridge" }
     }
   }
 ]

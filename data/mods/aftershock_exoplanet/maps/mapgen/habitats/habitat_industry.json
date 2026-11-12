@@ -382,7 +382,7 @@
       "palettes": [ "afs_habitat_structure" ],
       "terrain": {
         ".": "t_open_air",
-        "_": "t_grate",
+        "_": "t_bridge",
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down",
@@ -437,9 +437,9 @@
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
       "palettes": [ "afs_habitat_structure" ],
       "terrain": {
-        "0": "t_grate",
+        "0": "t_bridge",
         ".": "t_open_air",
-        "_": "t_grate",
+        "_": "t_bridge",
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down",
@@ -482,9 +482,9 @@
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
       "palettes": [ "afs_habitat_structure" ],
       "terrain": {
-        "0": "t_grate",
+        "0": "t_bridge",
         ".": "t_open_air",
-        "_": "t_grate",
+        "_": "t_bridge",
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down",
@@ -527,11 +527,11 @@
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
       "palettes": [ "afs_habitat_structure" ],
       "terrain": {
-        "0": "t_grate",
-        "1": "t_grate",
-        "2": "t_grate",
+        "0": "t_bridge",
+        "1": "t_bridge",
+        "2": "t_bridge",
         ".": "t_open_air",
-        "_": "t_grate",
+        "_": "t_bridge",
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down"
@@ -575,10 +575,10 @@
       "palettes": [ "afs_habitat_structure" ],
       "terrain": {
         ".": "t_open_air",
-        "0": "t_grate",
+        "0": "t_bridge",
         " ": "t_metal_floor_no_roof",
         ",": "t_metal_floor_no_roof",
-        "_": "t_grate",
+        "_": "t_bridge",
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down"
@@ -621,7 +621,7 @@
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
       "palettes": [ "afs_habitat_structure" ],
-      "terrain": { "0": "t_grate", ".": "t_open_air", "_": "t_grate", ">": "t_ladder_down", "1": "t_sewage_pipe" },
+      "terrain": { "0": "t_bridge", ".": "t_open_air", "_": "t_bridge", ">": "t_ladder_down", "1": "t_sewage_pipe" },
       "furniture": { "0": "f_storage_tank" }
     }
   },
@@ -665,11 +665,18 @@
         "<": "t_ladder_up",
         "X": "t_ladder_up_down",
         "*": "t_metal_floor",
-        "_": "t_grate",
+        "_": "t_bridge",
         "1": "t_sewage_pipe"
       },
       "furniture": { "0": "f_storage_tank", "2": "f_cryofluid_pump", "3": "f_future_industy_pump", "4": "f_command_console_old" },
       "place_nested": [
+        {
+          "chunks": [ "afs_modular_habitat_into_silo" ],
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "neighbors": { "west": [ "material_silo_b3" ] }
+        },
         { "chunks": [ "afs_modular_habitat_biodiesel_straight_1" ], "x": 0, "y": 0, "z": 1 },
         { "chunks": [ "afs_modular_habitat_biodiesel_straight_under" ], "x": 0, "y": 0, "z": -1 }
       ]
@@ -714,12 +721,15 @@
         ">": "t_ladder_down",
         "<": "t_ladder_up",
         "X": "t_ladder_up_down",
-        "_": "t_grate",
+        "_": "t_bridge",
         "1": "t_sewage_pipe",
         "2": "t_toxic_water"
       },
       "furniture": { "0": "f_storage_tank" },
-      "monsters": { "2": { "monster": "GROUP_ROBOT_FARM_HOSTILE", "chance": 15, "density": 0.1 } }
+      "monsters": { "2": { "monster": "GROUP_ROBOT_FARM_HOSTILE", "chance": 15, "density": 0.1 } },
+      "place_nested": [
+        { "chunks": [ "afs_modular_habitat_into_silo" ], "x": 0, "y": 0, "z": 0, "neighbors": { "west": [ "material_silo" ] } }
+      ]
     }
   },
   {
@@ -742,10 +752,10 @@
         "..-.                    ",
         "..-.                    ",
         "..--                    ",
-        "....                    ",
-        "....                    ",
-        "....                    ",
-        "..--                    ",
+        "[[[[[[                  ",
+        "_______                 ",
+        "_______                 ",
+        "[[--[[                  ",
         "..-.                    ",
         "..--                    ",
         "....                    ",
@@ -754,19 +764,7 @@
         "....                    "
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
-      "palettes": [ "afs_habitat_structure" ],
-      "terrain": {
-        "0": "t_metal_floor_no_roof",
-        ".": "t_open_air",
-        ">": "t_ladder_down",
-        "<": "t_ladder_up",
-        "X": "t_ladder_up_down",
-        "_": "t_grate",
-        "1": "t_sewage_pipe",
-        "2": "t_toxic_water"
-      },
-      "furniture": { "0": "f_storage_tank" },
-      "monsters": { "2": { "monster": "GROUP_ROBOT_FARM_HOSTILE", "chance": 15, "density": 0.1 } }
+      "terrain": { ".": "t_open_air", "[": "t_metal_railing", "-": "t_wall_metal", "_": "t_bridge" }
     }
   }
 ]
