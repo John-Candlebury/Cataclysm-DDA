@@ -33,7 +33,8 @@
       "palettes": [ "afs_habitat_structure", "afs_habitat_heavy_industry_furnishing" ],
       "place_zones": [ { "type": "ZONE_START_POINT", "faction": "your_followers", "x": [ 22, 22 ], "y": [ 13, 13 ] } ],
       "terrain": { "<": "t_ladder_up", "_": [ [ "t_pavement", 4 ], [ "t_region_groundcover_urban", 1 ] ] },
-      "furniture": { "3": "f_future_industy_pump", "2": "f_command_console_old" }
+      "furniture": { "3": "f_future_industy_pump", "2": "f_command_console_old" },
+      "monsters": { ".": { "monster": "AFS_GROUP_MOXIE_LOW_RISK", "chance": 15, "density": 0.1 } }
     }
   },
   {
@@ -77,6 +78,7 @@
         "1": [ [ "t_strconc_floor", 3 ], "t_concrete_wall", 1 ],
         "2": "t_afs_industrial_card_reader"
       },
+      "monsters": { "_": { "monster": "AFS_GROUP_ROBOT_LOW_RISK", "chance": 15, "density": 0.1 } },
       "furniture": { "3": "f_future_industy_pump", "4": "f_security_panel", "5": "f_ancient_processor" }
     }
   },
@@ -202,7 +204,7 @@
         "           |...1_1...1_1...1_1...1_1...1________",
         "           |...| |...| |...|p|...|p|...|__[[[[[[",
         "           ||||| ||||| |||||p|||||p|||||[_[     ",
-        "                            ppppppp     [_[     "
+        "                            ppppppp     [[[     "
       ],
       "palettes": [ "afs_habitat_structure", "afs_habitat_heavy_industry_furnishing" ],
       "terrain": {
