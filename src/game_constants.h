@@ -39,6 +39,9 @@ constexpr units::volume MAX_ITEM_VOLUME = DEFAULT_TILE_VOLUME;
 // only can wear a maximum of two of any type of clothing.
 constexpr int MAX_WORN_PER_TYPE = 2;
 
+//hit_spread value below which a creature will completely dodge an attack.
+constexpr int full_dodge = -25;
+
 /**
  * Items on the map with at most this distance to the player are considered available for crafting,
  * see inventory::form_from_map

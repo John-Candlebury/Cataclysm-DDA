@@ -1121,7 +1121,7 @@ int Creature::deal_melee_attack( Creature *source, int hitroll )
 
     // If attacker missed call targets on_dodge event
     if( dodge > 0.0 && hit_spread <= 0 && source != nullptr && !source->is_hallucination() ) {
-        on_dodge( source, source->get_melee() );
+        on_dodge( source, source->get_melee(), 0.0f, hit_spread );
     }
     add_msg_debug( debugmode::DF_CREATURE, "Final hitspread %d",
                    hit_spread );

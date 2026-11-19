@@ -4057,7 +4057,7 @@ float monster::speed_rating() const
     return ret;
 }
 
-void monster::on_dodge( Creature *, float, float )
+void monster::on_dodge( Creature *, float, float, int )
 {
     // Currently does nothing, later should handle faction relations
 }
