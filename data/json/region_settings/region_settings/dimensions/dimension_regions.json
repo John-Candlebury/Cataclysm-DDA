@@ -25,6 +25,12 @@
   },
   {
     "type": "dimension_region_layout",
+    "id": "highland_garden",
+    "generation_mode": "UNIFORM",
+    "uniform_region": "highland_garden"
+  },
+  {
+    "type": "dimension_region_layout",
     "id": "netherum_labyrinth",
     "generation_mode": "UNIFORM",
     "uniform_region": "netherum_labyrinth"

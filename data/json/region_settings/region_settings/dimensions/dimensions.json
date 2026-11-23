@@ -21,6 +21,11 @@
   },
   {
     "type": "dimension",
+    "id": "highlands_garden",
+    "region_layout": "highland_garden"
+  },
+  {
+    "type": "dimension",
     "id": "netherum_labyrinth",
     "region_layout": "netherum_labyrinth"
   },

@@ -193,6 +193,11 @@
   },
   {
     "type": "overmap_location",
+    "id": "highland_garden",
+    "terrains": [ "highland_garden" ]
+  },
+  {
+    "type": "overmap_location",
     "id": "nether",
     "terrains": [ "nether_glass_impassable", "nether_glass", "nether_glass_deep", "nether_glass_imperial_road" ]
   },

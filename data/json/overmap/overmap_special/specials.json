@@ -770,6 +770,21 @@
   },
   {
     "type": "overmap_special",
+    "id": "Garden Gate",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "conquerors_road_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "conquerors_road_top_north" },
+      { "point": [ 0, 0, 2 ], "overmap": "conquerors_road_above_north" },
+      { "point": [ 0, 0, 3 ], "overmap": "conquerors_road_above_1_north" }
+    ],
+    "locations": [ "highland_garden" ],
+    "city_distance": [ 0, -1 ],
+    "occurrences": [ 0, 4 ],
+    "rotate": false,
+    "flags": [ "CLASSIC", "WILDERNESS", "HIGHLANDS", "EXTRADIMENSIONAL" ]
+  },
+  {
+    "type": "overmap_special",
     "id": "Standing stones Highlands",
     "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "standing_stones_highlands" } ],
     "locations": [ "land" ],
