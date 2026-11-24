@@ -38,6 +38,7 @@
       "x": "t_highland_mosaic",
       "G": "t_highland_flower_bed",
       "S": "t_stone_masonry_floor",
+      "J": "t_stone_masonry_floor",
       "|": "t_rock_wall",
       "w": "t_water_sh",
       "I": [ "t_tree_dead_warped" ],
@@ -50,7 +51,7 @@
       "F": [ [ "f_slab", 2 ], [ "f_null", 1 ] ],
       "w": [ [ "f_null", 2 ], [ "f_lilypad", 1 ] ]
     },
-    "item": { "_": { "item": "highland_censer", "chance": 20 }, "J": { "item": "clay_watercont", "chance": 2 } },
+    "item": { "_": { "item": "highland_censer", "chance": 20 }, "J": { "item": "clay_watercont", "chance": 60 } },
     "items": { "t": [ { "item": "highland_sarcophagus_common" } ] }
   }
 ]

@@ -71,16 +71,38 @@
     },
     "effect": [
       {
-        "if": { "not": { "current_dimension": "imperial_road" } },
+        "if": { "u_has_effect": "golden_incense_effect" },
         "then": [
           {
-            "u_travel_to_dimension": "imperial_road",
+            "u_travel_to_dimension": "highlands_garden",
             "npc_travel_radius": 0,
             "npc_travel_filter": "none",
-            "fail_message": "You feel like the weight of the air around you has shifted, but nothing else happens.",
+            "fail_message": " ",
             "success_message": ""
           },
-          { "u_message": "<imperial_road_early>" }
+          {
+            "u_message": "A discordant tone rings out of the gate and the road twists and stretches into infinity as you step through.  Just as you think it'll stretch you apart it snaps into a different world."
+          }
+        ],
+        "else": [
+          {
+            "if": { "not": { "current_dimension": "imperial_road" } },
+            "then": [
+              {
+                "u_travel_to_dimension": "imperial_road",
+                "npc_travel_radius": 0,
+                "npc_travel_filter": "none",
+                "fail_message": "You feel like the weight of the air around you has shifted, but nothing else happens.",
+                "success_message": ""
+              },
+              { "u_message": "<imperial_road_early>" }
+            ]
+          },
+          {
+            "if": { "math": [ "imperial_gates_traveled >= 3" ] },
+            "then": { "u_message": "<imperial_road_late>" },
+            "else": { "u_message": "<imperial_road_early>" }
+          }
         ]
       },
       {
@@ -91,7 +113,6 @@
       },
       { "u_teleport": { "u_val": "gateway" } },
       { "math": [ "imperial_gates_traveled++" ] },
-      { "if": { "math": [ "imperial_gates_traveled >= 3" ] }, "then": { "u_message": "<imperial_road_late>" } },
       {
         "u_transform_radius": 20,
         "target_var": { "u_val": "gateway" },

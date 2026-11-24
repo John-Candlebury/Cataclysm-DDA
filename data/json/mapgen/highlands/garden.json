@@ -46,8 +46,8 @@
         "   -www-  ...   -www-   ",
         "   -www-   ...  -www-   ",
         "   -----  ....  -----   ",
-        "          ....          ",
-        "          ....          ",
+        "   ,,,,,  ....  ,,,,,   ",
+        "   ,,,,,  ....  ,,,,,   ",
         "   -----  ...   -----   ",
         "   -www-   ..   -www-   ",
         "   -www-   ..   -www-   ",
@@ -58,6 +58,14 @@
         "           ..           "
       ],
       "palettes": [ "highland_structure" ],
+      "terrain": {
+        ",": [
+          [ "t_highland_holy_grass", 30 ],
+          [ "t_highland_dream_tree", 1 ],
+          [ "t_dirt", 15 ],
+          [ "t_highland_holy_grass_tall", 15 ]
+        ]
+      },
       "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
     }
   },
@@ -198,7 +206,15 @@
         "          ....          "
       ],
       "palettes": [ "highland_structure" ],
-      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": {
+        ",": [
+          [ "t_highland_holy_grass", 30 ],
+          [ "t_highland_dream_tree", 1 ],
+          [ "t_dirt", 15 ],
+          [ "t_highland_holy_grass_tall", 15 ]
+        ]
+      }
     }
   },
   {
@@ -212,28 +228,36 @@
         "          ..........    ",
         "          ..........    ",
         "      ||||||||||....    ",
-        "      |        |....    ",
-        "      |        |....    ",
-        "      ||||||||||....    ",
+        "      |J____JJJ|....    ",
+        "      |J_J___JJ|....    ",
+        "      ||_|__|_||....    ",
         "........................",
         "........................",
         "      ||||||||||....    ",
-        "      |        |....    ",
-        "      |         ....    ",
-        "      |        |....    ",
-        "      |         ....    ",
-        "      |        |....    ",
-        "      |         ....    ",
-        "      |        |....    ",
+        "      |________|....    ",
+        "      |_________....    ",
+        "      |________|....    ",
+        "      |_________....    ",
+        "      |________|....    ",
+        "      |_________....    ",
+        "      |________|....    ",
         "      ||||||||||....    ",
-        "                ....    ",
-        "                ....    ",
+        "          ,,,,,,....    ",
+        "          ,,,,,,....    ",
         "          ..........    ",
         "          ..........    ",
         "          ....          "
       ],
       "palettes": [ "highland_structure" ],
-      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": {
+        ",": [
+          [ "t_highland_holy_grass", 30 ],
+          [ "t_highland_dream_tree", 1 ],
+          [ "t_dirt", 15 ],
+          [ "t_highland_holy_grass_tall", 15 ]
+        ]
+      }
     }
   },
   {
@@ -696,7 +720,15 @@
         "          ....          "
       ],
       "palettes": [ "highland_structure" ],
-      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": {
+        ",": [
+          [ "t_highland_holy_grass", 30 ],
+          [ "t_highland_dream_tree", 1 ],
+          [ "t_dirt", 15 ],
+          [ "t_highland_holy_grass_tall", 15 ]
+        ]
+      }
     }
   },
   {
