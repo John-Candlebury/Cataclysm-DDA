@@ -121,14 +121,25 @@
   },
   {
     "type": "overmap_terrain",
+    "id": [ "garden_tower_0", "garden_tower_even", "garden_tower_odd", "garden_tower_roof" ],
+    "name": "marble tower",
+    "sym": "T",
+    "color": "white",
+    "travel_cost_type": "structure",
+    "vision_levels": "isolated_building",
+    "see_cost": "high"
+  },
+  {
+    "type": "overmap_terrain",
     "id": [
       "highland_crypt_above",
       "highland_crypt_surface",
+      "garden_crypt_surface",
       "highland_crypt_small",
       "highland_crypt_royal",
       "highland_crypt_royal_1"
     ],
-    "name": "crossroads temple",
+    "name": "tomb",
     "sym": "T",
     "color": "light_gray",
     "travel_cost_type": "structure",

@@ -1,6 +1,50 @@
 [
   {
     "type": "mapgen",
+    "om_terrain": [ "garden_crypt_surface" ],
+    "object": {
+      "fill_ter": "t_stone_masonry_floor",
+      "rows": [
+        "          S..S          ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "    |..|....|..|        ",
+        "    ............        ",
+        "    |.. ||||...|        ",
+        "    ... |11|....        ",
+        "    |.. |22|...|        ",
+        "    ...||..||...        ",
+        "    |..|S..S|..|        ",
+        "    ...|....|...        ",
+        "    |..||..||..|        ",
+        "    ....|..|....        ",
+        "    |..........|        ",
+        "    ............        ",
+        "    |..|....|..|        ",
+        "        ....            ",
+        "        .....           ",
+        "         .....          "
+      ],
+      "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
+      "palettes": [ "highland_structure" ],
+      "terrain": {
+        ".": [ [ "t_stone_masonry_floor", 10 ], [ "t_highland_groundcover", 1 ] ],
+        "s": "t_rock_wall_fake",
+        "x": "t_rock_wall",
+        "1": "t_earth_ramp_down_low",
+        "2": "t_earth_ramp_down_high",
+        "%": "t_soil"
+      },
+      "furniture": { "S": "f_highlands_holy_statue" }
+    }
+  },
+  {
+    "type": "mapgen",
     "om_terrain": [ "highland_crypt_above" ],
     "object": {
       "fill_ter": "t_stone_masonry_floor",

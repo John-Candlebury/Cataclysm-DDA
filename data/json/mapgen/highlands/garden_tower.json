@@ -1,0 +1,154 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [ "garden_tower_0" ],
+    "object": {
+      "fill_ter": "t_highland_groundcover",
+      "rows": [
+        "          ....          ",
+        "  ...................   ",
+        "  ....................  ",
+        "  ....................  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "......,,,|,,,,|,,,,.....",
+        "......,,,||--||,,,......",
+        "  ....,,,-<...........  ",
+        "  ....,,,-.......,....  ",
+        "  ....,,,||--||,,,,...  ",
+        "  ....,,,|,,,,|,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....,,,,,,,,,,,,,...  ",
+        "  ....................  ",
+        "  ....................  ",
+        "  ....................  ",
+        "          ....          "
+      ],
+      "palettes": [ "highland_structure" ],
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": {
+        "<": "t_stairs_up",
+        ",": [
+          [ "t_highland_holy_grass", 30 ],
+          [ "t_highland_dream_tree", 1 ],
+          [ "t_dirt", 15 ],
+          [ "t_highland_holy_grass_tall", 15 ]
+        ]
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "garden_tower_odd" ],
+    "object": {
+      "fill_ter": "t_highland_groundcover",
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "         |    |         ",
+        "         ||--||         ",
+        "         ->...-         ",
+        "         -<...-         ",
+        "         ||--||         ",
+        "         |    |         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [ "highland_structure" ],
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": { "<": "t_stairs_up", ">": "t_stairs_down", " ": "t_open_air" }
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "garden_tower_even" ],
+    "object": {
+      "fill_ter": "t_highland_groundcover",
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "         |    |         ",
+        "         ||--||         ",
+        "         -<...-         ",
+        "         ->...-         ",
+        "         ||--||         ",
+        "         |    |         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [ "highland_structure" ],
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": { "<": "t_stairs_up", ">": "t_stairs_down", " ": "t_open_air" }
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "garden_tower_roof" ],
+    "object": {
+      "fill_ter": "t_highland_groundcover",
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "         |----|         ",
+        "         |..1.|         ",
+        "         ->...-         ",
+        "         -....-         ",
+        "         |..1.|         ",
+        "         |----|         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [ "highland_structure" ],
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
+      "terrain": { ">": "t_stairs_down", "1": "t_highlands_conqueror_statue", " ": "t_open_air" }
+    }
+  }
+]
